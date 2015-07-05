@@ -12,9 +12,9 @@ get_header(); ?>
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php get_template_part( 'template-parts/content', 'single' ); ?>
+			<?php get_template_part( 'partials/content-single', get_post_format() ); ?>
 
-			<?php the_post_navigation(); ?>
+			<?php wpsp_the_post_navigation(); ?>
 
 			<?php
 				// If comments are open or we have at least one comment, load up the comment template.

@@ -8,17 +8,51 @@
  */
 
 ?>
-
+	<?php if ( ! is_page_template( 'page-templates/page-home.php' ) ) :?>
 	</div><!-- #content -->
+	<?php endif; ?>
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
+	<footer id="colophon" class="site-footer container clearfix" role="contentinfo">
+
+		<div class="site-footer-top clearfix">
+			<div class="two-fourth">
+				<h2><?php echo esc_html__( ot_get_option('more-info') ); ?></h2>
+				<?php get_sidebar('footer'); ?>
+			</div> <!-- .two-fourth -->
+
+			<div class="site-about two-fourth last clearfix">
+				<?php
+                if(function_exists('icl_object_id')) {
+                    $page_about_obj = get_post(icl_object_id(ot_get_option('about-footer-text'), 'page'));
+                    $sponsor_obj = get_post(icl_object_id(ot_get_option('sponsor-footer-text'), 'page'));
+                } else {
+                    $page_about_obj = get_post(ot_get_option('about-footer-text'));
+                    $sponsor_obj = get_post(ot_get_option('sponsor-footer-text'));
+                } 
+                    $content_about = apply_filters('the_content', $page_about_obj->post_content);
+                    $content_sponsor = apply_filters('the_content', $sponsor_obj->post_content);
+
+                ?>
+
+				<h2><?php echo $page_about_obj->post_title; ?></h2>
+				<?php echo $content_about; ?>
+				<div id="sponsors" class="site-sponsors">
+                	<?php echo $content_sponsor; ?>
+                </div>
+			</div> <!-- .site-about .two-fourth .last .clearfix -->
+		</div> <!-- .site-footer-top -->
+
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'wpsp' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'wpsp' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'wpsp' ), 'wpsp', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
+		<?php if ( ot_get_option( 'copyright' ) ): 
+            echo ot_get_option( 'copyright' ); 
+        else:
+			printf( esc_html__( 'All content copyright © %1$s, %2$s. All Right Reserved.', WPSP_TEXT_DOMAIN ), date( 'Y' ), get_bloginfo( 'name' ) ); 
+		endif; ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
-</div><!-- #page -->
+	
+	</div> <!-- end #pager -->	
+</div> <!-- end #wrapper -->
 
 <?php wp_footer(); ?>
 

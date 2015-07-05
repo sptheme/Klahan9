@@ -1,0 +1,128 @@
+/* ---------------------------------------------------------------
+ * FLEXSLIDER CUSTOM
+ * ------------------------------------------------------------ */
+
+.flexslider { border-radius: none; }
+/* Direction Nav */
+.flex-direction-nav a {
+	width: 32px;
+	height: 32px;
+}
+.flex-direction-nav a:before  { 
+	font-family:'FontAwesome'; 
+	content: '\f104';
+	line-height: 32px; 
+	font-size: 32px;
+}
+.flex-direction-nav a.flex-next:before  { content: '\f105'; }
+.flexslider .slides > li { position: relative; }
+.flex-caption {
+	width:100%;
+	padding:2%;
+	position:absolute;
+	left:0;
+	bottom:0;
+	background: #666666; 
+	background: rgba(0,0,0,0.5);
+	color:#fff;
+	text-shadow:0 -1px 0 rgba(0,0,0,0.3);
+	font-size:24px;
+	line-height:18px; 
+	margin-bottom:0;
+}
+.flex-caption h5 { 
+	color:#ffffff; 
+	margin-bottom: 0;
+}
+.flex-caption span {
+	font-size: 13px;
+	color:#cccccc;
+	font-style: italic;
+}
+.flex-control-nav li { margin: 0 3px; }
+.flex-control-paging li a {
+	background: #ffffff; 
+	background: rgba(255,255,255,0.5);
+}
+.flex-control-paging li a.flex-active {
+	background: #cb0039; 
+	background: rgba(203,0,57,0.9);
+}
+
+
+/* Featured Posts flexslider on radio template */
+#featured-radio-post{
+	overflow: hidden;
+	position: relative;
+	border:none;
+	border-radius: 0;
+	margin-bottom: 20px;
+	box-shadow: none;
+}
+.flex-direction-nav a {
+	width: 50px;
+	height: 72px;
+}
+.flex-direction-nav a:before {
+	font-size: 72px;
+	line-height: 72px;
+}
+#featured-radio-post .slides img {
+	border: 5px solid #FFFFFF;
+}
+#featured-radio-post h4 {
+	background: #fff;
+	font-size: 20px;
+    color: #6aad68;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 10;
+	width: 320px;
+	text-align: right;
+	margin-bottom: 0;
+	padding: 10px 20px;
+}
+#featured-radio-post h4 .fa-headphones {
+	margin-right: 10px;
+}
+#featured-radio-post .flex-caption {
+	background-color: #2d3133;
+	padding: 20px;
+	width: 640px;
+	left: auto;
+	right: 0;
+}
+#featured-radio-post .flex-caption h1 {
+	font-size: 24px;
+	line-height: 1.5;
+	margin-bottom: 5px;
+	width: 520px;
+}
+#featured-radio-post .flex-caption a {
+	color:#fff;
+	display: block;
+	position: relative;
+}
+#featured-radio-post .flex-caption a:hover {
+	color:#6aad68;
+	text-decoration: none;
+}
+#featured-radio-post .flex-caption a:before {
+	position: absolute;
+	bottom: -35px;
+  	right: -80px;
+	display: block;
+	font-family: 'FontAwesome';
+	font-size: 72px;
+	content: '\f025';
+	height: 65px;
+	line-height: 65px;
+}
+#featured-radio-post .flex-control-nav {
+	bottom: 10px;
+	position: absolute;
+	right: 10px;
+	width: auto;
+}
+#featured-radio-post .flex-caption h5 a{ color:#ffffff; }

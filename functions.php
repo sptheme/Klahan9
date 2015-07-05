@@ -5,9 +5,16 @@
  * @package Klahan9
  */
 
-/**
- * Defines the constants for use within the theme.
- */
+// Prevent loading this file directly
+defined( 'ABSPATH' ) || exit;
+
+// Get theme info
+$shortname 		= get_template(); 
+$themeData     	= wp_get_theme( $shortname ); //WP 3.4+ only
+
+// Define branding and version constant
+define( 'WPSP_THEME_NAME', 'Klahan9' );
+define ('WPSP_THEME_VERSION', $themeData->Version );
 
 // String name of theme textdomain
 define( 'WPSP_TEXT_DOMAIN', 'klahan9' );
@@ -21,7 +28,7 @@ define( 'WPSP_JS_DIR_URI', WPSP_BASE_URL .'/js/' );
 define( 'WPSP_CSS_DIR_URI', WPSP_BASE_URL .'/css/' );
 
 // Includes files path
-define( 'WPSP_INCS', '/inc/' );
+define( 'WPSP_INCS', WPSP_BASE_DIR . '/inc/' );
 
 
 if ( ! function_exists( 'wpsp_setup' ) ) :
@@ -36,10 +43,8 @@ function wpsp_setup() {
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on wpsp, use a find and replace
-	 * to change 'wpsp' to the name of your theme in all the template files
 	 */
-	load_theme_textdomain( 'wpsp', get_template_directory() . '/languages' );
+	load_theme_textdomain( WPSP_TEXT_DOMAIN , get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -58,10 +63,16 @@ function wpsp_setup() {
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
 	add_theme_support( 'post-thumbnails' );
+	add_image_size('large-thumb', 960, 380, true);
+	add_image_size('index-thumb', 640, 315, true);
+	add_image_size('small-thumb', 310, 212, true);
+	add_image_size('team-thumb', 200, 200, true);
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary Menu', 'wpsp' ),
+		'primary' => esc_html__( 'Primary Menu', WPSP_TEXT_DOMAIN ),
+		'social' => esc_html__( 'Social Menu', WPSP_TEXT_DOMAIN ),
+		'mobile' => esc_html__( 'Mobile Menu', WPSP_TEXT_DOMAIN ),
 	) );
 
 	/*
@@ -69,11 +80,7 @@ function wpsp_setup() {
 	 * to output valid HTML5.
 	 */
 	add_theme_support( 'html5', array(
-		'search-form',
-		'comment-form',
-		'comment-list',
-		'gallery',
-		'caption',
+		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption',
 	) );
 
 	/*
@@ -81,18 +88,8 @@ function wpsp_setup() {
 	 * See http://codex.wordpress.org/Post_Formats
 	 */
 	add_theme_support( 'post-formats', array(
-		'aside',
-		'image',
-		'video',
-		'quote',
-		'link',
+		'video', 'audio',
 	) );
-
-	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'wpsp_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
 }
 endif; // wpsp_setup
 add_action( 'after_setup_theme', 'wpsp_setup' );
@@ -105,65 +102,248 @@ add_action( 'after_setup_theme', 'wpsp_setup' );
  * @global int $content_width
  */
 function wpsp_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'wpsp_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'wpsp_content_width', 450 );
 }
 add_action( 'after_setup_theme', 'wpsp_content_width', 0 );
 
 /**
- * Register widget area.
- *
- * @link http://codex.wordpress.org/Function_Reference/register_sidebar
+ * Add Option Tree for theme option
  */
-function wpsp_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'wpsp' ),
-		'id'            => 'sidebar-1',
-		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
-	) );
+add_filter( 'ot_show_pages', '__return_false' );
+add_filter( 'ot_show_new_layout', '__return_false' );
+add_filter( 'ot_theme_mode', '__return_true' );
+load_template( WPSP_INCS . 'option-tree/ot-loader.php' );
+
+if ( ! function_exists( 'option_tree_admin_bar_render' ) ) :
+/**
+ * Add theme option on admin menu bar
+ */
+function wpsp_option_tree_admin_bar_render() {
+
+	if ( current_user_can('edit_theme_options') ) {
+	global $wp_admin_bar;
+	$wp_admin_bar->add_menu( array(
+		'parent' => false, // use 'false' for a root menu, or pass the ID of the parent menu
+		'id' => 'option_tree_admin_bar', // link ID, defaults to a sanitized title value
+		'title' => 'Theme Options', // link title
+		'href' => admin_url( 'themes.php?page=ot-theme-options'), // name of file
+		'meta' => false // array of any of the following options: array( 'html' => '', 'class' => '', 'onclick' => '', target => '', title => '' );
+	));
+	}
 }
-add_action( 'widgets_init', 'wpsp_widgets_init' );
+add_action( 'wp_before_admin_bar_render', 'wpsp_option_tree_admin_bar_render' );
+endif;
+
+
+if ( ! function_exists( 'wpsp_admin_scripts_styles' ) ) :
+/**
+ * Enqueue Custom Admin Styles and Scripts
+ */
+function wpsp_admin_scripts_styles( $hook ) {
+	if ( !in_array($hook, array('post.php','post-new.php')) )
+		return;
+	wp_enqueue_script('post-formats', WPSP_JS_DIR_URI . 'admin-scripts.js', array( 'jquery' ));
+}
+add_action('admin_enqueue_scripts', 'wpsp_admin_scripts_styles');
+endif;
 
 /**
  * Enqueue scripts and styles.
  */
 function wpsp_scripts() {
-	wp_enqueue_style( 'wpsp-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'wpsp-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+	// Enqueue styles
+	wp_enqueue_style( 'klahan9-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'klahan9-google-fonts', 'http://fonts.googleapis.com/css?family=Oswald:400,300,700|Open+Sans:300italic,400italic,400,300,600' );
+    wp_enqueue_style('klahan9-fontawesome', WPSP_BASE_URL . '/fonts/font-awesome/css/font-awesome.min.css');
+    wp_enqueue_style('klahan9-menu-mobile', WPSP_CSS_DIR_URI . 'menu-mobile.css');
+    wp_enqueue_style('magnific-popup', WPSP_CSS_DIR_URI . 'magnific-popup.css');
+    wp_enqueue_style('magnific-popup-custom', WPSP_CSS_DIR_URI . 'magnific-custom.css');
+    
+    // load only in Radio template or sigle post gallery format
+    wp_enqueue_style('flexsider', WPSP_CSS_DIR_URI . 'flexslider.css');
+    wp_enqueue_style('flexsider-custom', WPSP_CSS_DIR_URI . 'flexslider-custom.css');
+    wp_enqueue_script( 'flexslider', WPSP_JS_DIR_URI . 'jquery.flexslider.js', array('jquery'), WPSP_THEME_VERSION, true );
 
-	wp_enqueue_script( 'wpsp-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+    // Enqueue scripts
+    wp_enqueue_script( 'klahan9-modernizr', WPSP_JS_DIR_URI . 'custom-modernizr.min.js', array('jquery'), WPSP_THEME_VERSION, true );
+    wp_enqueue_script( 'klahan9-magnific-popup', WPSP_JS_DIR_URI . 'jquery.magnific-popup.min.js', array('jquery'), WPSP_THEME_VERSION, true );
+    wp_enqueue_script('klahan9-menu-mobile', WPSP_JS_DIR_URI . 'menu-mobile.js', array('jquery'), WPSP_THEME_VERSION, true);
+    wp_enqueue_script('klahan9-main', WPSP_JS_DIR_URI . 'main.js', array('jquery'), WPSP_THEME_VERSION, true);
+
+    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
+	}
+
+	if ( is_page_template( 'page-templates/page-home.php' ) ) {
+		wp_enqueue_style('klahan9-animate', WPSP_CSS_DIR_URI . 'animate.css');
+		wp_enqueue_style('klahan9-front-page', WPSP_CSS_DIR_URI . 'front-page.css');
+		wp_enqueue_style('klahan9-tooltipster', WPSP_CSS_DIR_URI . 'tooltipster.css');
+
+		wp_enqueue_script('klahan9-wow', WPSP_JS_DIR_URI . 'wow.min.js', array('jquery'), WPSP_THEME_VERSION, true);
+		wp_enqueue_script('klahan9-tooltipster', WPSP_JS_DIR_URI . 'jquery.tooltipster.min.js', array('jquery'), WPSP_THEME_VERSION, true);
 	}
 }
 add_action( 'wp_enqueue_scripts', 'wpsp_scripts' );
 
 /**
- * Implement the Custom Header feature.
+ * Print customs css
  */
-require get_template_directory() . '/inc/custom-header.php';
+function wpsp_print_ie_script(){
+	echo '<!--[if lt IE 9]>'. "\n";
+	echo '<script src="' . esc_url( WPSP_JS_DIR_URI . 'html5.js' ) . '"></script>'. "\n";
+	echo '<![endif]-->'. "\n";
+}
+add_action('wp_head', 'wpsp_print_ie_script');
 
 /**
- * Custom template tags for this theme.
+ * Print customs css and script for theme
  */
-require get_template_directory() . '/inc/template-tags.php';
+	
+function wpsp_print_custom_css_script(){
+?>
+<style type="text/css">
+	/* custom style */
+	.main-navigation li:nth-of-type(1) > a {
+		border-top-color: <?php echo ot_get_option( 'color-menu-item-1' ); ?>;
+	}
+	.main-navigation li:nth-of-type(1) > a:hover {
+		background-color: <?php echo ot_get_option( 'color-menu-item-1' ); ?>;
+	}
+	.main-navigation li:nth-of-type(2) > a {
+		border-top-color: <?php echo ot_get_option( 'color-menu-item-2' ); ?>;
+	}
+	.main-navigation li:nth-of-type(2) > a:hover {
+		background-color: <?php echo ot_get_option( 'color-menu-item-2' ); ?>;
+	}
+	.main-navigation li:nth-of-type(3) > a {
+		border-top-color: <?php echo ot_get_option( 'color-menu-item-3' ); ?>;
+	}
+	.main-navigation li:nth-of-type(3) > a:hover {
+		background-color: <?php echo ot_get_option( 'color-menu-item-3' ); ?>;
+	}
+	<?php $page_bg_color = '#4285f4'; ?>
+
+	<?php if ( is_page_template( 'page-templates/page-blog.php' ) || is_page_template( 'page-templates/page-tv.php' ) || is_page_template( 'page-templates/page-radio.php' )) { 
+		$page_bg_color = wpsp_get_page_bg_color(); ?>
+	.content-background,
+	.team article:hover { 
+		background-color: <?php echo $page_bg_color; ?>!important; 
+	}
+	.main-navigation .current_page_item > a { 
+		border-top-color: <?php echo $page_bg_color; ?>!important; 
+		background-color: <?php echo $page_bg_color; ?>!important;
+	}
+	.section-title h3,
+	.widget-title,
+	.widget-title a,
+	.tv-featured a:hover h3.entry-title,
+	.tv-featured a:hover .tv-post-info:before,
+	#featured-radio-post h4,
+	#featured-radio-post .flex-caption a:hover {
+		color:<?php echo $page_bg_color; ?>;
+	}
+	
+	<?php } ?>
+</style>
+
+<?php if ( is_page() || is_singular() ) : ?>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+
+		// Setup content background base on height of main section for template page (tv, radio, blog)
+		//$('.content-background').css();
+
+		// Setup content a link work with magnificPopup
+	    $('a[href*=".jpg"], a[href*=".jpeg"], a[href*=".png"], a[href*=".gif"]').each(function(){
+        	if ($(this).parents('.gallery').length == 0) {
+	            $(this).magnificPopup({
+	               type: 'image',
+	               removalDelay: 500,
+	               mainClass: 'mfp-fade'
+	            });
+	        }
+	    });
+
+	    // Setup wp gallery work with magnificPopup
+	    $('.gallery').each(function() {
+	        $(this).magnificPopup({
+	            delegate: 'a',
+	            type: 'image',
+	            removalDelay: 300,
+	            mainClass: 'mfp-fade',
+	            gallery: {
+	            	enabled: true,
+	            	navigateByImgClick: true
+	            }
+	        });
+	    });
+    });
+
+</script>
+<?php endif; ?>
+<?php		
+}
+add_action('wp_head', 'wpsp_print_custom_css_script');
+
 
 /**
- * Custom functions that act independently of the theme templates.
+ * Social media icon menu as per http://justintadlock.com/archives/2013/08/14/social-nav-menus-part-2
  */
-require get_template_directory() . '/inc/extras.php';
+
+function wpsp_social_menu() {
+    if ( has_nav_menu( 'social' ) ) {
+		wp_nav_menu(
+			array(
+				'theme_location'  => 'social',
+				'container'       => 'div',
+				'container_id'    => 'menu-social',
+				'container_class' => 'menu-social',
+				'menu_id'         => 'menu-social-items',
+				'menu_class'      => 'menu-items',
+				'depth'           => 1,
+				'link_before'     => '<span class="screen-reader-text">',
+				'link_after'      => '</span>',
+				'fallback_cb'     => '',
+			)
+		);
+    }
+}
 
 /**
- * Customizer additions.
+ * Mobile navigation
  */
-require get_template_directory() . '/inc/customizer.php';
+function wpsp_mobile_navigation() {
+		
+	if ( has_nav_menu( 'mobile' ) ) {
+		wp_nav_menu(
+			array(
+				'container'      => false,
+				'menu_id'		 => 'menu-mobile',
+				'menu_class'	 => 'mobile-nav',
+				'theme_location' => 'mobile',
+				'fallback_cb' 	 => '',
+			) 
+		);
+	}		
+	
+}
 
-/**
- * Load Jetpack compatibility file.
- */
-require get_template_directory() . '/inc/jetpack.php';
+// Load custom widgets
+load_template( WPSP_INCS . 'widgets/widgets.php' );
+
+// Load meta boxes settting
+load_template( WPSP_INCS . 'functions/meta-boxes.php' );
+
+// Load theme options settings
+load_template( WPSP_INCS . 'functions/theme-options.php' );
+
+// Load custom post type
+load_template( WPSP_INCS . 'custom-posts/custom-posts.php' );
+
+// Load theme functions
+load_template( WPSP_INCS . 'functions/theme-functions.php' );
+
+// Load shortcodes
+load_template( WPSP_INCS . 'shortcodes/shortcodes.php' );
