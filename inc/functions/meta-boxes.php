@@ -359,7 +359,7 @@ function _custom_meta_boxes() {
 		'id'          => 'peronal-setting',
 		'title'       => 'Personal settings',
 		'desc'        => '',
-		'pages'       => array( 'team' ),
+		'pages'       => array( 'cp_team' ),
 		'context'     => 'normal',
 		'priority'    => 'high',
 		'fields'      => array(
@@ -402,7 +402,7 @@ function _custom_meta_boxes() {
 		'id'          => 'gallery-setting',
 		'title'       => 'Upload photos',
 		'desc'        => 'These settings enable you to upload photos.',
-		'pages'       => array( 'gallery' ),
+		'pages'       => array( 'cp_gallery' ),
 		'context'     => 'normal',
 		'priority'    => 'high',
 		'fields'      => array(

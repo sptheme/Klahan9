@@ -24,17 +24,18 @@ function add_script_style_sc() {
  */
 function wpsp_add_shortcodes() {
 	add_shortcode( 'col', 'col' );
-	add_shortcode( 'button', 'wpsp_button_sc' );
-	add_shortcode( 'hr', 'wpsp_hr_shortcode_sc' );
-	add_shortcode( 'email_encoder', 'wpsp_email_encoder_sc' );
+	add_shortcode( 'button', 'wpsp_button_shortcode' );
+	add_shortcode( 'hr', 'wpsp_hr_shortcode_shortcode' );
+	add_shortcode( 'email_encoder', 'wpsp_email_encoder_shortcode' );
 	add_shortcode( 'accordion', 'wpsp_accordion_shortcode' );
 	add_shortcode( 'accordion_section', 'wpsp_accordion_section_shortcode' );	
 	add_shortcode( 'toggle', 'wpsp_toggle_shortcode' );
 	add_shortcode( 'toggle_section', 'wpsp_toggle_section_shortcode' );	
 	add_shortcode( 'tabgroup', 'wpsp_tabgroup_shortcode' );
 	add_shortcode( 'tab', 'wpsp_tab_shortcode' );
-	add_shortcode( 'sc_gallery', 'wpsp_gallery_sc' );
-	add_shortcode( 'team', 'wpsp_team_sc' );
+	
+	add_shortcode( 'sc_photogallery', 'wpsp_photogallery_shortcode' );;
+	
 	
 }
 add_action( 'init', 'wpsp_add_shortcodes' );
@@ -86,11 +87,11 @@ function col( $atts, $content = null ) {
 }
 endif;
 
-if ( ! function_exists( 'wpsp_button_sc' ) ) :
+if ( ! function_exists( 'wpsp_button_shortcode' ) ) :
 /**
  * Button
  */
-function wpsp_button_sc($atts, $content = null) {
+function wpsp_button_shortcode($atts, $content = null) {
 	
 	extract(shortcode_atts(array(
 		'url' => 'null',
@@ -101,11 +102,11 @@ function wpsp_button_sc($atts, $content = null) {
 }
 endif;
 
-if ( ! function_exists( 'wpsp_hr_shortcode_sc' ) ) :
+if ( ! function_exists( 'wpsp_hr_shortcode_shortcode' ) ) :
 /**
  * Devide
  */
-function wpsp_hr_shortcode_sc($atts, $content = null) {
+function wpsp_hr_shortcode_shortcode($atts, $content = null) {
 	
 	extract(shortcode_atts(array(
 		'style' => 'dashed',
@@ -118,11 +119,11 @@ function wpsp_hr_shortcode_sc($atts, $content = null) {
 }
 endif;
 
-if ( ! function_exists( 'wpsp_email_encoder_sc' ) ) :
+if ( ! function_exists( 'wpsp_email_encoder_shortcode' ) ) :
 /**
  * Email encoder
  */
-function wpsp_email_encoder_sc($atts, $content = null){
+function wpsp_email_encoder_shortcode($atts, $content = null){
 	extract(shortcode_atts(array(
 		'email' 	=> 'name@domainname.com',
 		'subject'	=> 'General Inquirie'
@@ -252,5 +253,30 @@ function wpsp_tab_shortcode($atts, $content = null) {
 }
 endif;
 
+/**
+ * Photogallery
+ *
+ * Display photo by individule or all albums
+ *
+ */
+function wpsp_photogallery_shortcode( $atts, $content = null ){
 
+	global $post;
+
+	extract( shortcode_atts( array(
+		'album_id' => null,
+		'post_num' => null,
+	), $atts ) );
+
+	$out = '';
+
+	if ( $album_id == '-1' ) { // Show each cover album		
+		$out .= wpsp_get_all_albums( 'cp_gallery', array('posts_per_page' => $post_num) );
+	} else { // show individual album
+		$out .= wpsp_single_photo_album( $album_id, 'thumb-medium', 4 );
+	}
+
+	return $out;
+
+}
 

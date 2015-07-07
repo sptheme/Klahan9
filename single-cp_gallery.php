@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all single posts.
+ * The template for displaying all single posts team.
  *
  * @package Klahan9
  */
@@ -12,18 +12,9 @@ get_header(); ?>
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php get_template_part( 'partials/content-single', get_post_format() ); ?>
+			<?php get_template_part( 'partials/content-single', 'album' ); ?>
 
-			<?php wpsp_the_post_navigation(); ?> 
-			
 			<?php wpsp_get_related_posts( $post->ID, array('posts_per_page' => 3) ); ?>
-
-			<?php
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
-			?>
 
 		<?php endwhile; // End of the loop. ?>
 

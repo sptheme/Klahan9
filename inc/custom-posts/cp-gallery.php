@@ -83,7 +83,7 @@
 				'has_archive'			=> false,
 				'can_export'			=> true
 			);
-			register_post_type( 'gallery' , $args );
+			register_post_type( 'cp_gallery' , $args );
 		}
 	} 
 

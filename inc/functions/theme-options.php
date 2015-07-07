@@ -52,6 +52,10 @@ function custom_theme_options() {
 			'title'		=> 'Favicon'
 		),
 		array(
+			'id'		=> 'post',
+			'title'		=> 'Post'
+		),
+		array(
 			'id'		=> 'footer',
 			'title'		=> 'Footer'
 		),
@@ -145,6 +149,15 @@ function custom_theme_options() {
 			'section'	=> 'favicon'
 		),
 		
+		// Post : Post settings
+		array(
+			'id'		=> 'post-placeholder',
+			'label'		=> 'Post placeholder',
+			'desc'		=> 'Upload your custom place holder image. Size 960px by 720px',
+			'std'		=> WPSP_BASE_URL . '/images/placeholder/thumbnail-960x720.jpg',
+			'type'		=> 'upload',
+			'section'	=> 'post'
+		),
 		// Footer: Copyright
 		array(
 			'id'		=> 'more-info',

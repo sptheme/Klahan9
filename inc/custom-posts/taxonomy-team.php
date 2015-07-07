@@ -4,7 +4,7 @@ add_action('init', 'wpsp_tax_team_category_init', 0);
 function wpsp_tax_team_category_init() {
 	register_taxonomy(
 		'team_category',
-		array( 'team' ),
+		array( 'cp_team' ),
 		array(
 			'hierarchical' => true,
 			'labels' => array(

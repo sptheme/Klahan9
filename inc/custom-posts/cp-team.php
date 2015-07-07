@@ -80,7 +80,7 @@
 				'has_archive'			=> false,
 				'can_export'			=> true
 			);
-			register_post_type( 'team' , $args );
+			register_post_type( 'cp_team' , $args );
 		}
 	} 
 

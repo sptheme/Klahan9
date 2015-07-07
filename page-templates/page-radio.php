@@ -184,10 +184,10 @@ get_header(); ?>
 			<div id="photo-wrap" class="clearfix">
 				<div class="section-title clearfix">
 					<h3><i class="fa fa-picture-o"></i> Weekly Photos</h3>
-					<a href="#" class="more">More photos</a>
+					<a href="<?php echo esc_url( get_permalink( $album_taxonomy_id ) ); ?>" class="more">More photos</a>
 				</div>
 				<div class="weekly-photo">
-					<?php echo wpsp_get_album_gallery( $album_taxonomy_id, '', 'small-thumb', 'one-fourth' ); ?>
+					<?php echo wpsp_get_photo_album( $album_taxonomy_id, 'small-thumb', 'one-fourth' ); ?>
 				</div> <!-- .weekly-photo -->
 			</div> <!-- .lastest-gallery -->
 

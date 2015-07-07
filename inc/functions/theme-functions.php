@@ -246,37 +246,109 @@ function wpsp_masthead_option() {
 }
 endif;
 
-if ( ! function_exists( 'wpsp_get_album_gallery' ) ) :
+if ( !function_exists('wpsp_get_related_posts') ) :
 /**
- *	Get gallery/photos detail
+ *  Get post related by post type
  */
-function wpsp_get_album_gallery( $post_id, $post_num = 10, $size = 'thumbnail', $cols ) {
+function wpsp_get_related_posts( $post_id, $args=array(), $cols = 3 ) {
 
-	$album_location = get_post_meta($post_id, 'sp_album_location', true);
-	$photos = explode( ',', get_post_meta( $post_id, 'sp_gallery', true ) );
-	$out = '';
+	$post = get_post($post_id);
+	$post_type = $post->post_type;
 
-	if ( $photos[0] != '' ) :
-		$out = '<div class="gallery sp-posts clearfix">';
-		foreach ( $photos as $image ) :
-			$imageid = wp_get_attachment_image_src($image, $size);
-			$out .= '<article class="post-' . $post_id . ' ' . $cols . '">';
-			$out .= '<div class="thumb-effect">';
-			$out .= '<img class="attachment-medium wp-post-image" src="' . $imageid[0] . '">';
-			$out .= '<div class="thumb-caption">';
-			$out .= '<div class="inner-thumb">';
-			$out .= '<a href="' . wp_get_attachment_url($image) . '">' . __('View photo', SP_TEXT_DOMAIN) . '</a>';
-			$out .= '</div>';
-			$out .= '</div>';
-			$out .= '</div>';
-		    $out .= '</article>';
-		endforeach; 
-		$out .= '</div>';
-	else : 
-		$out .= '<h4>' . __( 'Sorry there is no image for this album.', SP_TEXT_DOMAIN ) . '</h4>';	
-	endif;
+	$taxonomy = get_object_taxonomies( $post_type );
+	$terms = wp_get_post_terms($post_id, $taxonomy[0], array("fields" => "ids"));
+	
+	$defaults = array(
+			'post_type' => $post_type, 
+			'post__not_in' => array($post_id),
+			'orderby' => 'rand',
+			'posts_per_page' => 3,
+			'tax_query' => array(
+	  			array(
+					'taxonomy' => $taxonomy[0],
+					'field' => 'term_id',
+	  				'terms' => $terms
+				))
+		);
+	$args = wp_parse_args( $args, $defaults );
+	extract( $args );
 
-	return $out;
+	$custom_query = new WP_Query($args);
+
+	if ( $custom_query->have_posts() ) {
+		echo '<section class="related-posts">';
+		echo '<h2 class="heading">' . esc_html__( 'You may also see', WPSP_TEXT_DOMAIN ) . '</h2>';
+		echo '<div class="post-grid-' . $cols . ' clearfix">';
+		while ( $custom_query->have_posts() ) : $custom_query->the_post();
+			wpsp_switch_posttype_content( $post_type );
+		endwhile; wp_reset_postdata();
+		echo '</div>';
+		echo '</section>';
+	} else {
+		echo esc_html__( 'There is no related post.', WPSP_TEXT_DOMAIN );
+	} 
+}	
+endif;
+
+if ( !function_exists('wpsp_switch_posttype_content') ) :
+/**
+ *	Switch post type
+ *
+ *	Render post type content
+ *
+ */
+function wpsp_switch_posttype_content( $post_type ) {
+	switch ( $post_type ) {
+		case 'cp_gallery':
+		get_template_part( 'partials/content', 'album' );
+		break;
+
+		case 'post':
+		get_template_part( 'partials/post-thumb', 'blog' );
+		break;
+	}
+}
+endif;
+
+if ( ! function_exists( 'wpsp_get_all_albums' ) ) :
+/**
+ *	All Albums
+ *
+ *	List all photos in each albums
+ *
+ */
+function wpsp_get_all_albums( $cat_id = '', $post_num = -1, $cols = 3 ) {
+	global $post;
+
+	$args = array(
+			'post_type' => 'cp_gallery',
+			'posts_per_page' => $post_num,
+			'post__not_in' => array( $post->ID )
+		);
+	$custom_query = new WP_Query($args);
+
+	if ( $custom_query->have_posts() ) {
+		echo '<div class="post-grid-' . $cols . ' clearfix">';
+		while ( $custom_query->have_posts() ) : $custom_query->the_post();
+		    get_template_part( 'partials/content', 'album' );
+		endwhile; wp_reset_postdata();
+		echo '</div>';
+	} // end loop;
+}
+endif;
+
+if ( ! function_exists( 'wpsp_single_photo_album' ) ) :
+/**
+ *	Photo Album Detail
+ *
+ *	Get list of photos of the album
+ *
+ */
+function wpsp_single_photo_album( $cols = 4 ) {
+
+	echo '<div class="gallery post-grid-' . $cols . ' clearfix">';
+	    get_template_part( 'partials/content', 'photo-album' );
+	echo '</div>';
 }
 endif;
 

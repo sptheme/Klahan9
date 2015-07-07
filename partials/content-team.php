@@ -17,7 +17,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope itemtype="http://schema.org/Article">
 	<?php
 		if (has_post_thumbnail()) {
-		    echo '<a href="' . get_permalink() . '" title="' . __('Read ', WPSP_TEXT_DOMAIN) . get_the_title() . '" rel="bookmark">';
+		    echo '<a href="' . get_permalink() . '" title="' . esc_html__('View profile ', WPSP_TEXT_DOMAIN) . esc_html( get_the_title() ) . '" rel="bookmark">';
 		    echo the_post_thumbnail('team-thumb');
 		    echo '</a>';
 		}

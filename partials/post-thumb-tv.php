@@ -9,10 +9,12 @@
 
 ?>
 	
-<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'clearfix', 'post-video-icon' ) ); ?> itemscope itemtype="http://schema.org/Article">
+<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'clearfix' ) ); ?> itemscope itemtype="http://schema.org/Article">
 	<?php if (has_post_thumbnail()) { ?>
 		<div class="post-thumbnail">
+			<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
 			<?php echo the_post_thumbnail('small-thumb'); ?>
+			</a>
 		</div>
 	<?php } ?>
 
