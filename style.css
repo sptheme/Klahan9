@@ -1431,6 +1431,7 @@ input[type="search"] {
     padding: 20px;
 }
 .related-posts .entry-title {
+    font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     margin-bottom: 0;
     padding-top: 5px;
@@ -1730,12 +1731,24 @@ input[type="search"] {
 	display: none;
 }
 
+/* Listen to broadcast widget */
+.widget-listent-broadcast article.format-audio {
+    padding-left: 35px; 
+}
+.widget-listent-broadcast article.format-audio:before {
+    content: "\f130";
+    font-size: 24px;
+    padding-top: 0;
+    margin-top: -5px;
+}
+
 /* Sub categories widget */
 .widget-sub-categories {
     background-color: #2d3134;
 }
 .widget-sub-categories,
-.widget-sub-categories a {
+.widget-sub-categories a,
+.widget-sub-categories .widget-title {
     color: #fff;
 }
 
@@ -1760,9 +1773,9 @@ input[type="search"] {
 .widget_categories li:before,
 .widget_pages li:before,
 .widget-sub-categories li:before,
-article.format-audio:before,
 .post-thumbnail:before,
 .tv-featured-thumb:before,
+article.format-audio:before,
 article.format-video:before {
     display: block;
     float: left;
@@ -1812,16 +1825,9 @@ article.format-video:before {
 }
 
 /* Post Thumb with Icons format */
-article.post-audio-icon {
-    padding-left: 35px; 
-}
-article.format-audio:before {
-    content: "\f130";
-    font-size: 24px;
-    padding-top: 0;
-    margin-top: -5px;
-}
-article.format-video .post-thumbnail:before {
+article.format-standard .post-thumbnail:before,
+article.format-video .post-thumbnail:before,
+article.format-audio .post-thumbnail:before {
     display: block;
     width: 24px;
     height: 24px;
@@ -1829,11 +1835,18 @@ article.format-video .post-thumbnail:before {
     position: absolute;
     bottom: 6px;
     right: 3px;
-    content: "\f01d";
     font-size: 24px;
     color:#fff;
 }
-
+article.format-standard .post-thumbnail:before {
+    content: "\f0f6";
+}
+article.format-video .post-thumbnail:before {
+    content: "\f01d";
+}
+article.format-audio .post-thumbnail:before {
+    content: "\f130";
+}
 /*.post-thumbnail {
     position: relative;
     float: left;
