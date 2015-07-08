@@ -103,4 +103,4 @@ function wpsp_shortcodes_add_mce_button() {
 }
 add_action( 'admin_head', 'wpsp_shortcodes_add_mce_button' );
 
-//load_template( SC_INC_DIR . 'popup/ajax-photogallery-shortcode.php' );
+load_template( SC_INC_DIR . 'popup/ajax-photogallery-shortcode.php' );

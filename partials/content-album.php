@@ -23,9 +23,9 @@
 	<?php the_title( sprintf( '<h4 class="entry-title" itemprop="name"><a itemprop="url" href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h4>' ); ?>
 		
 		<div class="album-meta">
-			<?php esc_html_e( 'at ', WPSP_TEXT_DOMAIN ); ?>
+			<?php echo esc_html__( 'at ', WPSP_TEXT_DOMAIN ); ?>
 			<strong><?php echo esc_html__( $album_location ); ?></strong>
-			<?php esc_html_e( ', on ', WPSP_TEXT_DOMAIN ); ?> 
+			<?php echo esc_html__( ', on ', WPSP_TEXT_DOMAIN ); ?> 
 			<?php echo esc_html( get_the_date() ); ?>
 		</div><!-- .entry-meta -->
 			

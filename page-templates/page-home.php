@@ -25,7 +25,7 @@ get_header(); ?>
 			    	animation: 'grow',
 			    	contentAsHTML: true,
 			    	interactive: true,
-			    	content: $('<div class="tooltip-wrap"><h1><?php echo esc_html($home_meta["sp_tv_title"][0]);?></h1><p><?php echo esc_textarea($home_meta["sp_tv_desc"][0]);?></p></div>')
+			    	content: $('<div class="tooltip-wrap"><h1><?php echo esc_html($home_meta["sp_tv_title"][0]);?></h1><p><?php echo esc_textarea($home_meta["sp_tv_desc"][0]);?></p></div>'),
 			    });
 			    $('.online').tooltipster({
 			    	animation: 'grow',

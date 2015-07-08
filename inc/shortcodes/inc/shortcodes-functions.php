@@ -264,19 +264,17 @@ function wpsp_photogallery_shortcode( $atts, $content = null ){
 	global $post;
 
 	extract( shortcode_atts( array(
-		'album_id' => null,
-		'post_num' => null,
+		'album_id'  => null,
+		'post_num'  => null,
+		'cols' 		=> null,
 	), $atts ) );
 
 	$out = '';
-
 	if ( $album_id == '-1' ) { // Show each cover album		
-		$out .= wpsp_get_all_albums( 'cp_gallery', array('posts_per_page' => $post_num) );
+		$out .= wpsp_get_all_albums( $post_num, $cols );
 	} else { // show individual album
-		$out .= wpsp_single_photo_album( $album_id, 'thumb-medium', 4 );
+		$out .= wpsp_single_photo_album( $album_id, $cols );
 	}
-
 	return $out;
-
 }
 

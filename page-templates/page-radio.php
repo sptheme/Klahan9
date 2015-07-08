@@ -143,7 +143,7 @@ get_header(); ?>
 	            } ?>
 	            </div> <!-- .monthly-topics -->
 	            <div class="schedule-banner">
-	            	<img src="<?php echo $schedule_banner; ?>">
+	            	<?php echo '<img src="' . $schedule_banner . '">'; ?>
 	            </div>
 			</div> <!-- #topic-next-month -->
 
@@ -153,7 +153,7 @@ get_header(); ?>
 					<a href="#" class="more">More people</a>
 				</div>
 				<?php $args = array(
-	                'post_type' => 'team',
+	                'post_type' => 'cp_team',
 	                'posts_per_page' => 5,
 	                'meta_query' => array(
 						array(
@@ -187,7 +187,7 @@ get_header(); ?>
 					<a href="<?php echo esc_url( get_permalink( $album_taxonomy_id ) ); ?>" class="more">More photos</a>
 				</div>
 				<div class="weekly-photo">
-					<?php echo wpsp_get_photo_album( $album_taxonomy_id, 'small-thumb', 'one-fourth' ); ?>
+					<?php wpsp_single_photo_album( $album_taxonomy_id, 4, 4 ); ?>
 				</div> <!-- .weekly-photo -->
 			</div> <!-- .lastest-gallery -->
 

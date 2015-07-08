@@ -128,7 +128,7 @@ get_header(); ?>
 				</div>
 				<div class="filmstrip">
 					<div class="strip-top"></div>
-					<?php echo wpsp_get_photo_album( $album_taxonomy_id, 'small-thumb', 'one-fourth' ); ?>
+					<?php wpsp_single_photo_album( $album_taxonomy_id, 4, 4 ); ?>
 					<div class="strip-bottom"></div>
 				</div> <!-- .filmstrip -->
 			</div> <!-- .lastest-gallery -->

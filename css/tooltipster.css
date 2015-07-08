@@ -1,9 +1,11 @@
 /* This is the default Tooltipster theme (feel free to modify or duplicate and create multiple themes!): */
 .tooltipster-default {
-	border-radius: 5px; 
-	border: 2px solid #000;
-	background: #4c4c4c;
+	border-radius: 4px; 
+	border: 7px solid #294c48;
+	background: #5eb6a2;
+	/*background: url(../images/tooltip-bg.jpg);*/
 	color: #fff;
+	box-shadow: 0px 2px 10px rgba(0,0,0,0.4);
 }
 
 /* Use this next selector to style things like font-size and line-height: */

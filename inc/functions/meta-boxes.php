@@ -16,7 +16,7 @@ function _custom_meta_boxes() {
 		'id'          => 'page-options',
 		'title'       => 'Page Options',
 		'desc'        => '',
-		'pages'       => array( 'page', 'post', 'team', 'gallery' ),
+		'pages'       => array( 'page', 'post', 'cp_team', 'cp_gallery' ),
 		'context'     => 'normal',
 		'priority'    => 'default',
 		'fields'      => array(
@@ -182,7 +182,7 @@ function _custom_meta_boxes() {
 				'label'		=> 'TV Photo Album',
 				'id'		=> $prefix . 'album_tax',
 				'type'		=> 'custom-post-type-select',
-				'post_type' => 'gallery',
+				'post_type' => 'cp_gallery',
 				'desc'		=> 'Select TV Album show on TV main page'
 			),
 			array(
@@ -263,7 +263,7 @@ function _custom_meta_boxes() {
 				'label'		=> 'TV Photo Album',
 				'id'		=> $prefix . 'album_tax',
 				'type'		=> 'custom-post-type-select',
-				'post_type' => 'gallery',
+				'post_type' => 'cp_gallery',
 				'desc'		=> 'Select TV Album show on TV main page'
 			),
 		)
@@ -453,7 +453,6 @@ function _custom_meta_boxes() {
 		return $template;
 	}
 	//Register meta boxes
-	ot_register_meta_box( $page_layout_options );
 	ot_register_meta_box( $post_format_video );
 	ot_register_meta_box( $post_format_audio );
 	//ot_register_meta_box( $post_format_gallery );
@@ -463,16 +462,15 @@ function _custom_meta_boxes() {
 	$template_file = rw_maybe_include();
 	if ( ( $template_file == 'page-templates/page-tv.php' ) || ( $template_file == 'page-templates/page-radio.php' ) || ( $template_file == 'page-templates/page-blog.php' ) ) {
 		ot_register_meta_box( $page_template_settings ); 
+	}  else {
+		ot_register_meta_box( $page_layout_options );
 	}
-
 	if ( $template_file == 'page-templates/page-tv.php' ) {
 		ot_register_meta_box( $page_tv_template_settings ); 
-	}
-
+	} 
 	if ( $template_file == 'page-templates/page-radio.php' ) {
 		ot_register_meta_box( $page_radio_template_settings ); 
-	}
-
+	} 
 	if ( $template_file == 'page-templates/page-home.php' ) {
 		ot_register_meta_box( $page_home_template_settings ); 
 	}

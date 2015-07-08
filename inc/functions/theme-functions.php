@@ -317,7 +317,7 @@ if ( ! function_exists( 'wpsp_get_all_albums' ) ) :
  *	List all photos in each albums
  *
  */
-function wpsp_get_all_albums( $cat_id = '', $post_num = -1, $cols = 3 ) {
+function wpsp_get_all_albums( $post_num = -1, $cols = 3 ) {
 	global $post;
 
 	$args = array(
@@ -328,7 +328,7 @@ function wpsp_get_all_albums( $cat_id = '', $post_num = -1, $cols = 3 ) {
 	$custom_query = new WP_Query($args);
 
 	if ( $custom_query->have_posts() ) {
-		echo '<div class="post-grid-' . $cols . ' clearfix">';
+		echo '<div class="custom-post-gallery post-grid-' . $cols . ' clearfix">';
 		while ( $custom_query->have_posts() ) : $custom_query->the_post();
 		    get_template_part( 'partials/content', 'album' );
 		endwhile; wp_reset_postdata();
@@ -344,11 +344,33 @@ if ( ! function_exists( 'wpsp_single_photo_album' ) ) :
  *	Get list of photos of the album
  *
  */
-function wpsp_single_photo_album( $cols = 4 ) {
-
-	echo '<div class="gallery post-grid-' . $cols . ' clearfix">';
-	    get_template_part( 'partials/content', 'photo-album' );
-	echo '</div>';
+function wpsp_single_photo_album( $post_id, $post_num, $cols = 4 ) {
+	$photos = explode( ',', get_post_meta( $post_id, 'sp_gallery', true ) );
+	$out = '';
+	if ( $photos[0] != '' ) { 
+		$photo_num = 1;
+		$out .= '<div class="gallery post-grid-' . $cols . ' clearfix">';
+		foreach ( $photos as $photo ) { 
+			$imageid = wp_get_attachment_image_src( $photo, 'small-thumb' );
+			if ( $post_num >= $photo_num ) {
+				$out .= '<article id="post-<?php the_ID(); ?>" itemscope itemtype="http://schema.org/Article">';
+				$out .= '<div class="thumb-effect">';
+				$out .= '<img src="' . $imageid[0] . '">';
+				$out .= '<div class="thumb-caption">';
+				$out .= '<div class="inner-thumb">';
+				$out .= '<a href="' .  wp_get_attachment_url( $photo ) . '">' .  esc_html__('View photo', WPSP_TEXT_DOMAIN ) . '</a>';
+				$out .= '</div> <!-- .inner-thumb -->';
+				$out .= '</div> <!-- .thumb-caption -->';
+				$out .= '</div><!-- .thumb-effect -->';
+				$out .= '</article><!-- #post-## -->';
+			}
+			$photo_num++;
+		}
+		$out .= '</div>';
+	} else {
+		$out .= '<h4>' . esc_html__( 'Sorry, there is no photo for this album.', WPSP_TEXT_DOMAIN ) . '</h4>';
+	}
+	echo $out;
 }
 endif;
 

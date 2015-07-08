@@ -12,7 +12,7 @@
 						var width = jQuery( window ).width(), H = jQuery( window ).height(), W = ( 720 < width ) ? 720 : width;
 						W = W - 80;
 						H = H - 84;
-						tb_show( 'Photogallery options', 'admin-ajax.php?action=wpsp_photogallery_shortcode&width=' + W + '&height=' + H );					                 }
+						tb_show( 'Photogallery options', 'admin-ajax.php?action=wpsp_photogallery_shortcode_ajax&width=' + W + '&height=' + H );					                 }
              });
          },
          getInfo : function() {
@@ -35,7 +35,8 @@
 		// but well, this gets the job done nonetheless
 		var options = { 
 			'album_id' : null,
-			'post_num' : null
+			'post_num' : null,
+			'cols' : null
 			};
 		var shortcode = '[sc_photogallery';
 		
