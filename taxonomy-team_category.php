@@ -25,6 +25,7 @@ get_header(); ?>
 
 			<?php /* Start the Loop */ ?>
 			<section class="custom-post-cp_team">
+			<div class="post-grid-5 clearfix">
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php
@@ -53,4 +54,3 @@ get_header(); ?>
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
-
