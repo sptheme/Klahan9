@@ -11,13 +11,9 @@
 	<?php 
 		$video_url = get_post_meta( $post->ID, 'sp_video_url', true ); 
 		if ( !empty( $video_url ) ) {
-		    echo '<div class="single-post-thumbnail">';
-		    echo '<div class="image-shifter">';
-		    global $wp_embed;
+			global $wp_embed;
 			$video = $wp_embed->run_shortcode('[embed width="650"]' . $video_url . '[/embed]');
-			echo $video;
-		    echo '</div>';
-		    echo '</div>';
+			printf( '<div class="single-post-thumbnail"><div class="image-shifter">%s</div></div>', $video );
 		}
 	?>
 	<header class="entry-header">

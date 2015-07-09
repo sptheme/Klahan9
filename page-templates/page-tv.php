@@ -52,9 +52,9 @@ get_header(); ?>
 								<?php echo the_post_thumbnail('index-thumb'); ?>
 							</div>
 						<?php } ?>
-	                    <a itemprop="url" class="watche-it" href="<?php echo esc_url( get_post_meta( $post->ID, 'sp_video_url', true ) ); ?>" rel="bookmark">
+	                    <a itemprop="url" class="watche-it" href="<?php echo esc_url( get_post_meta( $post->ID, 'sp_video_url', true ) ); ?>" title="<?php echo esc_attr( the_title() ); ?>" rel="bookmark">
 		                    <div class="tv-post-info">
-		                    	<h3 itemprop="name" class="entry-title"><?php the_title(); ?></h3>
+		                    	<h3 itemprop="name" class="entry-title"><?php echo esc_html( get_the_title() ); ?></h3>
 		                    	<div class="entry-meta">
 									<span class="byline"><span class="author vcard"><?php echo esc_html( get_the_author() ); ?></span></span>
 									<span class="posted-on"><?php echo esc_html( get_the_date() ); ?></span>
@@ -88,7 +88,7 @@ get_header(); ?>
 	            
 		            if( $custom_query->have_posts() ) {
 		                while ( $custom_query->have_posts() ) : $custom_query->the_post();
-		                    get_template_part( 'partials/post-thumb-tv' );
+		                    get_template_part( 'partials/content', 'tv' );
 		                endwhile; wp_reset_postdata();
 		            } ?>
 				</div> <!-- .tv-post-lists -->

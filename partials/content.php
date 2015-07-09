@@ -16,16 +16,16 @@
 		
 		<?php
 			if (has_post_thumbnail()) {
-		    	echo '<div class="small-index-thumbnail">';
-			    echo '<a href="' . get_permalink() . '" title="' . __('Read ', WPSP_TEXT_DOMAIN) . get_the_title() . '" rel="bookmark">';
-			    echo the_post_thumbnail('index-thumb');
-			    echo '</a>';
-			    echo '</div>';
+			    printf( '<div class="small-index-thumbnail"><a itemprop="url" href="%1$s" rel="bookmark" title="%2$s">%3$s</a></div>', 
+					esc_url( get_permalink() ), 
+					__('Read ', WPSP_TEXT_DOMAIN) . esc_attr( get_the_title() ), 
+					get_the_post_thumbnail( $post->ID, 'index-thumb' )  
+				);
 			}
 		?>
 
 		<header class="entry-header">
-			<?php the_title( sprintf( '<h1 itemprop="name" class="entry-title"><a itemprop="url" href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
+			<?php the_title( sprintf( '<h1 class="entry-title" itemprop="name"><a itemprop="url" href="%1$s" rel="bookmark" title="%2$s">', esc_url( get_permalink() ), esc_attr( get_the_title() ) ), '</a></h1>' ); ?>
 
 			<?php if ( 'post' == get_post_type() ) : ?>
 			<div class="entry-meta">

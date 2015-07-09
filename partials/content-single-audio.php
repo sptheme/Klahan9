@@ -11,11 +11,8 @@
 	<?php 
 		$sound_url = get_post_meta( $post->ID, 'sp_sound_url', true ); 
 		if ( !empty( $sound_url ) ) {
-		    echo '<div class="single-post-thumbnail">';
-		    echo '<div class="image-shifter">';
-		    echo wpsp_soundcloud($sound_url, true);
-		    echo '</div>';
-		    echo '</div>';
+			$sound_embed = wpsp_soundcloud($sound_url, true);
+		    printf( '<div class="single-post-thumbnail"><div class="image-shifter">%s</div></div>', $sound_embed );
 		}
 	?>
 	<header class="entry-header">

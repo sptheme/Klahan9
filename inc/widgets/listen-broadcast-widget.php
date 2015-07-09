@@ -99,7 +99,7 @@ if ( ! class_exists( 'WPSP_Listen_Broadcast_Widget' ) ) {
             
             if( $custom_query->have_posts() ) {
                 while ( $custom_query->have_posts() ) : $custom_query->the_post();
-                    get_template_part( 'partials/post-thumb-radio' );
+                    get_template_part( 'partials/content', 'radio' );
                 endwhile; wp_reset_postdata();
             }
 

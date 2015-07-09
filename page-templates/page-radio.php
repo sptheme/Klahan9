@@ -86,7 +86,7 @@ get_header(); ?>
 							<?php echo the_post_thumbnail('large-thumb'); ?>
 						<?php } ?>
         				<div class="flex-caption">
-			                <h1 itemprop="name"><a itemprop="url" href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a></h1>
+			                <?php printf( '<h1 itemprop="name"><a itemprop="url" href="%1$s" rel="bookmark" title="%2$s">%3$s</a></h1>', esc_url( get_permalink() ), esc_attr( get_the_title() ), esc_html( get_the_title() )  ); ?>
 			                <div class="entry-meta">
 								<span class="byline"><span class="author vcard"><?php echo esc_html( get_the_author() ); ?></span></span>
 								<span class="posted-on"><?php echo esc_html( get_the_date() ); ?></span>
@@ -145,7 +145,7 @@ get_header(); ?>
 		            	echo '<ol>';
 		                while ( $custom_query->have_posts() ) : $custom_query->the_post();
 		                	echo '<li>';
-		                    echo '<span class="topic-title">' . get_the_title() . '</span>';
+		                    echo '<span class="topic-title">' . esc_html( get_the_title() ) . '</span>';
 		                    echo '<span class="topic-date">' . esc_html__( 'will broadcast on ', WPSP_TEXT_DOMAIN ) . esc_html( get_the_date('d M, Y') );
 		                    echo '</li>';
 		                endwhile; wp_reset_postdata();

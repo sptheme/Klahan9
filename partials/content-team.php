@@ -8,22 +8,24 @@
 ?>
 
 <?php
-	$team_position = get_post_meta( $post->ID, 'sp_team_position', true );
-	$team_facebook = get_post_meta( $post->ID, 'sp_team_facebook', true );
-	$team_twitter = get_post_meta( $post->ID, 'sp_team_twitter', true );
-	$team_linkedin = get_post_meta( $post->ID, 'sp_team_linkedin', true );
+	$team_position = esc_html( get_post_meta( $post->ID, 'sp_team_position', true ) );
+	$team_facebook = esc_url( get_post_meta( $post->ID, 'sp_team_facebook', true ) );
+	$team_twitter = esc_url( get_post_meta( $post->ID, 'sp_team_twitter', true ) );
+	$team_linkedin = esc_url( get_post_meta( $post->ID, 'sp_team_linkedin', true ) );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope itemtype="http://schema.org/Article">
 	<?php
 		if (has_post_thumbnail()) {
-		    echo '<a href="' . get_permalink() . '" title="' . esc_html__('View profile ', WPSP_TEXT_DOMAIN) . esc_html( get_the_title() ) . '" rel="bookmark">';
-		    echo the_post_thumbnail('team-thumb');
-		    echo '</a>';
+		    printf( '<a itemprop="url" href="%1$s" rel="bookmark" title="%2$s">%3$s</a>', 
+					esc_url( get_permalink() ), 
+					__('View profile ', WPSP_TEXT_DOMAIN) . esc_attr( get_the_title() ), 
+					get_the_post_thumbnail( $post->ID, 'team-thumb' )  
+				);
 		}
 	?>
 	
-		<?php the_title( sprintf( '<h1 itemprop="name" class="entry-title"><a itemprop="url" href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
+		<?php the_title( sprintf( '<h3 class="entry-title" itemprop="name"><a itemprop="url" href="%1$s" rel="bookmark" title="%2$s">', esc_url( get_permalink() ), esc_attr( get_the_title() ) ), '</a></h3>' ); ?>
 
 		<div class="team-meta">
 			<?php echo $team_position; ?>
