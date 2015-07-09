@@ -11,7 +11,17 @@ get_header(); ?>
 
 	<?php 
 		$cateogry_id = get_post_meta( $post->ID, 'sp_post_by_cat', true ); 
+		$radio_topic_title = esc_html( get_post_meta( $post->ID, 'sp_radio_topic_title', true ) );
+		$radio_topic_num = get_post_meta( $post->ID, 'sp_radio_topic_num', true );
+		$radio_topic_order = get_post_meta( $post->ID, 'sp_radio_topic_order', true );
+		$radio_team_title = esc_html( get_post_meta( $post->ID, 'sp_radio_team_title', true ) );
+		$radio_team_num = esc_html( get_post_meta( $post->ID, 'sp_radio_team_num', true ) );
+		$radio_team_text_link = esc_html( get_post_meta( $post->ID, 'sp_radio_team_text_link', true ) );
+		$radio_team_page_link = get_post_meta( $post->ID, 'sp_radio_team_page_link', true );
 		$team_taxonomy_id = get_post_meta( $post->ID, 'sp_team_tax', true );
+		$radio_photo_title = esc_html( get_post_meta( $post->ID, 'sp_radio_photo_title', true ) );
+		$radio_photo_num = esc_html( get_post_meta( $post->ID, 'sp_radio_photo_num', true ) );
+		$radio_photo_text_link = esc_html( get_post_meta( $post->ID, 'sp_radio_photo_text_link', true ) );
 		$album_taxonomy_id = get_post_meta( $post->ID, 'sp_album_tax', true );
 		$schedule_banner = get_post_meta( $post->ID, 'sp_schedule_banner', true ); 
 	?>
@@ -100,14 +110,14 @@ get_header(); ?>
 			<div id="topic-next-month" class="clearfix">
 				<div class="monthly-topics">
 				<div class="section-title clearfix">
-					<h3><i class="fa fa-microphone"></i> Topic Next Month</h3>
+					<h3><i class="fa fa-microphone"></i> <?php echo $radio_topic_title; ?></h3>
 				</div>
 				<?php 
 					$args = array(
 		                'post_type' => 'post',
-		                'posts_per_page' => 5,
+		                'posts_per_page' => $radio_topic_num,
+		                'order' => $radio_topic_order,
 		                'post_status' => array( 'future' ),
-		                'order' => 'ASC',
 		                'date_query' => array(
 							array(
 								'year' => date( 'Y' ),
@@ -149,12 +159,12 @@ get_header(); ?>
 
 			<div id="meet-radio-team" class="team clearfix">
 				<div class="section-title clearfix">
-					<h3><i class="fa fa-users"></i> Meet Radio Team</h3>
-					<a href="#" class="more">More people</a>
+					<h3><i class="fa fa-users"></i> <?php echo $radio_team_title; ?></h3>
+					<a href="<?php echo esc_url( get_permalink( $radio_team_page_link ) ); ?>" class="more"><?php echo $radio_team_text_link; ?></a>
 				</div>
 				<?php $args = array(
 	                'post_type' => 'cp_team',
-	                'posts_per_page' => 5,
+	                'posts_per_page' => $radio_team_num,
 	                'meta_query' => array(
 						array(
 							'key'     => 'sp_team_featured',
@@ -172,22 +182,17 @@ get_header(); ?>
 					//'orderby' => 'rand',  
             	); 
 
-				$custom_query = new WP_Query( $args );
-            
-	            if( $custom_query->have_posts() ) {
-	                while ( $custom_query->have_posts() ) : $custom_query->the_post();
-	                    get_template_part( 'partials/content-team' );
-	                endwhile; wp_reset_postdata();
-	            } ?>
+				wpsp_get_posts_type ( 'cp_team', $args, $radio_team_num ); ?>
+
 			</div> <!-- .meet-radio-team -->
 
 			<div id="photo-wrap" class="clearfix">
 				<div class="section-title clearfix">
-					<h3><i class="fa fa-picture-o"></i> Weekly Photos</h3>
-					<a href="<?php echo esc_url( get_permalink( $album_taxonomy_id ) ); ?>" class="more">More photos</a>
+					<h3><i class="fa fa-picture-o"></i> <?php echo $radio_photo_title; ?></h3>
+					<a href="<?php echo esc_url( get_permalink( $album_taxonomy_id ) ); ?>" class="more"><?php echo $radio_photo_text_link; ?></a>
 				</div>
 				<div class="weekly-photo">
-					<?php wpsp_single_photo_album( $album_taxonomy_id, 4, 4 ); ?>
+					<?php wpsp_single_photo_album( $album_taxonomy_id, $radio_photo_num, $radio_photo_num ); ?>
 				</div> <!-- .weekly-photo -->
 			</div> <!-- .lastest-gallery -->
 

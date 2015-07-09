@@ -181,7 +181,7 @@ function _custom_meta_boxes() {
 				'desc'		=> 'Select TV team category e.g: Meet the Star'
 			),
 			array(
-				'label'		=> 'Amount of People',
+				'label'		=> 'Amount of people',
 				'id'		=> $prefix . 'tv_team_num',
 				'type'		=> 'select',
 				'std'		=> '4',
@@ -215,11 +215,18 @@ function _custom_meta_boxes() {
 		        )
 			),
 			array(
-				'label'		=> 'Team Text link',
+				'label'		=> 'Team text link',
 				'id'		=> $prefix . 'tv_team_text_link',
 				'type'		=> 'text',
 				'std'		=> 'More people',
 				'desc'		=> 'Title link for TV team'
+			),
+			array(
+				'label'		=> 'Team page link',
+				'id'		=> $prefix . 'tv_team_page_link',
+				'type'		=> 'page-select',
+				'std'		=> '',
+				'desc'		=> 'Select page link for TV team group'
 			),
 			array(
 				'label'       => __( 'Gallery', 'wpsp' ),
@@ -234,14 +241,14 @@ function _custom_meta_boxes() {
 				'desc'		=> 'Enter title for this section e.g: Behind the scenes'
 			),
 			array(
-				'label'		=> 'TV Photo Album',
+				'label'		=> 'TV photo album',
 				'id'		=> $prefix . 'album_tax',
 				'type'		=> 'custom-post-type-select',
 				'post_type' => 'cp_gallery',
 				'desc'		=> 'Select TV Album show on TV main page'
 			),
 			array(
-				'label'		=> 'Amount of Photo',
+				'label'		=> 'Amount of photo',
 				'id'		=> $prefix . 'tv_photo_num',
 				'type'		=> 'select',
 				'std'		=> '4',
@@ -275,10 +282,10 @@ function _custom_meta_boxes() {
 		        )
 			),
 			array(
-				'label'		=> 'Photo Text link',
+				'label'		=> 'Photo text link',
 				'id'		=> $prefix . 'tv_photo_text_link',
 				'type'		=> 'text',
-				'std'		=> 'More photo',
+				'std'		=> 'More photos',
 				'desc'		=> 'Title link for TV Photo'
 			),
 			array(
@@ -328,6 +335,44 @@ function _custom_meta_boxes() {
 		'priority'    => 'high',
 		'fields'      => array(
 			array(
+				'label'       => __( 'Topics', 'wpsp' ),
+				'id'          => 'tab_topic',
+				'type'        => 'tab'
+			),
+			array(
+				'label'		=> 'Title',
+				'id'		=> $prefix . 'radio_topic_title',
+				'type'		=> 'text',
+				'std'		=> 'Topic next month',
+				'desc'		=> 'Enter title for this section e.g: Topic next month'
+			),
+			array(
+				'label'		=> 'Number of topic',
+				'id'		=> $prefix . 'radio_topic_num',
+				'type'		=> 'text',
+				'std'		=> '5',
+				'desc'		=> 'Enter amount of topic to show'
+			),
+			array(
+				'label'		=> 'Topic order',
+				'id'		=> $prefix . 'radio_team_order',
+				'type'		=> 'select',
+				'std'		=> 'ASC',
+				'desc'		=> 'Select order type for topic. ASC (1, 2, 3; a, b, c) or DESC (3, 2, 1; c, b, a)',
+				'choices'   => array( 
+		          array(
+		            'value'       => 'ASC',
+		            'label'       => 'ASC',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => 'DESC',
+		            'label'       => 'DESC',
+		            'src'         => ''
+		          ),
+		        )
+			),
+			array(
 				'label'       => __( 'Schedule', 'wpsp' ),
 				'id'          => 'tab_schedule',
 				'type'        => 'tab'
@@ -344,6 +389,13 @@ function _custom_meta_boxes() {
 				'type'        => 'tab'
 			),
 			array(
+				'label'		=> 'Title',
+				'id'		=> $prefix . 'radio_team_title',
+				'type'		=> 'text',
+				'std'		=> 'Meet the radio team',
+				'desc'		=> 'Enter title for this section e.g: Meet the radio team'
+			),
+			array(
 				'label'		=> 'TV team',
 				'id'		=> $prefix . 'team_tax',
 				'type'		=> 'taxonomy-select',
@@ -351,9 +403,64 @@ function _custom_meta_boxes() {
 				'desc'		=> 'Select TV team category e.g: Meet the Star'
 			),
 			array(
+				'label'		=> 'Amount of people',
+				'id'		=> $prefix . 'radio_team_num',
+				'type'		=> 'select',
+				'std'		=> '4',
+				'desc'		=> 'Choose amount of people to show',
+				'choices'   => array( 
+		          array(
+		            'value'       => '1',
+		            'label'       => '1',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '2',
+		            'label'       => '2',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '3',
+		            'label'       => '3',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '4',
+		            'label'       => '4',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '5',
+		            'label'       => '5',
+		            'src'         => ''
+		          ),
+		        )
+			),
+			array(
+				'label'		=> 'Team text link',
+				'id'		=> $prefix . 'radio_team_text_link',
+				'type'		=> 'text',
+				'std'		=> 'More people',
+				'desc'		=> 'Title link for Radio team'
+			),
+			array(
+				'label'		=> 'Team page link',
+				'id'		=> $prefix . 'radio_team_page_link',
+				'type'		=> 'page-select',
+				'std'		=> '',
+				'desc'		=> 'Select page link for Radio team group'
+			),
+			array(
 				'label'       => __( 'Gallery', 'wpsp' ),
 				'id'          => 'tab_gallery',
 				'type'        => 'tab'
+			),
+			array(
+				'label'		=> 'Title',
+				'id'		=> $prefix . 'radio_photo_title',
+				'type'		=> 'text',
+				'std'		=> 'Weekly photos',
+				'desc'		=> 'Enter title for this section e.g: Weekly photos'
 			),
 			array(
 				'label'		=> 'TV Photo Album',
@@ -361,6 +468,47 @@ function _custom_meta_boxes() {
 				'type'		=> 'custom-post-type-select',
 				'post_type' => 'cp_gallery',
 				'desc'		=> 'Select TV Album show on TV main page'
+			),
+			array(
+				'label'		=> 'Amount of photo',
+				'id'		=> $prefix . 'radio_photo_num',
+				'type'		=> 'select',
+				'std'		=> '4',
+				'desc'		=> 'Choose amount of photo to show',
+				'choices'   => array( 
+		          array(
+		            'value'       => '1',
+		            'label'       => '1',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '2',
+		            'label'       => '2',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '3',
+		            'label'       => '3',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '4',
+		            'label'       => '4',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '5',
+		            'label'       => '5',
+		            'src'         => ''
+		          ),
+		        )
+			),
+			array(
+				'label'		=> 'Photo text link',
+				'id'		=> $prefix . 'radio_photo_text_link',
+				'type'		=> 'text',
+				'std'		=> 'More photos',
+				'desc'		=> 'Title link for Radio Photo'
 			),
 		)
 	);

@@ -1371,19 +1371,6 @@ input[type="search"] {
 }
 
 /* Post team */
-.team article {
-    float: left;
-    width: 184px;
-    margin-right: 10px;
-    background-color: #fff;
-    text-align: center;
-    padding: 10px;
-}
-.team .entry-title {
-    font-size: 16px;
-    padding-top: 10px;
-    padding-bottom: 5px;
-}
 .custom-post-cp_team article {
     background-color: #fff;
     text-align: center;

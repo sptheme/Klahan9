@@ -40,7 +40,7 @@ get_header(); ?>
 
 			</article><!-- #post-## -->
 
-			<?php //wpsp_get_related_posts( $post->ID, array('posts_per_page' => 3) ); ?>
+			<?php wpsp_get_related_posts( $post->ID, array('posts_per_page' => 3) ); ?>
 
 		<?php endwhile; // End of the loop. ?>
 
