@@ -1071,7 +1071,8 @@ img.aligncenter {
 .search .entry-header,
 .search .entry-content,
 .page-content,
-.error404 .page-header {
+.error404 .entry-header,
+.error404 .entry-content {
     max-width: 100%;
     padding: 0 20px;
 }
@@ -1198,6 +1199,10 @@ input[type="search"] {
     font-size: 20px;
     background-color: #fff;
     border: 0;
+}
+
+.error404 .search-form input[type="search"] {
+    width: 97%;
 }
 
 .error404 .search-submit,
@@ -1701,7 +1706,7 @@ input[type="search"] {
 
 .widget-title {
     padding: 10px;
-    margin-bottom: 10px;    
+    margin-bottom: 0;    
     font-size: 18px;
     text-transform: uppercase;
     border-bottom: 5px solid #ebebeb;    
