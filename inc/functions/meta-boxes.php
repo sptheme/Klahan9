@@ -167,6 +167,13 @@ function _custom_meta_boxes() {
 				'type'        => 'tab'
 			),
 			array(
+				'label'		=> 'Title',
+				'id'		=> $prefix . 'tv_team_title',
+				'type'		=> 'text',
+				'std'		=> 'Meet the star',
+				'desc'		=> 'Enter title for this section e.g: Meet the Star'
+			),
+			array(
 				'label'		=> 'TV team',
 				'id'		=> $prefix . 'team_tax',
 				'type'		=> 'taxonomy-select',
@@ -174,9 +181,57 @@ function _custom_meta_boxes() {
 				'desc'		=> 'Select TV team category e.g: Meet the Star'
 			),
 			array(
+				'label'		=> 'Amount of People',
+				'id'		=> $prefix . 'tv_team_num',
+				'type'		=> 'select',
+				'std'		=> '4',
+				'desc'		=> 'Choose amount of people to show',
+				'choices'   => array( 
+		          array(
+		            'value'       => '1',
+		            'label'       => '1',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '2',
+		            'label'       => '2',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '3',
+		            'label'       => '3',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '4',
+		            'label'       => '4',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '5',
+		            'label'       => '5',
+		            'src'         => ''
+		          ),
+		        )
+			),
+			array(
+				'label'		=> 'Team Text link',
+				'id'		=> $prefix . 'tv_team_text_link',
+				'type'		=> 'text',
+				'std'		=> 'More people',
+				'desc'		=> 'Title link for TV team'
+			),
+			array(
 				'label'       => __( 'Gallery', 'wpsp' ),
 				'id'          => 'tab_gallery',
 				'type'        => 'tab'
+			),
+			array(
+				'label'		=> 'Title',
+				'id'		=> $prefix . 'tv_photo_title',
+				'type'		=> 'text',
+				'std'		=> 'Behind the scenes',
+				'desc'		=> 'Enter title for this section e.g: Behind the scenes'
 			),
 			array(
 				'label'		=> 'TV Photo Album',
@@ -184,6 +239,47 @@ function _custom_meta_boxes() {
 				'type'		=> 'custom-post-type-select',
 				'post_type' => 'cp_gallery',
 				'desc'		=> 'Select TV Album show on TV main page'
+			),
+			array(
+				'label'		=> 'Amount of Photo',
+				'id'		=> $prefix . 'tv_photo_num',
+				'type'		=> 'select',
+				'std'		=> '4',
+				'desc'		=> 'Choose amount of photo to show',
+				'choices'   => array( 
+		          array(
+		            'value'       => '1',
+		            'label'       => '1',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '2',
+		            'label'       => '2',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '3',
+		            'label'       => '3',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '4',
+		            'label'       => '4',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '5',
+		            'label'       => '5',
+		            'src'         => ''
+		          ),
+		        )
+			),
+			array(
+				'label'		=> 'Photo Text link',
+				'id'		=> $prefix . 'tv_photo_text_link',
+				'type'		=> 'text',
+				'std'		=> 'More photo',
+				'desc'		=> 'Title link for TV Photo'
 			),
 			array(
 				'label'       => __( 'Callout', 'wpsp' ),

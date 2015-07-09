@@ -985,19 +985,30 @@ img.aligncenter {
 --------------------------------------------------------------*/
 .post-grid-2 article,
 .post-grid-3 article,
-.post-grid-4 article {
+.post-grid-4 article,
+.post-grid-5 article {
     display: inline-block;
-    margin: 1.12%;
+    /*margin-right: 1.2%;*/
+    margin-right: 10px;
     vertical-align: top;
 }
+.post-grid-2 article:last-child,
+.post-grid-3 article:last-child,
+.post-grid-4 article:last-child,
+.post-grid-5 article:last-child {
+    margin-right: 0;
+}
 .post-grid-2 article{
-    width:47.3%;
+    width:49.48%;
 }
 .post-grid-3 article{
-    width:30.6%;
+    width:32.63%;
 }
 .post-grid-4 article{
-    width:22.7%;
+    width:24.22%;
+}
+.post-grid-5 article{
+    width:19.16%;
 }
 
 

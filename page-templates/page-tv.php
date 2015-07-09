@@ -11,7 +11,13 @@ get_header(); ?>
 
 	<?php 
 		$cateogry_id = get_post_meta( $post->ID, 'sp_post_by_cat', true ); 
+		$tv_team_title = esc_html( get_post_meta( $post->ID, 'sp_tv_team_title', true ) );
+		$tv_team_num = esc_html( get_post_meta( $post->ID, 'sp_tv_team_num', true ) );
+		$tv_team_text_link = esc_html( get_post_meta( $post->ID, 'sp_tv_team_text_link', true ) );
 		$team_taxonomy_id = get_post_meta( $post->ID, 'sp_team_tax', true );
+		$tv_photo_title = esc_html( get_post_meta( $post->ID, 'sp_tv_photo_title', true ) );
+		$tv_photo_num = esc_html( get_post_meta( $post->ID, 'sp_tv_photo_num', true ) );
+		$tv_photo_text_link = esc_html( get_post_meta( $post->ID, 'sp_tv_photo_text_link', true ) );
 		$album_taxonomy_id = get_post_meta( $post->ID, 'sp_album_tax', true ); 
 	?>
 
@@ -89,12 +95,12 @@ get_header(); ?>
 
 			<div id="meet-tv-star" class="team clearfix">
 				<div class="section-title clearfix">
-					<h3><i class="fa fa-star"></i> Meet the Star</h3>
-					<a href="#" class="more">More people</a>
+					<h3><i class="fa fa-star"></i> <?php echo $tv_team_title; ?></h3>
+					<a href="#" class="more"><?php echo $tv_team_text_link; ?></a>
 				</div>
 				<?php $args = array(
 	                'post_type' => 'cp_team',
-	                'posts_per_page' => 5,
+	                'posts_per_page' => $tv_team_num,
 	                'meta_query' => array(
 						array(
 							'key'     => 'sp_team_featured',
@@ -123,12 +129,12 @@ get_header(); ?>
 
 			<div id="photo-wrap" class="clearfix">
 				<div class="section-title clearfix">
-					<h3><i class="fa fa-film"></i> Behind the scenes</h3>
-					<a href="<?php echo esc_url( get_permalink( $album_taxonomy_id ) ); ?>" class="more">More photos</a>
+					<h3><i class="fa fa-film"></i> <?php echo $tv_photo_title; ?></h3>
+					<a href="<?php echo esc_url( get_permalink( $album_taxonomy_id ) ); ?>" class="more"><?php echo $tv_photo_text_link; ?></a>
 				</div>
 				<div class="filmstrip">
 					<div class="strip-top"></div>
-					<?php wpsp_single_photo_album( $album_taxonomy_id, 4, 4 ); ?>
+					<?php wpsp_single_photo_album( $album_taxonomy_id, $tv_photo_num, $tv_photo_num ); ?>
 					<div class="strip-bottom"></div>
 				</div> <!-- .filmstrip -->
 			</div> <!-- .lastest-gallery -->
