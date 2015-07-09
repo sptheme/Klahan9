@@ -305,8 +305,8 @@ function wpsp_get_related_posts( $post_id, $args=array(), $cols = 3 ) {
 	$custom_query = new WP_Query($args);
 
 	if ( $custom_query->have_posts() ) {
-		echo '<section class="related-posts custom-post-' . $post_type . ' clearfix">';
-		echo '<h2 class="heading">' . esc_html__( 'You may also see', WPSP_TEXT_DOMAIN ) . '</h2>';
+		echo '<section class="related-posts clearfix">';
+		echo '<h2 class="heading">' . esc_html__( 'You may also see...', WPSP_TEXT_DOMAIN ) . '</h2>';
 		echo '<div class="post-grid-' . $cols . ' clearfix">';
 		while ( $custom_query->have_posts() ) : $custom_query->the_post();
 			wpsp_switch_posttype_content( $post_type );
