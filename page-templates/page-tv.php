@@ -98,6 +98,7 @@ get_header(); ?>
 				<div class="section-title clearfix">
 					<h3><i class="fa fa-star"></i> <?php echo $tv_team_title; ?></h3>
 					<a href="<?php echo esc_url( get_permalink( $tv_team_page_link ) ); ?>" class="more"><?php echo $tv_team_text_link; ?></a>
+					
 				</div>
 				<?php $args = array(
 	                'post_type' => 'cp_team',

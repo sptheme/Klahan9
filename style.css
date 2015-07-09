@@ -1369,6 +1369,10 @@ input[type="search"] {
 .updated:not(.published) {
     display: none;
 }
+.edit-link {
+    display: inline-block;
+    padding-bottom: 20px;
+}
 
 /* Post team */
 .custom-post-cp_team article {
@@ -1376,7 +1380,9 @@ input[type="search"] {
     text-align: center;
     padding: 10px;
 }
-.custom-post-cp_team article:hover {
+.custom-post-cp_team article:hover,
+.page-template-default .custom-post-cp_team article:hover,
+.single-cp_team .custom-post-cp_team article:hover {
     background-color: #c2c2c2;
 }
 .custom-post-cp_team article:hover .team-meta,
@@ -1398,6 +1404,10 @@ input[type="search"] {
 }
 .single-cp_team .team-social {
     margin-bottom: 20px;
+}
+.page-template-default .custom-post-cp_team article,
+.single-cp_team .custom-post-cp_team article{
+    background-color:#f1f1f1;
 }
 .team-social a {
     display: inline-block;

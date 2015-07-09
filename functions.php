@@ -228,7 +228,7 @@ function wpsp_print_custom_css_script(){
 	<?php if ( is_page_template( 'page-templates/page-blog.php' ) || is_page_template( 'page-templates/page-tv.php' ) || is_page_template( 'page-templates/page-radio.php' )) { 
 		$page_bg_color = wpsp_get_page_bg_color(); ?>
 	.content-background,
-	.team article:hover { 
+	.custom-post-cp_team article:hover { 
 		background-color: <?php echo $page_bg_color; ?>!important; 
 	}
 	.main-navigation .current_page_item > a { 
