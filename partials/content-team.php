@@ -22,24 +22,22 @@
 		    echo '</a>';
 		}
 	?>
-
 	
 		<?php the_title( sprintf( '<h1 itemprop="name" class="entry-title"><a itemprop="url" href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
 
 		<div class="team-meta">
 			<?php echo $team_position; ?>
 		</div><!-- .entry-meta -->
-		<div class="social-profile-team">
-		<?php if ( ! empty( $team_facebook ) ) : ?>
-			<a href="<?php echo $team_facebook; ?>"><i class="fa fa-facebook"></i></a>
-		<?php endif; ?>	
-		<?php if ( ! empty( $team_twitter ) ) : ?>
-			<a href="<?php echo $team_twitter; ?>"><i class="fa fa-twitter"></i></a>
-		<?php endif; ?>	
-		<?php if ( ! empty( $team_linkedin ) ) : ?>
-			<a href="<?php echo $team_linkedin; ?>"><i class="fa fa-linkedin"></i></a>
-		<?php endif; ?>	
-			
-			
-		</div><!-- .entry-meta -->
+
+		<div class="team-social">
+			<?php if ( ! empty( $team_facebook ) ) : ?>
+				<a href="<?php echo $team_facebook; ?>"><i class="fa fa-facebook"></i></a>
+			<?php endif; ?>	
+			<?php if ( ! empty( $team_twitter ) ) : ?>
+				<a href="<?php echo $team_twitter; ?>"><i class="fa fa-twitter"></i></a>
+			<?php endif; ?>	
+			<?php if ( ! empty( $team_linkedin ) ) : ?>
+				<a href="<?php echo $team_linkedin; ?>"><i class="fa fa-linkedin"></i></a>
+			<?php endif; ?>
+		</div> <!-- .team-social -->	
 </article><!-- #post-## -->

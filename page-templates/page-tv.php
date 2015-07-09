@@ -94,7 +94,7 @@ get_header(); ?>
 				</div> <!-- .tv-post-lists -->
 			</div> <!-- #tv-header -->
 
-			<div id="meet-tv-star" class="team clearfix">
+			<div id="meet-tv-star" class="clearfix">
 				<div class="section-title clearfix">
 					<h3><i class="fa fa-star"></i> <?php echo $tv_team_title; ?></h3>
 					<a href="<?php echo esc_url( get_permalink( $tv_team_page_link ) ); ?>" class="more"><?php echo $tv_team_text_link; ?></a>
@@ -121,7 +121,7 @@ get_header(); ?>
 
 				wpsp_get_posts_type ( 'cp_team', $args, $tv_team_num ); ?>
 
-			</div> <!-- .meet-tv-star -->
+			</div> <!-- #meet-tv-star -->
 
 			<div id="photo-wrap" class="clearfix">
 				<div class="section-title clearfix">
@@ -134,6 +134,7 @@ get_header(); ?>
 					<div class="strip-bottom"></div>
 				</div> <!-- .filmstrip -->
 			</div> <!-- .lastest-gallery -->
+
 			<div class="callout clearfix">
 				<div class="two-third">
 					<h2><?php echo esc_html( get_post_meta( $post->ID, 'sp_callout_title', true ) ); ?></h2>
@@ -144,7 +145,8 @@ get_header(); ?>
 					<?php echo esc_html( get_post_meta( $post->ID, 'sp_callout_button', true ) ); ?>
 					</a>
 				</div>
-			</div>
+			</div> <!-- .callout -->
+			
 		</main><!-- #main -->
 	</div><!-- #primary -->
 <?php get_footer(); ?>
