@@ -188,11 +188,6 @@ function _custom_meta_boxes() {
 				'desc'		=> 'Choose amount of people to show',
 				'choices'   => array( 
 		          array(
-		            'value'       => '1',
-		            'label'       => '1',
-		            'src'         => ''
-		          ),
-		          array(
 		            'value'       => '2',
 		            'label'       => '2',
 		            'src'         => ''
@@ -254,11 +249,6 @@ function _custom_meta_boxes() {
 				'std'		=> '4',
 				'desc'		=> 'Choose amount of photo to show',
 				'choices'   => array( 
-		          array(
-		            'value'       => '1',
-		            'label'       => '1',
-		            'src'         => ''
-		          ),
 		          array(
 		            'value'       => '2',
 		            'label'       => '2',
@@ -410,11 +400,6 @@ function _custom_meta_boxes() {
 				'desc'		=> 'Choose amount of people to show',
 				'choices'   => array( 
 		          array(
-		            'value'       => '1',
-		            'label'       => '1',
-		            'src'         => ''
-		          ),
-		          array(
 		            'value'       => '2',
 		            'label'       => '2',
 		            'src'         => ''
@@ -476,11 +461,6 @@ function _custom_meta_boxes() {
 				'std'		=> '4',
 				'desc'		=> 'Choose amount of photo to show',
 				'choices'   => array( 
-		          array(
-		            'value'       => '1',
-		            'label'       => '1',
-		            'src'         => ''
-		          ),
 		          array(
 		            'value'       => '2',
 		            'label'       => '2',
@@ -661,7 +641,36 @@ function _custom_meta_boxes() {
 				'id'		=> $prefix . 'gallery',
 				'type'		=> 'gallery',
 				'desc'		=> 'Upload photos'
-			)
+			),
+			array(
+				'label'		=> 'Photo columns',
+				'id'		=> $prefix . 'gallery_cols',
+				'type'		=> 'select',
+				'std'		=> '4',
+				'desc'		=> '',
+				'choices'   => array( 
+		          array(
+		            'value'       => '2',
+		            'label'       => '2',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '3',
+		            'label'       => '3',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '4',
+		            'label'       => '4',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '5',
+		            'label'       => '5',
+		            'src'         => ''
+		          ),
+		        )
+			),
 		)
 	);
 

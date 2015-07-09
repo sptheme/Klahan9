@@ -988,26 +988,20 @@ img.aligncenter {
 .post-grid-4 article,
 .post-grid-5 article {
     display: inline-block;
-    margin-right: 10px;
+    margin: 1.05%;
     vertical-align: top;
 }
-.post-grid-2 article:last-child,
-.post-grid-3 article:last-child,
-.post-grid-4 article:last-child,
-.post-grid-5 article:last-child {
-    margin-right: 0;
-}
 .post-grid-2 article{
-    width:49.48%;
+    width: 47.9%;
 }
 .post-grid-3 article{
-    width:32.63%;
+    width:31.2%;
 }
 .post-grid-4 article{
-    width:24.22%;
+    width: 22.9%;
 }
 .post-grid-5 article{
-    width:19.16%;
+    width:17.9%;
 }
 
 

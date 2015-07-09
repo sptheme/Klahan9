@@ -41,7 +41,6 @@ function wpsp_team_shortcode_ajax(){
 					<th><label for="<?php echo $field; ?>"><?php _e( 'Columns: ', 'wpsp_shortcode' ); ?></label></th>
 					<td>
 						<select name="<?php echo $field; ?>" id="<?php echo $field; ?>">
-							<option class="level-0" value="1">1</option>
 							<option class="level-0" value="2">2</option>
 							<option class="level-0" selected="selected" value="3">3</option>
 							<option class="level-0" value="4">4</option>

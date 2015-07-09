@@ -7,7 +7,8 @@
 
 ?>
 
-<?php $album_location = get_post_meta( $post->ID, 'sp_album_location', true ); ?>
+<?php $album_location = get_post_meta( $post->ID, 'sp_album_location', true ); 
+	$photo_cols = get_post_meta( $post->ID, 'sp_gallery_cols', true ); ?>
 			
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
@@ -23,7 +24,7 @@
 	<div class="entry-content">
 		<?php the_content(); ?>
 
-		<?php wpsp_single_photo_album( $post->ID, 99, 4 ); ?>
+		<?php wpsp_single_photo_album( $post->ID, 99, $photo_cols ); ?>
 	</div><!-- .entry-content -->
 
 </article><!-- #post-## -->
