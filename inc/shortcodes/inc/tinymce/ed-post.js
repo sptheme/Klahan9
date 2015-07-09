@@ -1,18 +1,18 @@
 /**
- * Project Grid Short code button
+ * Post Short code button
  */
 
 (function($) {
-     tinymce.create( 'tinymce.plugins.slider', {
+     tinymce.create( 'tinymce.plugins.post', {
         init : function( ed, url ) {
-             ed.addButton( 'slider', {
-                title : 'Insert slideshow',
-                image : url + '/ed-icons/slider.png',
+             ed.addButton( 'post', {
+                title : 'Insert Posts',
+                image : url + '/ed-icons/insert_posts.png',
                 onclick : function() {
 						var width = jQuery( window ).width(), H = jQuery( window ).height(), W = ( 720 < width ) ? 720 : width;
 						W = W - 80;
 						H = H - 84;
-						tb_show( 'Slideshow Options', 'admin-ajax.php?action=sp_slider_shortcode&width=' + W + '&height=' + H );					                 }
+						tb_show( 'Post options', 'admin-ajax.php?action=sp_post_shortcode&width=' + W + '&height=' + H );					                 }
              });
          },
          getInfo : function() {
@@ -25,19 +25,21 @@
 				};
 		}
      });
-	tinymce.PluginManager.add( 'slider', tinymce.plugins.slider );
+	tinymce.PluginManager.add( 'post', tinymce.plugins.post );
 
 	// handles the click event of the submit button
-	$('body').on('click', '#sc-slider-form #option-submit', function() {
-		form = $('#sc-slider-form');
+	$('body').on('click', '#sc-post-form #option-submit', function() {
+		form = $('#sc-post-form');
 		// defines the options and their default values
 		// again, this is not the most elegant way to do this
 		// but well, this gets the job done nonetheless
 		var options = { 
-			'slide_id' : null,
-			'slide_num' : null
+			'term_id' : null,
+			'post_style' : null,
+			'cols' : null,
+			'post_num' : null
 			};
-		var shortcode = '[slider';
+		var shortcode = '[post';
 		
 		for( var index in options) {
 			var value = form.find('#'+index).val();

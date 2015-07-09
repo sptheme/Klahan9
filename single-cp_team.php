@@ -26,7 +26,6 @@ get_header(); ?>
 					<?php the_title( '<h1 itemprop="name" class="entry-title">', '</h1>' ); ?>
 					<div class="team-meta">
 						<?php echo get_post_meta( $post->ID, 'sp_team_position', true ); ?>
-						<?php echo get_post_meta( $post->ID, 'sp_team_featured', true ); ?>
 					</div><!-- .entry-meta -->
 					<div class="social-profile-team">
 						<a href="#"><i class="fa fa-facebook"></i></a>
@@ -40,6 +39,8 @@ get_header(); ?>
 				</div><!-- .entry-content -->
 
 			</article><!-- #post-## -->
+
+			<?php //wpsp_get_related_posts( $post->ID, array('posts_per_page' => 3) ); ?>
 
 		<?php endwhile; // End of the loop. ?>
 

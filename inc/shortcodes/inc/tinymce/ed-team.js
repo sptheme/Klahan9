@@ -1,18 +1,18 @@
 /**
- * Team Grid Short code button
+ * team Short code button
  */
 
 (function($) {
      tinymce.create( 'tinymce.plugins.team', {
         init : function( ed, url ) {
              ed.addButton( 'team', {
-                title : 'Insert team',
-                image : url + '/ed-icons/people.png',
+                title : 'Insert Team Posts',
+                image : url + '/ed-icons/biography.png',
                 onclick : function() {
 						var width = jQuery( window ).width(), H = jQuery( window ).height(), W = ( 720 < width ) ? 720 : width;
 						W = W - 80;
 						H = H - 84;
-						tb_show( 'Team Options', 'admin-ajax.php?action=sp_team_shortcode&width=' + W + '&height=' + H );					                 }
+						tb_show( 'Team options', 'admin-ajax.php?action=wpsp_team_shortcode_ajax&width=' + W + '&height=' + H );					                 }
              });
          },
          getInfo : function() {
@@ -34,10 +34,11 @@
 		// again, this is not the most elegant way to do this
 		// but well, this gets the job done nonetheless
 		var options = { 
-			'category_id' : null,
-			'numberposts' : null
+			'term_id' : null,
+			'post_num' : null,
+			'cols' : null
 			};
-		var shortcode = '[team';
+		var shortcode = '[sc_team';
 		
 		for( var index in options) {
 			var value = form.find('#'+index).val();

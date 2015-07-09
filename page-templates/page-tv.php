@@ -93,7 +93,7 @@ get_header(); ?>
 					<a href="#" class="more">More people</a>
 				</div>
 				<?php $args = array(
-	                'post_type' => 'team',
+	                'post_type' => 'cp_team',
 	                'posts_per_page' => 5,
 	                'meta_query' => array(
 						array(

@@ -45,7 +45,7 @@ function wpsp_photogallery_shortcode_ajax() {
 							<option class="level-0" value="1">1</option>
 							<option class="level-0" value="2">2</option>
 							<option class="level-0" selected="selected" value="3">3</option>
-							<option class="level-0" value="4">1</option>
+							<option class="level-0" value="4">4</option>
 						</select>
 					</td>
 				</tr>

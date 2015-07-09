@@ -1284,7 +1284,10 @@ input[type="search"] {
 .entry-content h3,
 .entry-content h4,
 .entry-content h5,
-.entry-content h6 { margin-bottom: .4em; }
+.entry-content h6 { 
+    margin-top: 1em;
+    margin-bottom: .4em; 
+}
 
 /* Meta */
 .entry-meta {
@@ -1358,30 +1361,37 @@ input[type="search"] {
 
 /* Post team */
 .team article {
-    background-color: #fff;
     float: left;
     width: 184px;
     margin-right: 10px;
-    padding: 10px;
+    background-color: #fff;
     text-align: center;
-}
-.team article:hover {
-    background-color: #c2c2c2;
-}
-.team article:hover .team-meta,
-.team article:hover a {
-    color: #ffffff;
-}
-.team article:last-child {
-    margin-right: 0;
+    padding: 10px;
 }
 .team .entry-title {
     font-size: 16px;
     padding-top: 10px;
     padding-bottom: 5px;
 }
-.single-cp_team .entry-title {
-    font-size: 26px;
+.custom-post-cp_team article {
+    background-color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+.custom-post-cp_team article:hover {
+    background-color: #c2c2c2;
+}
+.custom-post-cp_team article:hover .team-meta,
+.custom-post-cp_team article:hover a {
+    color: #ffffff;
+}
+.custom-post-cp_team article:last-child {
+    margin-right: 0;
+}
+.custom-post-cp_team .entry-title {
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 5px;
 }
 .team-meta {
     color: #555555;

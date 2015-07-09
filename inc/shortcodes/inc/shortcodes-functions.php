@@ -34,7 +34,8 @@ function wpsp_add_shortcodes() {
 	add_shortcode( 'tabgroup', 'wpsp_tabgroup_shortcode' );
 	add_shortcode( 'tab', 'wpsp_tab_shortcode' );
 	
-	add_shortcode( 'sc_photogallery', 'wpsp_photogallery_shortcode' );;
+	add_shortcode( 'sc_team', 'wpsp_team_shortcode' );
+	add_shortcode( 'sc_photogallery', 'wpsp_photogallery_shortcode' );
 	
 	
 }
@@ -253,6 +254,7 @@ function wpsp_tab_shortcode($atts, $content = null) {
 }
 endif;
 
+if ( ! function_exists( 'wpsp_photogallery_shortcode' ) ) :
 /**
  * Photogallery
  *
@@ -263,18 +265,55 @@ function wpsp_photogallery_shortcode( $atts, $content = null ){
 
 	global $post;
 
+	ob_start();
+
 	extract( shortcode_atts( array(
 		'album_id'  => null,
 		'post_num'  => null,
 		'cols' 		=> null,
 	), $atts ) );
 
-	$out = '';
 	if ( $album_id == '-1' ) { // Show each cover album		
-		$out .= wpsp_get_all_albums( $post_num, $cols );
+		wpsp_get_all_albums( $post_num, $cols );
 	} else { // show individual album
-		$out .= wpsp_single_photo_album( $album_id, $cols );
+		wpsp_single_photo_album( $album_id, $cols );
 	}
-	return $out;
+	return ob_get_clean();
 }
+endif;
 
+if ( ! function_exists( 'wpsp_team_shortcode' ) ) :
+/**
+ * Team shortcode
+ *
+ * Options: Show all team / by Category
+ *
+ */
+function wpsp_team_shortcode( $atts, $content = null ){
+
+	ob_start();
+	extract( shortcode_atts( array(
+		'term_id' => null,
+		'post_num' => null,
+		'cols' => null
+	), $atts ) );
+
+	if ( $term_id == '-1' ) {
+		$out = wpsp_get_posts_type( 'cp_team' );
+	} else {
+		$args = array (
+				'tax_query' => array(
+					array(
+						'taxonomy' => 'team_category',
+						'field'    => 'id',
+						'terms'    => array($term_id)
+					)
+				),
+				'posts_per_page' => $post_num
+			);
+		wpsp_get_posts_type( 'cp_team', $args, $cols );
+	}
+
+	return ob_get_clean();
+}
+endif;

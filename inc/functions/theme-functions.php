@@ -246,6 +246,35 @@ function wpsp_masthead_option() {
 }
 endif;
 
+if ( !function_exists('wpsp_get_posts_type') ) :
+/**
+ *  Get post by post type
+ */	
+	function wpsp_get_posts_type( $post_type = 'post', $args=array(), $cols = 4 ) {
+
+		$defaults = array(
+				'post_type' => $post_type,
+				'posts_per_page' => -1
+			);
+		$args = wp_parse_args( $args, $defaults );
+		extract( $args );
+
+		$custom_query = new WP_Query($args);
+
+		if ( $custom_query->have_posts() ):
+			echo '<section class="custom-post-' . $post_type . '">';
+			echo '<div class="post-grid-' . $cols . ' clearfix">';
+			while ( $custom_query->have_posts() ) : $custom_query->the_post();
+				wpsp_switch_posttype_content( $post_type );
+			endwhile; wp_reset_postdata();
+			echo '</div>';
+			echo '</section>';
+		endif;
+
+		return $out;
+	}	
+endif;
+
 if ( !function_exists('wpsp_get_related_posts') ) :
 /**
  *  Get post related by post type
@@ -276,7 +305,7 @@ function wpsp_get_related_posts( $post_id, $args=array(), $cols = 3 ) {
 	$custom_query = new WP_Query($args);
 
 	if ( $custom_query->have_posts() ) {
-		echo '<section class="related-posts">';
+		echo '<section class="related-posts clearfix">';
 		echo '<h2 class="heading">' . esc_html__( 'You may also see', WPSP_TEXT_DOMAIN ) . '</h2>';
 		echo '<div class="post-grid-' . $cols . ' clearfix">';
 		while ( $custom_query->have_posts() ) : $custom_query->the_post();
@@ -299,6 +328,11 @@ if ( !function_exists('wpsp_switch_posttype_content') ) :
  */
 function wpsp_switch_posttype_content( $post_type ) {
 	switch ( $post_type ) {
+		
+		case 'cp_team':
+		get_template_part( 'partials/content', 'team' );
+		break;
+
 		case 'cp_gallery':
 		get_template_part( 'partials/content', 'album' );
 		break;
