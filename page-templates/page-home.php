@@ -47,7 +47,7 @@ get_header(); ?>
 				<img class="ground wow fadeIn" data-wow-duration="2s" src="<?php echo WPSP_BASE_URL; ?>/images/front-page/ground.png">
 				<img class="dead-rize wow fadeInRight" data-wow-duration="1s" data-wow-delay="1.1s" src="<?php echo WPSP_BASE_URL; ?>/images/front-page/dead-rize.png">
 				<img class="cow wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1.2s" src="<?php echo WPSP_BASE_URL; ?>/images/front-page/cow.png">
-				<img class="kits-fly wow zoomIn" data-wow-duration="1.5s" data-wow-delay="1.7s" src="<?php echo WPSP_BASE_URL; ?>/images/front-page/kits-fly.png">	
+				<img class="kits-fly wow zoomIn" data-wow-duration="1.5s" data-wow-delay="2.2s" src="<?php echo WPSP_BASE_URL; ?>/images/front-page/kits-fly.png">	
 				<img class="birds wow fadeInDown" data-wow-duration="1s" data-wow-delay="1.9s" src="<?php echo WPSP_BASE_URL; ?>/images/front-page/birds.png">	
 				<img class="bamboo wow fadeInUp" data-wow-duration="1.2s" data-wow-delay="2.1s" src="<?php echo WPSP_BASE_URL; ?>/images/front-page/bamboo.png">
 				<img class="palm-1 wow fadeInUp" data-wow-duration="1s" data-wow-delay="2.2s" src="<?php echo WPSP_BASE_URL; ?>/images/front-page/palm-1.png">
