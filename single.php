@@ -16,7 +16,9 @@ get_header(); ?>
 
 			<?php wpsp_the_post_navigation(); ?> 
 			
-			<?php wpsp_get_related_posts( $post->ID, array('posts_per_page' => 3) ); ?>
+			<?php if ( ot_get_option( 'related-posts' ) != '1' ) { 
+				wpsp_get_related_posts( $post->ID, array('posts_per_page' => 3) ); 
+				} ?>
 
 			<?php
 				// If comments are open or we have at least one comment, load up the comment template.

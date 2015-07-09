@@ -14,7 +14,9 @@ get_header(); ?>
 
 			<?php get_template_part( 'partials/content-single', 'album' ); ?>
 
-			<?php wpsp_get_related_posts( $post->ID, array('posts_per_page' => 3) ); ?>
+			<?php if ( ot_get_option( 'related-posts' ) != '1' ) { 
+				wpsp_get_related_posts( $post->ID, array('posts_per_page' => 3) ); 
+				} ?>
 
 		<?php endwhile; // End of the loop. ?>
 

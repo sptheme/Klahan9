@@ -988,7 +988,6 @@ img.aligncenter {
 .post-grid-4 article,
 .post-grid-5 article {
     display: inline-block;
-    /*margin-right: 1.2%;*/
     margin-right: 10px;
     vertical-align: top;
 }

@@ -158,6 +158,28 @@ function custom_theme_options() {
 			'type'		=> 'upload',
 			'section'	=> 'post'
 		),
+		array(
+			'id'		=> 'related-posts',
+			'label'		=> 'Single &mdash; Related Posts',
+			'desc'		=> 'Shows randomized related articles below the post',
+			'std'		=> 'categories',
+			'type'		=> 'radio',
+			'section'	=> 'post',
+			'choices'	=> array(
+				array( 
+					'value' => '1',
+					'label' => 'Disable'
+				),
+				array( 
+					'value' => 'categories',
+					'label' => 'Related by categories'
+				),
+				array( 
+					'value' => 'tags',
+					'label' => 'Related by tags'
+				)
+			)
+		),
 		// Footer: Copyright
 		array(
 			'id'		=> 'more-info',
