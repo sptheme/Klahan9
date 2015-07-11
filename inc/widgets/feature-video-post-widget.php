@@ -1,6 +1,6 @@
 <?php
 /**
- * Recent TV Widget
+ * Widget Class for Feature Video Post Widget
  *
  * Featured post video format by category
  * Learn more: http://codex.wordpress.org/Widgets_API
@@ -14,8 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-if ( ! class_exists( 'WPSP_Recent_Tv_Widget' ) ) {
-    class WPSP_Recent_Tv_Widget extends WP_Widget {
+if ( ! class_exists( 'WPSP_FVP_Widget' ) ) {
+    class WPSP_FVP_Widget extends WP_Widget {
 	
     /**
      * Register widget with WordPress.
@@ -24,7 +24,7 @@ if ( ! class_exists( 'WPSP_Recent_Tv_Widget' ) ) {
      */
     public function __construct() {
         $id = 'wpsp-recent-tv-widget';
-        $name = WPSP_THEME_NAME . ' - '. __( 'Recent TV', 'wpsp' );
+        $name = WPSP_THEME_NAME . ' - '. __( 'Feature Video Post', 'wpsp' );
         $widget_ops = array(
                 'classname'         => 'widget-recent-tv widget-post-category',
                 'description'   => __( 'Featured post video format by category', 'wpsp' )
@@ -179,9 +179,9 @@ if ( ! class_exists( 'WPSP_Recent_Tv_Widget' ) ) {
 }
 
 // Register widget with widgets init hook
-if ( ! function_exists( 'register_wpsp_recent_tv_widget' ) ) {
-    function register_wpsp_recent_tv_widget() {
-        register_widget( 'WPSP_Recent_Tv_Widget' );
+if ( ! function_exists( 'register_wpsp_fvp_widget' ) ) {
+    function register_wpsp_fvp_widget() {
+        register_widget( 'WPSP_FVP_Widget' );
     }
 }
-add_action( 'widgets_init', 'register_wpsp_recent_tv_widget' );
+add_action( 'widgets_init', 'register_wpsp_fvp_widget' );

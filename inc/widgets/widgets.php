@@ -161,8 +161,7 @@ function wpsp_custom_widgets() {
     // Define array of custom widgets for the theme
     $widgets = array(
         'sub-categories',
-        'listen-broadcast',
-        'recent-tv',
+        'feature-video-post',
         'post-category'
     );
 

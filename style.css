@@ -1812,7 +1812,8 @@ article.format-gallery:before {
 
 .widget_categories li:before { content: "\f07c"; }
 
-.widget_pages li:before { content: "\f0da"; }
+.widget_pages li:before,
+.widget_archive li:before { content: "\f0da"; }
 
 /* Post by Category Widget */ 
 .widget-post-category article {
