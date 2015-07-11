@@ -40,6 +40,11 @@ if ( ! function_exists( 'wpsp_setup' ) ) :
  * as indicating support for post thumbnails.
  */
 function wpsp_setup() {
+
+	// This theme styles the visual editor to resemble the theme style.
+	$font_url = 'http://fonts.googleapis.com/css?family=Oswald:400,300,700';
+	add_editor_style( array( WPSP_CSS_DIR_URI . 'base.css', str_replace( ',', '%2C', $font_url ) ) );
+
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
