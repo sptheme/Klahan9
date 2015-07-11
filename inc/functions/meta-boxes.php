@@ -496,7 +496,7 @@ function _custom_meta_boxes() {
 	//Page template setting for Home
 	$page_home_template_settings = array(
 			'id'          => 'page-home-template-settings',
-			'title'       => 'Settings',
+			'title'       => 'Message Settings',
 			'desc'        => '',
 			'pages'       => array( 'page' ),
 			'context'     => 'normal',
@@ -715,17 +715,18 @@ function _custom_meta_boxes() {
 	$template_file = rw_maybe_include();
 	if ( ( $template_file == 'page-templates/page-tv.php' ) || ( $template_file == 'page-templates/page-radio.php' ) || ( $template_file == 'page-templates/page-blog.php' ) ) {
 		ot_register_meta_box( $page_template_settings ); 
+	} elseif ( $template_file == 'page-templates/page-home.php' ) {
+		ot_register_meta_box( $page_home_template_settings ); 
 	}  else {
 		ot_register_meta_box( $page_layout_options );
 	}
+	
 	if ( $template_file == 'page-templates/page-tv.php' ) {
 		ot_register_meta_box( $page_tv_template_settings ); 
 	} 
 	if ( $template_file == 'page-templates/page-radio.php' ) {
 		ot_register_meta_box( $page_radio_template_settings ); 
 	} 
-	if ( $template_file == 'page-templates/page-home.php' ) {
-		ot_register_meta_box( $page_home_template_settings ); 
-	}
+	
 }
 
