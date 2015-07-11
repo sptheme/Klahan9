@@ -1814,17 +1814,6 @@ article.format-gallery:before {
 
 .widget_pages li:before { content: "\f0da"; }
 
-/* Listen to broadcast */
-.widget-listen-broadcast article.format-audio {
-    padding-left: 35px; 
-}
-.widget-listen-broadcast article.format-audio:before {
-    content: "\f130";
-    font-size: 24px;
-    padding-top: 0;
-    margin-top: -5px;
-}
-
 /* Post by Category Widget */ 
 .widget-post-category article {
     padding: 10px; 
@@ -1893,6 +1882,17 @@ article.format-audio .post-thumbnail:before {
 article.format-gallery .post-thumbnail:before {
     content: "\f03e";
     width: 30px;
+}
+
+/* custom post format audio icon */
+article.custom-format-audio {
+    padding-left: 35px; 
+}
+article.custom-format-audio:before {
+    content: "\f130";
+    font-size: 24px;
+    padding-top: 0;
+    margin-top: -5px;
 }
 
 /* TV Featured */

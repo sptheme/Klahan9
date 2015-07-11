@@ -68,16 +68,12 @@ if ( ! class_exists( 'WPSP_Listen_Broadcast_Widget' ) ) {
             }
 
             global $post;
-        
-            if ( is_singular() ) {
-                $args = array( 'post__not_in' => array($post->ID) );   
-            } else {
-                $args = array( 'post__not_in' => get_option( 'sticky_posts' ) );
-            }
+            $args = array();
 
             $defaults = array(
                 'post_type' => 'post',
                 'posts_per_page' => (int) $post_num,
+                'post__not_in' => array($post->ID),
                 'tax_query' => array(
                         'relation' => 'AND',
                         array(
@@ -182,7 +178,7 @@ if ( ! class_exists( 'WPSP_Listen_Broadcast_Widget' ) ) {
         </p>
         <p>
             <label for="<?php echo $this->get_field_id('post_num'); ?>"><?php _e('Post number:', 'wpsp'); ?></label>
-            <input class="widefat" id="<?php echo $this->get_field_id('post_num'); ?>" name="<?php echo $this->get_field_name('post_num'); ?>" type="text" value="<?php echo esc_attr($instance['post_num']) ?>" />
+            <input class="widefat" id="<?php echo $this->get_field_id('post_num'); ?>" name="<?php echo $this->get_field_name('post_num'); ?>" type="number" min="1" step="1" value="<?php echo esc_attr($instance['post_num']) ?>" />
         </p>
         
     <?php }
