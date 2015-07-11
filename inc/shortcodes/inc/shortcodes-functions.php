@@ -36,6 +36,7 @@ function wpsp_add_shortcodes() {
 	
 	add_shortcode( 'sc_team', 'wpsp_team_shortcode' );
 	add_shortcode( 'sc_photogallery', 'wpsp_photogallery_shortcode' );
+	add_shortcode( 'sc_post', 'wpsp_post_shortcode' );
 	
 	
 }
@@ -254,34 +255,6 @@ function wpsp_tab_shortcode($atts, $content = null) {
 }
 endif;
 
-if ( ! function_exists( 'wpsp_photogallery_shortcode' ) ) :
-/**
- * Photogallery
- *
- * Display photo by individule or all albums
- *
- */
-function wpsp_photogallery_shortcode( $atts, $content = null ){
-
-	global $post;
-
-	ob_start();
-
-	extract( shortcode_atts( array(
-		'album_id'  => null,
-		'post_num'  => null,
-		'cols' 		=> null,
-	), $atts ) );
-
-	if ( $album_id == '-1' ) { // Show each cover album		
-		wpsp_get_all_albums( $post_num, $cols );
-	} else { // show individual album
-		wpsp_single_photo_album( $album_id, $cols );
-	}
-	return ob_get_clean();
-}
-endif;
-
 if ( ! function_exists( 'wpsp_team_shortcode' ) ) :
 /**
  * Team shortcode
@@ -317,3 +290,71 @@ function wpsp_team_shortcode( $atts, $content = null ){
 	return ob_get_clean();
 }
 endif;
+
+if ( ! function_exists( 'wpsp_photogallery_shortcode' ) ) :
+/**
+ * Photogallery
+ *
+ * Display photo by individule or all albums
+ *
+ */
+function wpsp_photogallery_shortcode( $atts, $content = null ){
+
+	global $post;
+
+	ob_start();
+
+	extract( shortcode_atts( array(
+		'album_id'  => null,
+		'post_num'  => null,
+		'cols' 		=> null,
+	), $atts ) );
+
+	if ( $album_id == '-1' ) { // Show each cover album		
+		wpsp_get_all_albums( $post_num, $cols );
+	} else { // show individual album
+		wpsp_single_photo_album( $album_id, $cols );
+	}
+	return ob_get_clean();
+}
+endif;
+
+if ( ! function_exists( 'wpsp_post_shortcode' ) ) :
+/**
+ * Post shortcode
+ *
+ * Options: Show post format by category
+ *
+ */
+function wpsp_post_shortcode( $atts, $content = null ) {
+
+	ob_start();
+	extract( shortcode_atts( array(
+		'term_id'  => null,
+		'post_format' => null,
+		'post_num'  => null,
+		'cols' 		=> null,
+	), $atts ) );
+
+	$args = array (
+			'tax_query' => array(
+				'relation' => 'AND',
+                array(
+                    'taxonomy' => 'post_format',
+                    'field'    => 'slug',
+                    'terms'    => array( $post_format ),
+                ),
+				array(
+					'taxonomy' => 'category',
+					'field'    => 'term_id',
+					'terms'    => array($term_id)
+				)
+			),
+			'posts_per_page' => $post_num
+		);
+	wpsp_get_posts_type( 'post', $args, $cols );
+
+	return ob_get_clean();
+}
+endif; 
+

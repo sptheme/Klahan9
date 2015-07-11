@@ -261,17 +261,17 @@ if ( !function_exists('wpsp_get_posts_type') ) :
 
 		$custom_query = new WP_Query($args);
 
-		if ( $custom_query->have_posts() ):
-			echo '<section class="custom-post-' . $post_type . '">';
+		if ( $custom_query->have_posts() ) {
+			echo '<section class="default-post custom-post-' . $post_type . '">';
 			echo '<div class="post-grid-' . $cols . ' clearfix">';
 			while ( $custom_query->have_posts() ) : $custom_query->the_post();
 				wpsp_switch_posttype_content( $post_type );
 			endwhile; wp_reset_postdata();
 			echo '</div>';
 			echo '</section>';
-		endif;
-
-		return $out;
+		} else {
+			echo esc_html__( 'Sorry, new content will coming soon.', WPSP_TEXT_DOMAIN );
+		}
 	}	
 endif;
 
@@ -305,7 +305,7 @@ function wpsp_get_related_posts( $post_id, $args=array(), $cols = 3 ) {
 	$custom_query = new WP_Query($args);
 
 	if ( $custom_query->have_posts() ) {
-		echo '<section class="related-posts custom-post-' . $post_type . ' clearfix">';
+		echo '<section class="related-posts default-post custom-post-' . $post_type . '">';
 		echo '<h2 class="heading">' . esc_html__( 'You may also see...', WPSP_TEXT_DOMAIN ) . '</h2>';
 		echo '<div class="post-grid-' . $cols . ' clearfix">';
 		while ( $custom_query->have_posts() ) : $custom_query->the_post();

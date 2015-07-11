@@ -22,7 +22,13 @@
 					__('View profile ', WPSP_TEXT_DOMAIN) . esc_attr( get_the_title() ), 
 					get_the_post_thumbnail( $post->ID, 'team-thumb' )  
 				);
-		}
+		} else { 
+			printf( '<a itemprop="url" href="%1$s" rel="bookmark" title="%2$s">%3$s</a>', 
+					esc_url( get_permalink() ), 
+					__('View profile ', WPSP_TEXT_DOMAIN) . esc_attr( get_the_title() ),  
+					'<img src="' . esc_url( ot_get_option( 'post-placeholder' ) ) . '">'  
+				);
+		} 
 	?>
 	
 		<?php the_title( sprintf( '<h3 class="entry-title" itemprop="name"><a itemprop="url" href="%1$s" rel="bookmark" title="%2$s">', esc_url( get_permalink() ), esc_attr( get_the_title() ) ), '</a></h3>' ); ?>

@@ -12,7 +12,7 @@
 						var width = jQuery( window ).width(), H = jQuery( window ).height(), W = ( 720 < width ) ? 720 : width;
 						W = W - 80;
 						H = H - 84;
-						tb_show( 'Post options', 'admin-ajax.php?action=sp_post_shortcode&width=' + W + '&height=' + H );					                 }
+						tb_show( 'Post options', 'admin-ajax.php?action=wpsp_post_shortcode_ajax&width=' + W + '&height=' + H );					                 }
              });
          },
          getInfo : function() {
@@ -35,11 +35,11 @@
 		// but well, this gets the job done nonetheless
 		var options = { 
 			'term_id' : null,
-			'post_style' : null,
+			'post_format' : null,
+			'post_num' : null,
 			'cols' : null,
-			'post_num' : null
 			};
-		var shortcode = '[post';
+		var shortcode = '[sc_post';
 		
 		for( var index in options) {
 			var value = form.find('#'+index).val();

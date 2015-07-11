@@ -162,7 +162,8 @@ function wpsp_custom_widgets() {
     $widgets = array(
         'sub-categories',
         'listen-broadcast',
-        'recent-tv'
+        'recent-tv',
+        'post-category'
     );
 
     // Loop through widgets and load their files
