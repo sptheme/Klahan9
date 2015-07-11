@@ -95,6 +95,26 @@ endif; // wpsp_setup
 add_action( 'after_setup_theme', 'wpsp_setup' );
 
 /**
+ * Add custom favicon
+ */
+function wpsp_adminfavicon() {
+	echo '<link rel="shortcut icon" type="image/x-icon" href="'.ot_get_option('custom-favicon').'" />'."\n";
+}
+add_action( 'admin_head', 'wpsp_adminfavicon' );
+
+
+function wpsp_apple_touch_icon() {
+	$favicon = ot_get_option('custom-favicon');
+	// Favicon
+	if ( $favicon ) {
+		echo '<link rel="shortcut icon" type="image/png" href="' . $favicon . '" />'."\n";
+	} else {
+		echo '<link rel="shortcut icon" type="image/png" href="' . WPSP_BASE_URL . '/favicon.ico" />'."\n";
+	}
+}
+add_action( 'wp_head', 'wpsp_apple_touch_icon' );
+
+/**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
  * Priority 0 to make it available to lower priority callbacks.

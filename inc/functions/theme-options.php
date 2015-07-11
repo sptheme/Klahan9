@@ -112,11 +112,11 @@ function custom_theme_options() {
 			'id'		=> 'custom-favicon',
 			'label'		=> 'Favicon',
 			'desc'		=> 'Upload your custom site favicon.',
-			'std'		=> WPSP_BASE_URL . '/favicon.png',
+			'std'		=> WPSP_BASE_URL . '/favicon.ico',
 			'type'		=> 'upload',
 			'section'	=> 'favicon'
 		),
-		array(
+		/*array(
 			'id'		=> 'custom-iphone-icon57',
 			'label'		=> 'Apple iPhone Icon',
 			'desc'		=> 'Upload your custom iPhone icon (57px by 57px).',
@@ -147,7 +147,7 @@ function custom_theme_options() {
 			'std'		=> WPSP_BASE_URL . '/images/favicons/apple-touch-icon-144x144-precomposed.png',
 			'type'		=> 'upload',
 			'section'	=> 'favicon'
-		),
+		),*/
 		
 		// Post : Post settings
 		array(
