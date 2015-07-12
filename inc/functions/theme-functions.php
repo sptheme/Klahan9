@@ -362,7 +362,7 @@ function wpsp_get_all_albums( $post_num = -1, $cols = 3 ) {
 	$custom_query = new WP_Query($args);
 
 	if ( $custom_query->have_posts() ) {
-		echo '<div class="custom-post-gallery post-grid-' . $cols . ' clearfix">';
+		echo '<div class="custom-post-gallery default-post post-grid-' . $cols . ' clearfix">';
 		while ( $custom_query->have_posts() ) : $custom_query->the_post();
 		    get_template_part( 'partials/content', 'album' );
 		endwhile; wp_reset_postdata();
@@ -379,6 +379,7 @@ if ( ! function_exists( 'wpsp_single_photo_album' ) ) :
  *
  */
 function wpsp_single_photo_album( $post_id, $post_num, $cols = 4 ) {
+	echo $post_num;
 	$photos = explode( ',', get_post_meta( $post_id, 'sp_gallery', true ) );
 	$out = '';
 	if ( $photos[0] != '' ) { 

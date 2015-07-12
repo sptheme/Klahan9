@@ -313,7 +313,7 @@ function wpsp_photogallery_shortcode( $atts, $content = null ){
 	if ( $album_id == '-1' ) { // Show each cover album		
 		wpsp_get_all_albums( $post_num, $cols );
 	} else { // show individual album
-		wpsp_single_photo_album( $album_id, $cols );
+		wpsp_single_photo_album( $album_id, $post_num, $cols );
 	}
 	return ob_get_clean();
 }
