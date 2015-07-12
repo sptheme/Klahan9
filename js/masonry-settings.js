@@ -1,6 +1,23 @@
 jQuery(document).ready(function($) {
     var $container = $('.widget-area').masonry();
-    enquire.register("screen and (min-width:600px)", {
+
+    enquire
+    .register("screen and (max-width:1024px)", {
+        match: function() {
+            $container.masonry({
+                columnWidth: 365,
+                itemSelector: '.widget',
+                isFitWidth: true,
+                isAnimated: true,
+                gutter: 10
+            });
+        }/*,
+        unmatch: function() {
+            $container.masonry('destroy');
+            console.log( 'masonry destroied' );
+        }*/
+    })
+    .register("screen and (max-width:768px)", {
         match: function() {
             $container.masonry({
                 columnWidth: 310,
@@ -9,9 +26,12 @@ jQuery(document).ready(function($) {
                 isAnimated: true,
                 gutter: 10
             });
-        },
-        unmatch: function() {
-            $container.masonry('destroy');
         }
-    });
+    })
+    .register("screen and (min-width:1024px)", {
+        match: function() {
+            $container.masonry('destroy');
+            console.log( 'masonry destroied' );
+        }
+    })
 });

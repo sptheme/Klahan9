@@ -197,8 +197,8 @@ function wpsp_scripts() {
     wp_enqueue_script( 'klahan9-magnific-popup', WPSP_JS_DIR_URI . 'jquery.magnific-popup.min.js', array('jquery'), WPSP_THEME_VERSION, true );
     wp_enqueue_script('klahan9-menu-mobile', WPSP_JS_DIR_URI . 'menu-mobile.js', array('jquery'), WPSP_THEME_VERSION, true);
     wp_enqueue_script('klahan9-main', WPSP_JS_DIR_URI . 'main.js', array('jquery'), WPSP_THEME_VERSION, true);
-    wp_enqueue_script('klahan9-masonry', WPSP_JS_DIR_URI . 'masonry-settings.js', array('masonry'), WPSP_THEME_VERSION, true);
-    wp_enqueue_script('jquery-enquire', WPSP_JS_DIR_URI . 'enquire.min.js', array('klahan9-masonry'), WPSP_THEME_VERSION, true);
+    //wp_enqueue_script('klahan9-masonry', WPSP_JS_DIR_URI . 'masonry-settings.js', array('masonry'), WPSP_THEME_VERSION, true);
+    //wp_enqueue_script('jquery-enquire', WPSP_JS_DIR_URI . 'enquire.min.js', array('klahan9-masonry'), WPSP_THEME_VERSION, true);
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

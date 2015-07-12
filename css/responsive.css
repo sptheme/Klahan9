@@ -1,6 +1,5 @@
-/* Smaller Tablets & Really Large Phones */
-
-@media screen and (max-width: 768px) {
+/* Large Tablets */
+@media screen and (max-width: 1024px) {
     .site-branding { 
        border: none;
        width: 100%;
@@ -31,33 +30,32 @@
     .widget-area,
     .site-footer-top,
     .tv-featured,
-    .tv-post-lists { 
-        width: 630px; 
-        float: none;
-    }
-    .content-area {
-        margin-bottom: 10px;
+    .tv-post-lists,
+    .index-box,
+    .post-highlight .small-index-thumbnail { 
+        width: 740px; 
+        max-width: 740px;
+        float: none!important;
     }
     .widget{
-        width: 310px;
+        width: 365px;
         float: left;
-    }
-    .site-quick-nav,
-    .site-about {
-        width: 100%;
-        float: none;
-    }
-    .entry-footer {
-        padding-bottom: 20px!important;
+        margin-right: 10px;
+        display: inline-block;
+        vertical-align: top;
     }
 
-    /* tv */
-    .callout h2 {
-        font-size: 20px;
+    .widget-area .widget:nth-child(even) { margin-right: 0; }
+    .widget-area .widget:nth-child(odd):last-child { width: 100%; }
+
+    .tv-post-featured img,
+    .tv-featured-thumb img,
+    .widget_sp_image img {
+        width: 100%;
     }
-    .callout p,
-    .callout .button{
-        font-size: 15px;
+    .callout .button {
+        font-size: 18px;
+        display: inline-block;
     }
     /* Radio */
     #featured-radio-post {
@@ -76,27 +74,64 @@
     }
 }
 
-/* Regular Phones - Landscape */
+/* Smaller Tablets & Really Large Phones */
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 768px) {
+    
+    .container, 
+    .content-area,
+    .widget-area,
+    .site-footer-top,
+    .tv-featured,
+    .tv-post-lists,
+    .index-box,
+    .post-highlight .small-index-thumbnail { 
+        width: 630px; 
+        float: none;
+    }
+    .content-area {
+        margin-bottom: 10px;
+    }
+    .widget{
+        width: 310px;
+    }
+    .site-quick-nav,
+    .site-about {
+        width: 100%;
+        float: none;
+    }
+    .entry-footer {
+        padding-bottom: 20px!important;
+    }
+
+    /* tv */
+    .callout h2 {
+        font-size: 20px;
+    }
+    .callout p,
+    .callout .button{
+        font-size: 15px;
+    }
+}
+
+/* Large Phones - Landscape */
+
+@media screen and (max-width: 640px) {
 
     .container, 
     .content-area,
     .widget-area,
     .site-footer-top,
     .tv-featured,
-    .tv-post-lists { 
-        width: 540px; 
+    .tv-post-lists,
+    .index-box,
+    .post-highlight .small-index-thumbnail { 
+        width: 560px; 
     }
     .widget {
         width: 100%;
         margin-right: 0;
     }
-    .tv-featured-thumb img,
-    .widget_sp_image img {
-        width: 100%;
-    }
-
     .small-index-thumbnail { 
         width: 100%;
         margin: 0 auto;
@@ -106,7 +141,7 @@
     .entry-footer,
     .tag-links,
     .post-navigation {
-        width: 100%;
+        max-width: 100%;
         padding: 0 10px;
     }
     .entry-meta {
@@ -132,30 +167,10 @@
         width: 100%
     }
 
-}
-
-@media screen and (max-width: 440px) {
-    body {
-        font-size: 15px;
-    }
-    .container, 
-    .content-area,
-    .widget-area,
-    .site-footer-top,
-    .tv-featured,
-    .tv-post-lists { 
-        width: 390px; 
-    }
-    .entry-title {
-        font-size: 18px;
-        padding: 10px 0;
-    }
     .alignleft {
         margin-left: 0;
-    }
-    .alignleft,
-    .alignright {
-        float: none;
+        margin-right: 1.5em;
+        float: left;
     }
     .wp-caption img[class*="wp-image-"] {
         display: inline-block;
@@ -166,6 +181,43 @@
     }
     .post-thumbnail img {
         width: 100%;
+    }
+}
+
+/* Regular Phones - Landscape */
+
+@media screen and (max-width: 580px) {
+
+    .container, 
+    .content-area,
+    .widget-area,
+    .site-footer-top,
+    .tv-featured,
+    .tv-post-lists,
+    .index-box,
+    .post-highlight .small-index-thumbnail { 
+        width: 500px; 
+    }
+
+}
+
+@media screen and (max-width: 520px) {
+    body {
+        font-size: 15px;
+    }
+    .container, 
+    .content-area,
+    .widget-area,
+    .site-footer-top,
+    .tv-featured,
+    .tv-post-lists,
+    .index-box,
+    .post-highlight .small-index-thumbnail { 
+        width: 390px; 
+    }
+    .entry-title {
+        font-size: 18px;
+        padding: 10px 0;
     }
     .default-post .entry-title {
         font-size: 16px;
@@ -206,7 +258,9 @@
     .widget-area,
     .site-footer-top,
     .tv-featured,
-    .tv-post-lists { 
+    .tv-post-lists,
+    .index-box,
+    .post-highlight .small-index-thumbnail { 
         width: 350px; 
     }
     .search-box .search-field {
@@ -224,7 +278,9 @@
     .widget-area,
     .site-footer-top,
     .tv-featured,
-    .tv-post-lists { 
+    .tv-post-lists,
+    .index-box,
+    .post-highlight .small-index-thumbnail { 
         width: 300px; 
     }
 }
