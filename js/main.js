@@ -22,4 +22,5 @@ jQuery(document).ready(function($){
           mainClass: 'mfp-fade',
           fixedContentPos: false
       });
+     
 });

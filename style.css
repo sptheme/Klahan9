@@ -1083,7 +1083,7 @@ img.aligncenter {
 .tag-links,
 .post-navigation{
     position: relative;
-    max-width: 470px;
+    width: 470px;
     padding-right: 20px;
     margin: 0 auto;
     margin-right: 0;
@@ -1193,7 +1193,7 @@ input[type="search"] {
 }
 
 .search-box .search-field {
-    max-width: 362px;
+    width: 300px;
     float: right;
     padding: 10px 20px 10px 20px;
     font-size: 20px;
@@ -1688,6 +1688,9 @@ input[type="search"] {
     border-bottom: 1px solid #e1e1e1;
     padding: 5px;
 }
+.monthly-topics li:last-child {
+    border-bottom: none;
+}
 .monthly-topics span.topic-title{
     display: block;
     font-size: 16px;
@@ -1710,6 +1713,7 @@ input[type="search"] {
     background-color:#fff;
     overflow: hidden;
     font-size: 14px;
+    width: 310px;
 }
 
 .widget-title {

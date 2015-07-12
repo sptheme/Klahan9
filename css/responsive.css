@@ -1,0 +1,230 @@
+/* Smaller Tablets & Really Large Phones */
+
+@media screen and (max-width: 768px) {
+    .site-branding { 
+       border: none;
+       width: 100%;
+       float: none;
+    }
+    .main-navigation { 
+        display: none; 
+    }
+    .search-toggle {
+        float: none;
+        position: absolute;
+        right: 10px;
+        top: 7px;
+        margin: 0;
+    }
+    .menu-social {
+        position: absolute;
+        top: 5px;
+        right: 40px;
+        margin-top: 0;
+    }
+    .search-box .search-field {
+        max-width: 570px;
+        font-size: 14px;
+    }
+    .container, 
+    .content-area,
+    .widget-area,
+    .site-footer-top,
+    .tv-featured,
+    .tv-post-lists { 
+        width: 630px; 
+        float: none;
+    }
+    .content-area {
+        margin-bottom: 10px;
+    }
+    .widget{
+        width: 310px;
+        float: left;
+    }
+    .site-quick-nav,
+    .site-about {
+        width: 100%;
+        float: none;
+    }
+    .entry-footer {
+        padding-bottom: 20px!important;
+    }
+
+    /* tv */
+    .callout h2 {
+        font-size: 20px;
+    }
+    .callout p,
+    .callout .button{
+        font-size: 15px;
+    }
+    /* Radio */
+    #featured-radio-post {
+        display: none;
+    }
+    .monthly-topics {
+        float: none;
+        width: auto;
+    }
+    .monthly-topics ol {
+        height: auto;
+        overflow-y: inherit;
+    }
+    .schedule-banner {
+        display: none;
+    }
+}
+
+/* Regular Phones - Landscape */
+
+@media screen and (max-width: 580px) {
+
+    .container, 
+    .content-area,
+    .widget-area,
+    .site-footer-top,
+    .tv-featured,
+    .tv-post-lists { 
+        width: 540px; 
+    }
+    .widget {
+        width: 100%;
+        margin-right: 0;
+    }
+    .tv-featured-thumb img,
+    .widget_sp_image img {
+        width: 100%;
+    }
+
+    .small-index-thumbnail { 
+        width: 100%;
+        margin: 0 auto;
+    }
+    .entry-header,
+    .entry-content,
+    .entry-footer,
+    .tag-links,
+    .post-navigation {
+        width: 100%;
+        padding: 0 10px;
+    }
+    .entry-meta {
+        float: none;
+        margin: 0;
+        margin-bottom: 1em;
+        width: 100%;
+        text-align: left;
+    }
+    .posted-on {
+        display: inline;
+    }
+
+    .post-grid-2 article,
+    .post-grid-3 article,
+    .post-grid-4 article,
+    .post-grid-5 article {
+        float: none;
+        width: 100%;
+    }
+    .custom-post-cp_team img.attachment-team-thumb,
+    .thumb-effect img{
+        width: 100%
+    }
+
+}
+
+@media screen and (max-width: 440px) {
+    body {
+        font-size: 15px;
+    }
+    .container, 
+    .content-area,
+    .widget-area,
+    .site-footer-top,
+    .tv-featured,
+    .tv-post-lists { 
+        width: 390px; 
+    }
+    .entry-title {
+        font-size: 18px;
+        padding: 10px 0;
+    }
+    .alignleft {
+        margin-left: 0;
+    }
+    .alignleft,
+    .alignright {
+        float: none;
+    }
+    .wp-caption img[class*="wp-image-"] {
+        display: inline-block;
+        width: 100%;
+    }
+    .wp-caption-text {
+        text-align: left;
+    }
+    .post-thumbnail img {
+        width: 100%;
+    }
+    .default-post .entry-title {
+        font-size: 16px;
+        max-height: 45px;
+    }
+    /* TV */
+    .tv-post-info h3.entry-title {
+        width: auto;
+    }
+    .tv-post-info:before {
+        font-size: 36px;
+        line-height: 36px;
+        right: 10px;
+    }
+    .callout .two-third,
+    .callout .one-third {
+        float: none;
+        width: 100%;
+        text-align: left;
+    }
+    .callout .button {
+        display: inline-block;
+    }
+
+}
+
+/* Small Phones - Portrait */
+
+@media screen and (max-width: 380px) {
+    .menu-button {
+        margin-top: 25px;
+    }
+    .site-branding img {
+        width: 30%;
+    }
+    .container, 
+    .content-area,
+    .widget-area,
+    .site-footer-top,
+    .tv-featured,
+    .tv-post-lists { 
+        width: 350px; 
+    }
+    .search-box .search-field {
+        width: 275px;
+    }
+
+}
+
+@media screen and (max-width: 320px) {
+    .menu-button {
+        margin-top: 20px;
+    }
+    .container, 
+    .content-area,
+    .widget-area,
+    .site-footer-top,
+    .tv-featured,
+    .tv-post-lists { 
+        width: 300px; 
+    }
+}

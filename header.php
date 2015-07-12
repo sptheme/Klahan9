@@ -33,9 +33,9 @@
 
     <div id="pager">
 
-    	<?php if ( ! is_page_template( 'page-templates/page-home.php' ) ) :?>
+    	<?php //if ( ! is_page_template( 'page-templates/page-home.php' ) ) :?>
     	<div class="content-background"></div>
-    	<?php endif; ?>
+    	<?php //endif; ?>
     	
 		<div class="navigation-overlay"></div>
 

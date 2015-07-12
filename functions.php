@@ -182,6 +182,7 @@ function wpsp_scripts() {
 	wp_enqueue_style( 'klahan9-google-fonts', 'http://fonts.googleapis.com/css?family=Oswald:400,300,700|Open+Sans:300italic,400italic,400,300,600' );
     wp_enqueue_style('klahan9-fontawesome', WPSP_BASE_URL . '/fonts/font-awesome/css/font-awesome.min.css');
     wp_enqueue_style('klahan9-menu-mobile', WPSP_CSS_DIR_URI . 'menu-mobile.css');
+    wp_enqueue_style('klahan9-responsive', WPSP_CSS_DIR_URI . 'responsive.css');
     wp_enqueue_style('magnific-popup', WPSP_CSS_DIR_URI . 'magnific-popup.css');
     wp_enqueue_style('magnific-popup-custom', WPSP_CSS_DIR_URI . 'magnific-custom.css');
     
@@ -196,6 +197,8 @@ function wpsp_scripts() {
     wp_enqueue_script( 'klahan9-magnific-popup', WPSP_JS_DIR_URI . 'jquery.magnific-popup.min.js', array('jquery'), WPSP_THEME_VERSION, true );
     wp_enqueue_script('klahan9-menu-mobile', WPSP_JS_DIR_URI . 'menu-mobile.js', array('jquery'), WPSP_THEME_VERSION, true);
     wp_enqueue_script('klahan9-main', WPSP_JS_DIR_URI . 'main.js', array('jquery'), WPSP_THEME_VERSION, true);
+    wp_enqueue_script('klahan9-masonry', WPSP_JS_DIR_URI . 'masonry-settings.js', array('masonry'), WPSP_THEME_VERSION, true);
+    wp_enqueue_script('jquery-enquire', WPSP_JS_DIR_URI . 'enquire.min.js', array('klahan9-masonry'), WPSP_THEME_VERSION, true);
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

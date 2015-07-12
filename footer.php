@@ -15,7 +15,7 @@
 	<footer id="colophon" class="site-footer container clearfix" role="contentinfo">
 
 		<div class="site-footer-top clearfix">
-			<div class="two-fourth">
+			<div class="site-quick-nav two-fourth clearfix">
 				<h2><?php echo esc_html__( ot_get_option('more-info') ); ?></h2>
 				<?php get_sidebar('footer'); ?>
 			</div> <!-- .two-fourth -->
