@@ -28,7 +28,7 @@
 
 	//FILTERS
 		//CP list table columns
-		add_filter( 'manage_edit-gallery_columns', 'wpsp_gallery_cp_columns' );
+		add_filter( 'manage_edit-cp_gallery_columns', 'wpsp_gallery_cp_columns' );
 
 
 

@@ -15,6 +15,7 @@ get_header(); ?>
 		$tv_team_num = esc_html( get_post_meta( $post->ID, 'sp_tv_team_num', true ) );
 		$tv_team_text_link = esc_html( get_post_meta( $post->ID, 'sp_tv_team_text_link', true ) );
 		$tv_team_page_link = get_post_meta( $post->ID, 'sp_tv_team_page_link', true );
+		$callout_link = get_post_meta( $post->ID, 'sp_callout_link', true ) ;
 		$team_taxonomy_id = get_post_meta( $post->ID, 'sp_team_tax', true );
 		$tv_photo_title = esc_html( get_post_meta( $post->ID, 'sp_tv_photo_title', true ) );
 		$tv_photo_num = esc_html( get_post_meta( $post->ID, 'sp_tv_photo_num', true ) );
@@ -142,7 +143,7 @@ get_header(); ?>
 					<p><?php echo esc_html( get_post_meta( $post->ID, 'sp_callout_desc', true ) ); ?></p>
 				</div>
 				<div class="one-third last">
-					<a class="button" href="<?php echo esc_url( get_post_meta( $post->ID, 'sp_callout_link', true ) );?>">
+					<a class="button" href="<?php echo esc_url( get_permalink( $callout_link ) );?>">
 					<?php echo esc_html( get_post_meta( $post->ID, 'sp_callout_button', true ) ); ?>
 					</a>
 				</div>

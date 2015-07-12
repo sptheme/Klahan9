@@ -308,9 +308,9 @@ function _custom_meta_boxes() {
 			array(
 				'label'		=> 'Button link',
 				'id'		=> $prefix . 'callout_link',
-				'type'		=> 'text',
+				'type'		=> 'page-select',
 				'std'		=> '',
-				'desc'		=> 'Past Link/Url for button'
+				'desc'		=> 'Select page link for Callout button link'
 			),
 		)
 	);

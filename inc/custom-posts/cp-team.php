@@ -27,7 +27,7 @@
 
 	//FILTERS
 		//CP list table columns
-		add_filter( 'manage_edit-team_columns', 'wpsp_team_cp_columns' );
+		add_filter( 'manage_edit-cp_team_columns', 'wpsp_team_cp_columns' );
 
 
 
