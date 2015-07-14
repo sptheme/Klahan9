@@ -1,14 +1,8 @@
 /* Large Tablets */
 @media screen and (max-width: 1024px) {
-    .menu-button {
-        position: absolute;
-        z-index: 999;
-        left: 0;
-        top: 0;
-    }
     .site-branding { 
        border: none;
-       width: 30%;
+       width: 100%;
        float: none;
     }
     .main-navigation { 

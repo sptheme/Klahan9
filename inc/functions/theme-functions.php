@@ -379,7 +379,6 @@ if ( ! function_exists( 'wpsp_single_photo_album' ) ) :
  *
  */
 function wpsp_single_photo_album( $post_id, $post_num, $cols = 4 ) {
-	echo $post_num;
 	$photos = explode( ',', get_post_meta( $post_id, 'sp_gallery', true ) );
 	$out = '';
 	if ( $photos[0] != '' ) { 
