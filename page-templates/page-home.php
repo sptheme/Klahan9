@@ -10,7 +10,6 @@
 get_header(); ?>
 
 	<?php $home_meta = get_post_meta( $post->ID ); ?>
-	<?php echo $home_meta['sp_presenter'][0];?>
 
 	<div id="homepage" class="site-home-container">
 		<div class="site-content-home">
