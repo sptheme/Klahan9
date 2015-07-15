@@ -21,38 +21,12 @@ jQuery(document).ready(function($) {
   $('#nav-container a, .nav-child-container').bind( eventHover, function(event) {
     $(this).toggleClass('hover');    
   });
-
-  // multi-level menu 
-  $('.nav-child-container').bind( eventClick, function(event) {
-    event.preventDefault();
-    var $this = $(this);
-    var ul = $this.next('ul');
-    var ulChildrenHeight = ul.children().length * 46;
-
-    if(!$this.hasClass('active')){
-      $this.toggleClass('active');
-      ul.toggleClass('active');
-      ul.height(ulChildrenHeight + 'px');
-      if ( $this.next('ul').children().children('ul').hasClass('active') ) {
-        $this.next('ul').height( $this.next('ul').children().children('ul').height() + (ul.children().length * 46) );
-      }
-      if ( $this.parent().parent('ul').hasClass('active')) {
-        $this.parent().parent('ul').height( $this.parent().parent('ul').height() + (ul.children().length * 46) );
-      } 
-    }else{
-      $this.toggleClass('active');
-      ul.toggleClass('active');
-      ul.height(0);
-      if ( $this.parent().parent('ul').hasClass('active')) {
-        $this.parent().parent('ul').height( $this.parent().parent('ul.active').children().length * 46 );
-      }
-    }
-  });
+  
 
   /* Sidebar Functionality */
   
   var opened = false;
-  $('.menu-button').bind(eventClick, function(event) {
+  $('.menu-button').bind('click', function(event) {
     $('#pager').toggleClass('active');
     $('#sidemenu').toggleClass('active');
     if(opened){
@@ -88,7 +62,7 @@ jQuery(document).ready(function($) {
   $navItems.each(function(index){
     if ($(this).hasClass('current-menu-item')) {
       $parentUl = $(this).parent();
-      $parentUl.height($parentUl.children('li').length * 46 + "px");
+      //$parentUl.height($parentUl.children('li').length * 46 + "px");
       $parentUl.prev().addClass('active');
       $parentUl.addClass('active');
       $anchor = $parentUl.prev();
