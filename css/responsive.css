@@ -2,27 +2,12 @@
 @media screen and (max-width: 1024px) {
     .site-branding { 
        border: none;
-       width: 100%;
-       float: none;
+       margin: 12px 10px 10px 40px;
     }
     .main-navigation { 
         display: none; 
     }
-    .search-toggle {
-        float: none;
-        position: absolute;
-        right: 10px;
-        top: 7px;
-        margin: 0;
-    }
-    .menu-social {
-        position: absolute;
-        top: 5px;
-        right: 40px;
-        margin-top: 0;
-    }
     .search-box .search-field {
-        max-width: 570px;
         font-size: 14px;
     }
     .container, 
@@ -248,10 +233,17 @@
 
 @media screen and (max-width: 380px) {
     .menu-button {
-        margin-top: 25px;
+        margin-top: 0;
+    }
+    .site-branding {
+        padding-right: 0;
+        margin: 12px 0 10px 30px;
     }
     .site-branding img {
-        width: 30%;
+        width: 80%;
+    }
+    .search-toggle {
+        margin-right: 0;
     }
     .container, 
     .content-area,
@@ -264,15 +256,12 @@
         width: 350px; 
     }
     .search-box .search-field {
-        width: 275px;
+        width: 225px;
     }
 
 }
 
 @media screen and (max-width: 320px) {
-    .menu-button {
-        margin-top: 20px;
-    }
     .container, 
     .content-area,
     .widget-area,

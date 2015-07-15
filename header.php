@@ -43,12 +43,7 @@
 
 		<header id="header" class="site-header">
 			<div class="container clearfix">
-			<div class="menu-button">
-	            <span class="border-before"></span>
-	            <span class="border-main"></span>
-	            <span class="border-after"></span>
-	        </div> <!-- .menu-button -->
-
+			
 			<div class="site-branding">
 				<?php if( !is_singular() ) echo '<h1 class="site-title">'; else echo '<h2>'; ?>
 					<a itemprop="url" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo WPSP_BASE_URL;?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>"></a>
@@ -66,6 +61,12 @@
 			</div> <!-- end .search-toggle -->
 
 			<?php wpsp_social_menu(); ?>
+
+			<div class="menu-button">
+	            <span class="border-before"></span>
+	            <span class="border-main"></span>
+	            <span class="border-after"></span>
+	        </div> <!-- .menu-button -->
 			
 			<div class="clear"></div>
 
