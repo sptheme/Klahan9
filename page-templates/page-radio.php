@@ -93,19 +93,13 @@ get_header(); ?>
 							</div>
 		                </div> <!-- .flex-caption -->
         			</li>
-        		<?php endwhile; wp_reset_postdata(); ?>	
+        		<?php endwhile; wp_reset_postdata();?>	
         		</ul>
-	        	<?php if(strtolower(ICL_LANGUAGE_CODE) == 'kh') {
-					$month = wpsp_month_kh(date('M'));
-					} else {
-						$month = date('F');
-					} 
-					printf('<h4><i class="fa fa-headphones"></i>%s</h4>', esc_html__('Topic for ', WPSP_TEXT_DOMAIN) . $month ); ?>
+        		<h4><i class="fa fa-headphones"></i><?php wpsp_month_string_translate( date('F') ); ?></h4>
         	</div>
         	<?php endif; ?>
 
 			<div id="topic-next-month">
-				
 				<div class="section-title clearfix">
 					<h3><i class="fa fa-microphone"></i> <?php echo $radio_topic_title; ?></h3>
 				</div>
@@ -114,57 +108,18 @@ get_header(); ?>
 	            </div>
 
 	            <div class="monthly-topics clearfix">
-	            	<?php $nextmonth = date('F', strtotime('+1 month')); ?>
+	            	<?php $next_month = date('F', strtotime('+1 month')); ?>
 	            	<ul class="topic-head">
 						<li>
 						<div class="two-third">
-						<?php $nextmonth = date('F', strtotime('+1 month'));
-						if(strtolower(ICL_LANGUAGE_CODE) == 'kh') :
-							$month = wpsp_month_kh( $nextmonth );
-						else :
-							$month = $nextmonth;
-						endif; 
-						echo  __('Topic for ', WPSP_TEXT_DOMAIN) . $nextmonth . ' ' . date('Y'); ?>
+						<?php wpsp_month_string_translate( $next_month ); ?>
 						</div>
 						<div class="one-fourth last"><?php echo  __('Guest Speaker', WPSP_TEXT_DOMAIN); ?></div>
 						</li>
 					</ul>
-				<?php 
-					$args = array(
-		                'post_type' => 'post',
-		                'posts_per_page' => $radio_topic_num,
-		                'order' => $radio_topic_order,
-		                'post_status' => array( 'future' ),
-		                'date_query' => array(
-							array(
-								'year' => date( 'Y' ),
-								'month' => date( 'm' ) + 1,
-							),
-						),
-		                'tax_query' => array(
-	                        'relation' => 'AND',
-	                        array(
-	                            'taxonomy' => 'post_format',
-	                            'field'    => 'slug',
-	                            'terms'    => array( 'post-format-audio' ),
-	                        ),
-	                        array(
-	                                'taxonomy' => 'category',
-	                                'field'    => 'term_id',
-	                                'terms'    => array( $cateogry_id ),
-	                        )
-	                    )  
-	            	); 
-
-					$custom_query = new WP_Query( $args );
-	            
-		            if( $custom_query->have_posts() ) {
-		            	while ( $custom_query->have_posts() ) : $custom_query->the_post();
-		                	get_template_part( 'partials/content', 'weekly-topic' );
-		                endwhile; wp_reset_postdata();
-	            	} else {
-	            		printf('<h4>%s</h4>', esc_html__( 'Sorry, new topic will coming soon.', WPSP_TEXT_DOMAIN ) );
-	            	}?>
+					<?php $yearly_topic = date( 'Y' );
+						$topic_nextmonth = date( 'm' ) + 1;
+						wpsp_monthly_topic( $cateogry_id, $radio_topic_num, $yearly_topic, $topic_nextmonth ); ?>
 	            </div> <!-- .monthly-topics -->
 			</div> <!-- #topic-next-month -->
 
@@ -209,6 +164,4 @@ get_header(); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
-
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

@@ -465,3 +465,61 @@ function wpsp_month_kh($month) {
 	return $output;
 }
 endif;
+
+if ( ! function_exists( 'wpsp_month_string_translate' ) ) :
+/**
+ *	Translate month name
+ */
+function wpsp_month_string_translate( $month) {
+
+	if(strtolower(ICL_LANGUAGE_CODE) == 'kh') :
+		$month = wpsp_month_kh( $month );
+	else :
+		$month = $month;
+	endif; 
+	echo esc_html('Topic for ', WPSP_TEXT_DOMAIN) . $month . ' ' . date('Y');
+}
+endif;	
+
+if ( ! function_exists( 'wpsp_monthly_topic' ) ) :
+/**
+ *	Yearly topic of Radio
+ */
+function wpsp_monthly_topic( $cat_id, $post_num = 5, $year, $month) {
+	$args = array(
+		'post_type' => 'post',
+        'posts_per_page' => $post_num,
+        'order' => $radio_topic_order,
+        'post_status' => array('future','publish'),
+        'date_query' => array(
+			array(
+				'year' => $year,
+				'month' => $month,
+			),
+		),
+        'tax_query' => array(
+            'relation' => 'AND',
+            array(
+                'taxonomy' => 'post_format',
+                'field'    => 'slug',
+                'terms'    => array( 'post-format-audio' ),
+            ),
+            array(
+                    'taxonomy' => 'category',
+                    'field'    => 'term_id',
+                    'terms'    => array( $cat_id ),
+            )
+        ) 
+	);
+	$custom_query = new WP_Query( $args );
+	if( $custom_query->have_posts() ) :
+		while ( $custom_query->have_posts() ) : $custom_query->the_post();
+			get_template_part( 'partials/content', 'weekly-topic' );
+		endwhile; wp_reset_postdata();
+		
+	else : 
+		printf('<p>%s</p>', esc_html__( 'Sorry, new topic will coming soon.', WPSP_TEXT_DOMAIN ) );	
+	endif;
+}
+
+endif;

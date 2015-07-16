@@ -510,6 +510,62 @@ function _custom_meta_boxes() {
 			),
 		)
 	);
+
+	//Monthly topic template setting for Radio
+	$radio_monthly_topic_template_settings = array(
+		'id'          => 'page-radio-monthly-topic-template-settings',
+		'title'       => 'Topic settings',
+		'desc'        => '',
+		'pages'       => array( 'page' ),
+		'context'     => 'normal',
+		'priority'    => 'high',
+		'fields'      => array(
+			array(
+				'label'		=> 'Radio category',
+				'id'		=> $prefix . 'post_by_cat',
+				'type'		=> 'category-select',
+				'desc'		=> 'Choose category to show topics'
+			),
+			array(
+			'label'		=> 'Select year',
+			'id'		=> $prefix . 'yearly_topic',
+			'type'		=> 'select',
+			'desc'		=> 'Show weekly topic by year',
+			'choices'     => array( 
+			          array(
+			            'value'       => '2015',
+			            'label'       => '2015',
+			            'src'         => ''
+			          ),
+			          array(
+			            'value'       => '2016',
+			            'label'       => '2016',
+			            'src'         => ''
+			          ),
+			          array(
+			            'value'       => '2017',
+			            'label'       => '2017',
+			            'src'         => ''
+			          ),
+			          array(
+			            'value'       => '2018',
+			            'label'       => '2018',
+			            'src'         => ''
+			          ),
+			          array(
+			            'value'       => '2019',
+			            'label'       => '2019',
+			            'src'         => ''
+			          ),
+			          array(
+			            'value'       => '2020',
+			            'label'       => '2020',
+			            'src'         => ''
+			          ),
+			    )      
+			)
+		)
+	);		
 		
 	//Page template setting for Home
 	$page_home_template_settings = array(
@@ -726,25 +782,28 @@ function _custom_meta_boxes() {
 	//Register meta boxes
 	ot_register_meta_box( $post_format_video );
 	ot_register_meta_box( $post_format_audio );
-	//ot_register_meta_box( $post_format_gallery );
 	ot_register_meta_box( $post_type_team );
 	ot_register_meta_box( $post_type_gallery );
 
 	$template_file = rw_maybe_include();
 	if ( ( $template_file == 'page-templates/page-tv.php' ) || ( $template_file == 'page-templates/page-radio.php' ) || ( $template_file == 'page-templates/page-blog.php' ) ) {
 		ot_register_meta_box( $page_template_settings ); 
-	} elseif ( $template_file == 'page-templates/page-home.php' ) {
+	} 
+	if ( $template_file == 'page-templates/page-home.php' ) {
 		ot_register_meta_box( $page_home_template_settings ); 
-	}  else {
-		ot_register_meta_box( $page_layout_options );
 	}
-	
 	if ( $template_file == 'page-templates/page-tv.php' ) {
 		ot_register_meta_box( $page_tv_template_settings ); 
 	} 
 	if ( $template_file == 'page-templates/page-radio.php' ) {
 		ot_register_meta_box( $page_radio_template_settings ); 
 	} 
+	if ( $template_file == 'page-templates/page-monthly-topic.php' ) {
+		ot_register_meta_box( $radio_monthly_topic_template_settings ); 
+	} 
+
+	ot_register_meta_box( $page_layout_options );
+		
 	
 }
 

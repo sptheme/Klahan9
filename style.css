@@ -1056,6 +1056,7 @@ img.aligncenter {
 
 .single .content-area,
 .page-template-default .content-area,
+.page-template-page-monthly-topic .content-area,
 .search .content-area,
 .error404 .content-area {
     background-color: #fff;
@@ -1064,6 +1065,8 @@ img.aligncenter {
 .page-template-default .entry-header,
 .page-template-default .entry-content,
 .page-template-default .entry-footer,
+.page-template-page-monthly-topic .entry-header,
+.page-template-page-monthly-topic .entry-content,
 .single-cp_team .entry-header,
 .single-cp_team .entry-content, 
 .single-cp_gallery .entry-header,
