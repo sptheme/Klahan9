@@ -408,3 +408,60 @@ function wpsp_single_photo_album( $post_id, $post_num, $cols = 4 ) {
 }
 endif;
 
+if( !function_exists('sp_month_kh')) :
+/**
+* Month name string translation
+*/
+function wpsp_month_kh($month) {
+	switch ($month) {
+	case 'January':
+		$output = __( 'January', SP_TEXT_DOMAIN );	
+		break;
+
+	case 'February':	
+		$output = __( 'February', SP_TEXT_DOMAIN );
+		break;
+
+	case 'Mar':	
+		$output = __( 'Mar', SP_TEXT_DOMAIN );
+		break;
+
+	case 'April':	
+		$output = __( 'April', SP_TEXT_DOMAIN );
+		break;
+
+	case 'May':
+		$output = __( 'May', SP_TEXT_DOMAIN );	
+		break;
+
+	case 'June':	
+		$output = __( 'June', SP_TEXT_DOMAIN );
+		break;
+
+	case 'July':	
+		$output = __( 'July', SP_TEXT_DOMAIN );
+		break;
+
+	case 'August':	
+		$output = __( 'August', SP_TEXT_DOMAIN );
+		break;
+
+	case 'September':
+		$output = __( 'September', SP_TEXT_DOMAIN );	
+		break;
+
+	case 'October':	
+		$output = __( 'October', SP_TEXT_DOMAIN );
+		break;
+
+	case 'November':	
+		$output = __( 'November', SP_TEXT_DOMAIN );
+		break;
+
+	case 'December':	
+		$output = __( 'December', SP_TEXT_DOMAIN );
+		break;	
+	}
+	return $output;
+}
+endif;

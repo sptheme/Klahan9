@@ -90,6 +90,24 @@ function _custom_meta_boxes() {
 				'id'		=> $prefix . 'sound_url',
 				'type'		=> 'text',
 				'desc'		=> 'Enter share URL of sound from Soundcloud'
+			),
+			array(
+				'label'		=> 'Guest speaker name',
+				'id'		=> $prefix . 'speaker_name',
+				'type'		=> 'text',
+				'desc'		=> 'Enter name of guest speaker'
+			),
+			array(
+				'label'		=> 'Position',
+				'id'		=> $prefix . 'speaker_position',
+				'type'		=> 'text',
+				'desc'		=> 'Enter position of guest speaker. e.g: Project officer'
+			),
+			array(
+				'label'		=> 'Organization or Company Name',
+				'id'		=> $prefix . 'speaker_work_place',
+				'type'		=> 'text',
+				'desc'		=> 'Enter Organization/Company name where they working for. e.g: United Nations Population Fund  (UNFPA)'
 			)
 		)
 	);

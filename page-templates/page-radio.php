@@ -99,7 +99,7 @@ get_header(); ?>
 				<h4><i class="fa fa-headphones"></i>
 				<?php esc_html_e('Topic for ', WPSP_TEXT_DOMAIN); ?>
 				<?php if(strtolower(ICL_LANGUAGE_CODE) == 'kh') :
-					echo sp_month_kh(date('M'));
+					echo wpsp_month_kh(date('M'));
 				else :
 					echo date('F');
 				endif; ?>
@@ -107,11 +107,29 @@ get_header(); ?>
         	</div>
         	<?php endif; ?>
 
-			<div id="topic-next-month" class="clearfix">
-				<div class="monthly-topics">
+			<div id="topic-next-month">
+				
 				<div class="section-title clearfix">
 					<h3><i class="fa fa-microphone"></i> <?php echo $radio_topic_title; ?></h3>
 				</div>
+				<div class="schedule-banner">
+	            	<?php echo '<img src="' . $schedule_banner . '">'; ?>
+	            </div>
+
+	            <div class="monthly-topics clearfix">
+	            	<?php $nextmonth = date('F', strtotime('+1 month')); ?>
+	            	<ul class="topic-head">
+						<li>
+						<div class="two-third">
+						<?php if(strtolower(ICL_LANGUAGE_CODE) == 'kh') :
+							echo  __('Topic for ', WPSP_TEXT_DOMAIN) . wpsp_month_kh( $nextmonth ) . ' ' . date('Y');
+						else :
+							echo  __('Topic for ', WPSP_TEXT_DOMAIN) . $nextmonth . ' ' . date('Y');
+						endif; ?>
+						</div>
+						<div class="one-fourth last"><?php echo  __('Guest Speaker', WPSP_TEXT_DOMAIN); ?></div>
+						</li>
+					</ul>
 				<?php 
 					$args = array(
 		                'post_type' => 'post',
@@ -142,19 +160,11 @@ get_header(); ?>
 					$custom_query = new WP_Query( $args );
 	            
 		            if( $custom_query->have_posts() ) {
-		            	echo '<ol>';
-		                while ( $custom_query->have_posts() ) : $custom_query->the_post();
-		                	echo '<li>';
-		                    echo '<span class="topic-title">' . esc_html( get_the_title() ) . '</span>';
-		                    echo '<span class="topic-date">' . esc_html__( 'will broadcast on ', WPSP_TEXT_DOMAIN ) . esc_html( get_the_date('d M, Y') );
-		                    echo '</li>';
+		            	while ( $custom_query->have_posts() ) : $custom_query->the_post();
+		                	get_template_part( 'partials/content', 'weekly-topic' );
 		                endwhile; wp_reset_postdata();
-		            	echo '</ol>';
 	            } ?>
 	            </div> <!-- .monthly-topics -->
-	            <div class="schedule-banner">
-	            	<?php echo '<img src="' . $schedule_banner . '">'; ?>
-	            </div>
 			</div> <!-- #topic-next-month -->
 
 			<div id="meet-radio-team" class="team clearfix">

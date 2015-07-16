@@ -54,9 +54,6 @@
         height: auto;
         overflow-y: inherit;
     }
-    .schedule-banner {
-        display: none;
-    }
 }
 
 /* Smaller Tablets & Really Large Phones */
@@ -113,10 +110,22 @@
     .post-highlight .small-index-thumbnail { 
         width: 560px; 
     }
-    .widget {
+    .widget,
+    .one-fourth, .one-third, .two-third, .two-fourth, .three-fourth  {
         width: 100%;
         margin-right: 0;
     }
+    .monthly-topics ul.topic-head li div:last-child {
+        display: none;
+    }
+    .monthly-topics .guest-speaker {
+        padding-top: 10px;
+        padding-bottom: 5px;
+    }
+    .monthly-topics .speaker-title-m {
+        display: block;
+    }
+
     .small-index-thumbnail { 
         width: 100%;
         margin: 0 auto;
