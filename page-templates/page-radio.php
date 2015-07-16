@@ -95,15 +95,12 @@ get_header(); ?>
         			</li>
         		<?php endwhile; wp_reset_postdata(); ?>	
         		</ul>
-
-				<h4><i class="fa fa-headphones"></i>
-				<?php esc_html_e('Topic for ', WPSP_TEXT_DOMAIN); ?>
-				<?php if(strtolower(ICL_LANGUAGE_CODE) == 'kh') :
-					echo wpsp_month_kh(date('M'));
-				else :
-					echo date('F');
-				endif; ?>
-				</h4>
+	        	<?php if(strtolower(ICL_LANGUAGE_CODE) == 'kh') {
+					$month = wpsp_month_kh(date('M'));
+					} else {
+						$month = date('F');
+					} 
+					printf('<h4><i class="fa fa-headphones"></i>%s</h4>', esc_html__('Topic for ', WPSP_TEXT_DOMAIN) . $month ); ?>
         	</div>
         	<?php endif; ?>
 
@@ -121,11 +118,13 @@ get_header(); ?>
 	            	<ul class="topic-head">
 						<li>
 						<div class="two-third">
-						<?php if(strtolower(ICL_LANGUAGE_CODE) == 'kh') :
-							echo  __('Topic for ', WPSP_TEXT_DOMAIN) . wpsp_month_kh( $nextmonth ) . ' ' . date('Y');
+						<?php $nextmonth = date('F', strtotime('+1 month'));
+						if(strtolower(ICL_LANGUAGE_CODE) == 'kh') :
+							$month = wpsp_month_kh( $nextmonth );
 						else :
-							echo  __('Topic for ', WPSP_TEXT_DOMAIN) . $nextmonth . ' ' . date('Y');
-						endif; ?>
+							$month = $nextmonth;
+						endif; 
+						echo  __('Topic for ', WPSP_TEXT_DOMAIN) . $nextmonth . ' ' . date('Y'); ?>
 						</div>
 						<div class="one-fourth last"><?php echo  __('Guest Speaker', WPSP_TEXT_DOMAIN); ?></div>
 						</li>
@@ -163,7 +162,9 @@ get_header(); ?>
 		            	while ( $custom_query->have_posts() ) : $custom_query->the_post();
 		                	get_template_part( 'partials/content', 'weekly-topic' );
 		                endwhile; wp_reset_postdata();
-	            } ?>
+	            	} else {
+	            		printf('<h4>%s</h4>', esc_html__( 'Sorry, new topic will coming soon.', WPSP_TEXT_DOMAIN ) );
+	            	}?>
 	            </div> <!-- .monthly-topics -->
 			</div> <!-- #topic-next-month -->
 

@@ -1746,6 +1746,10 @@ input[type="search"] {
 .schedule-banner {
     margin: 0 0 10px;
 }
+#weekly-topics-m {
+    background-color: #fff;
+    margin-bottom: 10px;
+}
 
 /*--------------------------------------------------------------
 # Widgets
