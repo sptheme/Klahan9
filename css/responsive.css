@@ -22,6 +22,9 @@
         max-width: 740px;
         float: none!important;
     }
+    .content-area {
+        margin-bottom: 10px;
+    }
     .widget{
         width: 365px;
         float: left;

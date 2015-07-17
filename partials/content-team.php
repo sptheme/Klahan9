@@ -15,6 +15,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope itemtype="http://schema.org/Article">
+	<div class="post-thumbnail">
 	<?php
 		if (has_post_thumbnail()) {
 		    printf( '<a itemprop="url" href="%1$s" rel="bookmark" title="%2$s">%3$s</a>', 
@@ -30,6 +31,7 @@
 				);
 		} 
 	?>
+	</div>
 	
 		<?php the_title( sprintf( '<h3 class="entry-title" itemprop="name"><a itemprop="url" href="%1$s" rel="bookmark" title="%2$s">', esc_url( get_permalink() ), esc_attr( get_the_title() ) ), '</a></h3>' ); ?>
 
