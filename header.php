@@ -24,8 +24,7 @@
 	<aside id="sidemenu-container">
         <div id="sidemenu">
         <img class="logo-mobile" src="<?php echo WPSP_BASE_URL;?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>">
-		<span class="slogan-mobile"><?php bloginfo( 'description' ); ?></span>
-        <nav class="menu-mobile-container">
+		<nav class="menu-mobile-container">
         <?php wpsp_mobile_navigation(); ?>
         </nav>
         </div>            	
