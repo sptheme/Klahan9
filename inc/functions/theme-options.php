@@ -98,6 +98,14 @@ function custom_theme_options() {
 			'type'		=> 'colorpicker',
 			'section'	=> 'menu_color'
 		),
+		array(
+			'id'		=> 'color-menu-item-4',
+			'label'		=> '4th menu item',
+			'desc'		=> 'Choose color for 4th menu item',
+			'std'		=> '#4285f4',
+			'type'		=> 'colorpicker',
+			'section'	=> 'menu_color'
+		),
 		// Favicon
 		array(
 			'id'		=> 'custom-logo',
