@@ -251,6 +251,12 @@ function wpsp_print_custom_css_script(){
 	.main-navigation li:nth-of-type(3) > a:hover {
 		background-color: <?php echo ot_get_option( 'color-menu-item-3' ); ?>;
 	}
+	.main-navigation li:nth-of-type(4) > a {
+		border-top-color: <?php echo ot_get_option( 'color-menu-item-4' ); ?>;
+	}
+	.main-navigation li:nth-of-type(4) > a:hover {
+		background-color: <?php echo ot_get_option( 'color-menu-item-4' ); ?>;
+	}
 	<?php $page_bg_color = '#4285f4'; ?>
 
 	<?php if ( is_page_template( 'page-templates/page-blog.php' ) || is_page_template( 'page-templates/page-tv.php' ) || is_page_template( 'page-templates/page-radio.php' )) { 

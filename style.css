@@ -1138,7 +1138,7 @@ img.aligncenter {
 
 /* Social Menu */
 .menu-social {
-    margin-top: 18px;
+    margin-top: 25px;
     float: right;
 }
 .menu-social ul {
@@ -1161,7 +1161,7 @@ img.aligncenter {
     padding: 6px;
     vertical-align: top;
     font-family: 'Fontawesome';
-    font-size: 20px;
+    font-size: 16px;
     color: #333;
     -webkit-font-smoothing: antialiased;
     content: '\f0c0';
@@ -1182,7 +1182,7 @@ img.aligncenter {
     text-align: center;
     cursor: pointer;
     margin-right: 10px;
-    margin-top: 18px;
+    margin-top: 25px;
 }
 
 .search-toggle:hover,
@@ -1222,6 +1222,15 @@ input[type="search"] {
 .search .search-submit,
 .search-box .search-submit { 
     display: none; 
+}
+
+/* Produced logo */
+.bbc-logo {
+    outline: none;
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 15px;
 }
 
 /*--------------------------------------------------------------

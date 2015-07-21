@@ -44,8 +44,8 @@ function custom_theme_options() {
 /* ------------------------------------ */	
 	'sections'        => array(
 		array(
-			'id'		=> 'menu_color',
-			'title'		=> 'Menu Color'
+			'id'		=> 'header',
+			'title'		=> 'Header'
 		),
 		array(
 			'id'		=> 'favicon',
@@ -75,12 +75,20 @@ function custom_theme_options() {
 		
 		// Header
 		array(
+			'id'		=> 'custom-logo',
+			'label'		=> 'Custom Logo',
+			'desc'		=> 'Upload your custom logo image. Set logo max-height in styling options.',
+			'std'		=> WPSP_BASE_URL . '/images/logo.png',
+			'type'		=> 'upload',
+			'section'	=> 'header'
+		),
+		array(
 			'id'		=> 'color-menu-item-1',
 			'label'		=> '1st menu item',
 			'desc'		=> 'Choose color for 1st menu item',
 			'std'		=> '#f36a71',
 			'type'		=> 'colorpicker',
-			'section'	=> 'menu_color'
+			'section'	=> 'header'
 		),
 		array(
 			'id'		=> 'color-menu-item-2',
@@ -88,7 +96,7 @@ function custom_theme_options() {
 			'desc'		=> 'Choose color for 2nd menu item',
 			'std'		=> '#6aad68',
 			'type'		=> 'colorpicker',
-			'section'	=> 'menu_color'
+			'section'	=> 'header'
 		),
 		array(
 			'id'		=> 'color-menu-item-3',
@@ -96,7 +104,7 @@ function custom_theme_options() {
 			'desc'		=> 'Choose color for 3th menu item',
 			'std'		=> '#00b7e1',
 			'type'		=> 'colorpicker',
-			'section'	=> 'menu_color'
+			'section'	=> 'header'
 		),
 		array(
 			'id'		=> 'color-menu-item-4',
@@ -104,16 +112,23 @@ function custom_theme_options() {
 			'desc'		=> 'Choose color for 4th menu item',
 			'std'		=> '#4285f4',
 			'type'		=> 'colorpicker',
-			'section'	=> 'menu_color'
+			'section'	=> 'header'
 		),
-		// Favicon
 		array(
-			'id'		=> 'custom-logo',
-			'label'		=> 'Custom Logo',
-			'desc'		=> 'Upload your custom logo image. Set logo max-height in styling options.',
-			'std'		=> WPSP_BASE_URL . '/images/logo.png',
+			'id'		=> 'bbc-logo',
+			'label'		=> 'BBC Logo',
+			'desc'		=> '',
+			'std'		=> WPSP_BASE_URL . '/images/bbc-media-action.png',
 			'type'		=> 'upload',
-			'section'	=> 'favicon'
+			'section'	=> 'header'
+		),
+		array(
+			'id'		=> 'bbc-link',
+			'label'		=> 'BBC website url',
+			'desc'		=> '',
+			'std'		=> 'http://www.bbc.co.uk/mediaaction/',
+			'type'		=> 'upload',
+			'section'	=> 'header'
 		),
 		// Header: Favicon
 		array(

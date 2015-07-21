@@ -46,7 +46,7 @@
 			
 			<div class="site-branding">
 				<?php if( !is_singular() ) echo '<h1 class="site-title">'; else echo '<h2>'; ?>
-					<a itemprop="url" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo WPSP_BASE_URL;?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>"></a>
+					<a itemprop="url" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo ot_get_option( 'custom-logo' ); ?>" alt="<?php bloginfo( 'name' ); ?>"></a>
 					<meta itemprop="name" content="<?php bloginfo( 'name' ); ?>">
 				<?php if( !is_singular() ) echo '</h1>'; else echo '</h2>'; ?>
 			</div> <!-- end .site-branding -->
@@ -61,6 +61,8 @@
 			</div> <!-- end .search-toggle -->
 
 			<?php wpsp_social_menu(); ?>
+
+			<a class="bbc-logo" href="<?php echo ot_get_option( 'bbc-link' ); ?>" title="BBC Media Action" target="_blank"><img src="<?php echo ot_get_option( 'bbc-logo' ); ?>"></a>
 
 			<div class="menu-button">
 	            <span class="border-before"></span>
