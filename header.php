@@ -64,6 +64,8 @@
 
 			<a class="bbc-logo" href="<?php echo ot_get_option( 'bbc-link' ); ?>" title="BBC Media Action" target="_blank"><img src="<?php echo ot_get_option( 'bbc-logo' ); ?>"></a>
 
+			<?php wpsp_languageswitcherer(); ?>
+
 			<div class="menu-button">
 	            <span class="border-before"></span>
 	            <span class="border-main"></span>

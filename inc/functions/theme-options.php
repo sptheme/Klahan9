@@ -102,7 +102,7 @@ function custom_theme_options() {
 			'id'		=> 'color-menu-item-3',
 			'label'		=> '3th menu item',
 			'desc'		=> 'Choose color for 3th menu item',
-			'std'		=> '#00b7e1',
+			'std'		=> '#9f72bf',
 			'type'		=> 'colorpicker',
 			'section'	=> 'header'
 		),
