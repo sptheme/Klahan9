@@ -722,7 +722,7 @@ function _custom_meta_boxes() {
 				'type'		=> 'text',
 				'desc'		=> 'Enter the team member\'s position within the team.'
 			),
-			array(
+			/*array(
 				'label'		=> 'Facebook Profile',
 				'id'		=> $prefix . 'team_facebook',
 				'type'		=> 'text',
@@ -739,7 +739,7 @@ function _custom_meta_boxes() {
 				'id'		=> $prefix . 'team_linkedin',
 				'type'		=> 'text',
 				'desc'		=> 'On/Off linkedin profile, If Off keep it empty'
-			)
+			)*/
 		)
 	);
 

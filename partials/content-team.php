@@ -9,9 +9,9 @@
 
 <?php
 	$team_position = esc_html( get_post_meta( $post->ID, 'sp_team_position', true ) );
-	$team_facebook = esc_url( get_post_meta( $post->ID, 'sp_team_facebook', true ) );
+	/*$team_facebook = esc_url( get_post_meta( $post->ID, 'sp_team_facebook', true ) );
 	$team_twitter = esc_url( get_post_meta( $post->ID, 'sp_team_twitter', true ) );
-	$team_linkedin = esc_url( get_post_meta( $post->ID, 'sp_team_linkedin', true ) );
+	$team_linkedin = esc_url( get_post_meta( $post->ID, 'sp_team_linkedin', true ) );*/
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope itemtype="http://schema.org/Article">
@@ -39,7 +39,7 @@
 			<?php echo $team_position; ?>
 		</div><!-- .entry-meta -->
 
-		<div class="team-social">
+		<!-- <div class="team-social">
 			<?php if ( ! empty( $team_facebook ) ) : ?>
 				<a href="<?php echo $team_facebook; ?>"><i class="fa fa-facebook"></i></a>
 			<?php endif; ?>	
@@ -49,5 +49,5 @@
 			<?php if ( ! empty( $team_linkedin ) ) : ?>
 				<a href="<?php echo $team_linkedin; ?>"><i class="fa fa-linkedin"></i></a>
 			<?php endif; ?>
-		</div> <!-- .team-social -->	
+		</div> --> <!-- .team-social -->	
 </article><!-- #post-## -->
