@@ -15,12 +15,13 @@ get_header(); ?>
 		$tv_team_num = esc_html( get_post_meta( $post->ID, 'sp_tv_team_num', true ) );
 		$tv_team_text_link = esc_html( get_post_meta( $post->ID, 'sp_tv_team_text_link', true ) );
 		$tv_team_page_link = get_post_meta( $post->ID, 'sp_tv_team_page_link', true );
+		$tv_photo_page_link = get_post_meta( $post->ID, 'sp_tv_photo_page_link', true );
 		$callout_link = get_post_meta( $post->ID, 'sp_callout_link', true ) ;
 		$team_taxonomy_id = get_post_meta( $post->ID, 'sp_team_tax', true );
 		$tv_photo_title = esc_html( get_post_meta( $post->ID, 'sp_tv_photo_title', true ) );
 		$tv_photo_num = esc_html( get_post_meta( $post->ID, 'sp_tv_photo_num', true ) );
 		$tv_photo_text_link = esc_html( get_post_meta( $post->ID, 'sp_tv_photo_text_link', true ) );
-		$album_taxonomy_id = get_post_meta( $post->ID, 'sp_album_tax', true ); 
+		$album_term_id = get_post_meta( $post->ID, 'sp_album_term', true ); 
 	?>
 
 	<div id="primary" class="content-area">
@@ -128,11 +129,11 @@ get_header(); ?>
 			<div id="photo-wrap" class="clearfix">
 				<div class="section-title clearfix">
 					<h3><i class="fa fa-film"></i> <?php echo $tv_photo_title; ?></h3>
-					<a href="<?php echo esc_url( get_permalink( $album_taxonomy_id ) ); ?>" class="more"><?php echo $tv_photo_text_link; ?></a>
+					<a href="<?php echo esc_url( get_permalink( $tv_photo_page_link ) ); ?>" class="more"><?php echo $tv_photo_text_link; ?></a>
 				</div>
 				<div class="filmstrip">
 					<div class="strip-top"></div>
-					<?php wpsp_single_photo_album( $album_taxonomy_id, $tv_photo_num, $tv_photo_num ); ?>
+					<?php wpsp_get_albums_by_term( $album_term_id, $tv_photo_num, $tv_photo_num ); ?>
 					<div class="strip-bottom"></div>
 				</div> <!-- .filmstrip -->
 			</div> <!-- .lastest-gallery -->

@@ -305,16 +305,13 @@ function wpsp_photogallery_shortcode( $atts, $content = null ){
 	ob_start();
 
 	extract( shortcode_atts( array(
-		'album_id'  => null,
+		'term_id'  => null,
 		'post_num'  => null,
 		'cols' 		=> null,
 	), $atts ) );
 
-	if ( $album_id == '-1' ) { // Show each cover album		
-		wpsp_get_all_albums( $post_num, $cols );
-	} else { // show individual album
-		wpsp_single_photo_album( $album_id, $post_num, $cols );
-	}
+	wpsp_get_albums_by_term( $term_id, $post_num, $cols );
+
 	return ob_get_clean();
 }
 endif;

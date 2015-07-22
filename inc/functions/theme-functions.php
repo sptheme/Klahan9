@@ -344,20 +344,25 @@ function wpsp_switch_posttype_content( $post_type ) {
 }
 endif;
 
-if ( ! function_exists( 'wpsp_get_all_albums' ) ) :
+if ( ! function_exists( 'wpsp_get_albums_by_term' ) ) :
 /**
  *	All Albums
  *
  *	List all photos in each albums
  *
  */
-function wpsp_get_all_albums( $post_num = -1, $cols = 3 ) {
+function wpsp_get_albums_by_term( $term, $post_num = -1, $cols = 3 ) {
 	global $post;
 
 	$args = array(
 			'post_type' => 'cp_gallery',
 			'posts_per_page' => $post_num,
-			'post__not_in' => array( $post->ID )
+			'tax_query' => array(
+	  			array(
+					'taxonomy' => 'gallery_category',
+					'field' => 'term_id',
+	  				'terms' => array($term)
+				))
 		);
 	$custom_query = new WP_Query($args);
 

@@ -11,22 +11,47 @@ function wpsp_photogallery_shortcode_ajax() {
 
 	<div id="sc-photogallery-form">
 			<table id="sc-photogallery-table" class="form-table">
-				<tr>
+				<!-- <tr>
 					<?php $field = 'album_id'; ?>
-					<th><label for="<?php echo $field; ?>"><?php _e( 'Select album: ', 'wpsp_shortcode' ); ?></label></th>
+					<th><label for="<?php echo $field; ?>"><?php _e( 'Album options: ', 'wpsp_shortcode' ); ?></label></th>
 					<td>
 						<select name="<?php echo $field; ?>" id="<?php echo $field; ?>">
-							<option class="level-0" value="-1"><?php _e( 'All cover albums', 'wpsp_shortcode' ); ?></option>
-							<?php
-							$args = (array(
-								'post_type' => 'cp_gallery',
-								'post_per_pages' => -1
-							));
-							$posts = get_posts( $args );
-							foreach ( $posts as $post ) {
-								echo '<option class="level-0" value="' . $post->ID . '">' . $post->post_title . '</option>';
-							}
-							?>
+							<option class="level-0" value="-1"><?php _e( 'All albums', 'wpsp_shortcode' ); ?></option>
+							<optgroup label="<?php _e( 'By Group', 'wpsp_shortcode' ); ?>">
+								<?php $args = array(
+										'hide_empty'	=> 0
+									);
+								$taxonomies = get_terms( 'gallery_category', $args );
+								foreach ( $taxonomies as $tax ) {
+									echo '<option class="level-0" value="' . $tax->term_id . '">' . $tax->name . '</option>';
+								} ?>
+							</optgroup>
+							<optgroup label="<?php _e( 'By album', 'wpsp_shortcode' ); ?>">
+								<?php $args = (array(
+									'post_type' => 'cp_gallery',
+									'post_per_pages' => -1
+								));
+								$posts = get_posts( $args );
+								foreach ( $posts as $post ) {
+									echo '<option class="level-0" value="' . $post->ID . '">' . $post->post_title . '</option>';
+								} ?>
+							</optgroup>
+						</select>
+					</td>
+				</tr> -->
+				<tr>
+					<?php $field = 'term_id'; ?>
+					<th><label for="<?php echo $field; ?>"><?php _e( 'Album options: ', 'wpsp_shortcode' ); ?></label></th>
+					<td>
+						<select name="<?php echo $field; ?>" id="<?php echo $field; ?>">
+							<option class="level-0" value="0"><?php _e( 'Select category', 'wpsp_shortcode' ); ?></option>
+							<?php $args = array(
+									'hide_empty'	=> 0
+								);
+							$taxonomies = get_terms( 'gallery_category', $args );
+							foreach ( $taxonomies as $tax ) {
+								echo '<option class="level-0" value="' . $tax->term_id . '">' . $tax->name . '</option>';
+							} ?>
 						</select>
 					</td>
 				</tr>

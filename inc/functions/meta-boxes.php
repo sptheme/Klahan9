@@ -255,17 +255,17 @@ function _custom_meta_boxes() {
 			),
 			array(
 				'label'		=> 'TV photo album',
-				'id'		=> $prefix . 'album_tax',
-				'type'		=> 'custom-post-type-select',
-				'post_type' => 'cp_gallery',
-				'desc'		=> 'Select TV Album show on TV main page'
+				'id'		=> $prefix . 'album_term',
+				'type'		=> 'taxonomy-select',
+				'taxonomy' => 'gallery_category',
+				'desc'		=> 'Select TV Album'
 			),
 			array(
-				'label'		=> 'Amount of photo',
+				'label'		=> 'Amount of albums',
 				'id'		=> $prefix . 'tv_photo_num',
 				'type'		=> 'select',
 				'std'		=> '4',
-				'desc'		=> 'Choose amount of photo to show',
+				'desc'		=> 'Choose amount of albums to show',
 				'choices'   => array( 
 		          array(
 		            'value'       => '2',
@@ -295,6 +295,13 @@ function _custom_meta_boxes() {
 				'type'		=> 'text',
 				'std'		=> 'More photos',
 				'desc'		=> 'Title link for TV Photo'
+			),
+			array(
+				'label'		=> 'TV album page link',
+				'id'		=> $prefix . 'tv_photo_page_link',
+				'type'		=> 'page-select',
+				'std'		=> '',
+				'desc'		=> 'Select page link to TV photo gallery'
 			),
 			array(
 				'label'       => __( 'Callout', 'wpsp' ),

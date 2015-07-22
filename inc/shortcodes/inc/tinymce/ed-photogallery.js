@@ -34,7 +34,7 @@
 		// again, this is not the most elegant way to do this
 		// but well, this gets the job done nonetheless
 		var options = { 
-			'album_id' : null,
+			'term_id' : null,
 			'post_num' : null,
 			'cols' : null
 			};
