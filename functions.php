@@ -213,6 +213,11 @@ function wpsp_scripts() {
 		wp_enqueue_script('klahan9-wow', WPSP_JS_DIR_URI . 'wow.min.js', array('jquery'), WPSP_THEME_VERSION, true);
 		wp_enqueue_script('klahan9-tooltipster', WPSP_JS_DIR_URI . 'jquery.tooltipster.min.js', array('jquery'), WPSP_THEME_VERSION, true);
 	}
+
+	if ( is_page_template( 'page-templates/page-tv.php' ) || is_page_template( 'page-templates/page-radio.php' )) {
+		wp_enqueue_style('flexisel', WPSP_CSS_DIR_URI . 'flexisel.css');
+		wp_enqueue_script('flexisel', WPSP_JS_DIR_URI . 'jquery.flexisel.js', array('jquery'), WPSP_THEME_VERSION, true);
+	}
 }
 add_action( 'wp_enqueue_scripts', 'wpsp_scripts' );
 

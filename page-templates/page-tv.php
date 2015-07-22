@@ -107,7 +107,8 @@ get_header(); ?>
 				</div>
 				<?php $args = array(
 	                'post_type' => 'cp_team',
-	                'posts_per_page' => $tv_team_num,
+	                //'posts_per_page' => $tv_team_num,
+	                'posts_per_page' => 10,
 	                'meta_query' => array(
 						array(
 							'key'     => 'sp_team_featured',
@@ -123,9 +124,36 @@ get_header(); ?>
 						),
 					), 
 					//'orderby' => 'rand',  
-            	); 
-
-				wpsp_get_posts_type ( 'cp_team', $args, $tv_team_num ); ?>
+            	); ?>
+            	<script type="text/javascript">
+					jQuery('document').ready(function($) {
+						$("#tv-team").children().children().flexisel({
+							visibleItems: 5,
+							animationSpeed: 1500,
+							autoPlay: true,
+							autoPlaySpeed: 4000,            
+							pauseOnHover: true,
+							enableResponsiveBreakpoints: true,
+							responsiveBreakpoints: { 
+								portrait: { 
+									changePoint:480,
+									visibleItems: 1
+								},
+								iphone: { 
+									changePoint:640,
+									visibleItems: 2
+								}, 
+								tablet: { 
+									changePoint:768,
+									visibleItems: 3
+								}
+							}
+						});
+					});
+				</script>
+            	<div id="tv-team">
+				<?php wpsp_get_posts_type ( 'cp_team', $args, $tv_team_num ); ?>
+				</div>
 
 			</div> <!-- #meet-tv-star -->
 
@@ -134,9 +162,9 @@ get_header(); ?>
 					<h3><i class="fa fa-film"></i> <?php echo $tv_photo_title; ?></h3>
 					<a href="<?php echo esc_url( get_permalink( $tv_photo_page_link ) ); ?>" class="more"><?php echo $tv_photo_text_link; ?></a>
 				</div>
-				<div class="filmstrip">
+				<div id="tv-team" class="filmstrip">
 					<div class="strip-top"></div>
-					<?php wpsp_get_albums_by_term( $album_term_id, $tv_photo_num, $tv_photo_num ); ?>
+					<?php wpsp_get_albums_by_term( $album_term_id, 10, $tv_photo_num ); ?>
 					<div class="strip-bottom"></div>
 				</div> <!-- .filmstrip -->
 			</div> <!-- .lastest-gallery -->
