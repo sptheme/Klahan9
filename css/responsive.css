@@ -179,6 +179,13 @@
     .post-thumbnail img {
         width: 100%;
     }
+    .site-info,
+    .footer-menu-container { 
+        text-align: center; 
+    }
+    .footer-menu-container {
+        margin-top: 10px;
+    }
 }
 
 /* Regular Phones - Landscape */

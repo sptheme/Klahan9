@@ -1312,12 +1312,26 @@ input[type="search"] {
 .site-info {
     background-color: #2d3133;
     font-size: 13px;
-    color:#fff;
-    text-align: center;
-    padding: 10px 0;
+    color:#bababa;
+    padding: 10px;
 }
 .site-info p {
     margin-bottom: 0;
+}
+.site-info ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.footer-menu-container {
+    text-align: right;
+}
+.footer-nav li {
+    display: inline-block;
+    padding: 0 5px;
+}
+.footer-nav li a {
+    color:#bababa;
 }
 
 /*--------------------------------------------------------------

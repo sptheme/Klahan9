@@ -78,6 +78,7 @@ function wpsp_setup() {
 		'primary' => esc_html__( 'Primary Menu', WPSP_TEXT_DOMAIN ),
 		'social' => esc_html__( 'Social Menu', WPSP_TEXT_DOMAIN ),
 		'mobile' => esc_html__( 'Mobile Menu', WPSP_TEXT_DOMAIN ),
+		'footer' => esc_html__( 'Footer Menu', WPSP_TEXT_DOMAIN ),
 	) );
 
 	/*
@@ -357,6 +358,25 @@ function wpsp_mobile_navigation() {
 				'menu_id'		 => 'menu-mobile',
 				'menu_class'	 => 'mobile-nav',
 				'theme_location' => 'mobile',
+				'fallback_cb' 	 => '',
+			) 
+		);
+	}		
+	
+}
+
+/**
+ * Footer navigation
+ */
+function wpsp_footer_navigation() {
+		
+	if ( has_nav_menu( 'footer' ) ) {
+		wp_nav_menu(
+			array(
+				'container'      => false,
+				'menu_id'		 => 'menu-footer',
+				'menu_class'	 => 'footer-nav',
+				'theme_location' => 'footer',
 				'fallback_cb' 	 => '',
 			) 
 		);

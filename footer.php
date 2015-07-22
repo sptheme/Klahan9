@@ -42,12 +42,17 @@
 			</div> <!-- .site-about .two-fourth .last .clearfix -->
 		</div> <!-- .site-footer-top -->
 
-		<div class="site-info">
-		<?php if ( ot_get_option( 'copyright' ) ): 
-            echo ot_get_option( 'copyright' ); 
-        else:
-			printf( esc_html__( 'All content copyright © %1$s, %2$s. All Right Reserved.', WPSP_TEXT_DOMAIN ), date( 'Y' ), get_bloginfo( 'name' ) ); 
-		endif; ?>
+		<div class="site-info clearfix">
+			<div class="copyright two-fourth">
+			<?php if ( ot_get_option( 'copyright' ) ): 
+	            echo ot_get_option( 'copyright' ); 
+	        else:
+				printf( esc_html__( 'All content copyright © %1$s, %2$s. All Right Reserved.', WPSP_TEXT_DOMAIN ), date( 'Y' ), get_bloginfo( 'name' ) ); 
+			endif; ?>
+			</div> <!-- .copyright -->
+			<div class="footer-menu-container two-fourth last">
+			<?php wpsp_footer_navigation(); ?>
+			</div> <!-- .footer-menu-container -->
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 	
