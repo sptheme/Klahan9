@@ -13,7 +13,7 @@
 <?php if ( is_page_template( 'page-templates/page-tv.php' ) || is_page_template( 'page-templates/page-radio.php' ) ) :?>
 	<div class="thumb-effect">
 		<?php if (has_post_thumbnail()) {
-			    the_post_thumbnail( $post->ID, 'small-thumb' );
+			    echo get_the_post_thumbnail( $post->ID, 'small-thumb' );
 			} else { 
 				echo '<img src="' . esc_url( ot_get_option( 'post-placeholder' ) ) . '">';
 			} ?>

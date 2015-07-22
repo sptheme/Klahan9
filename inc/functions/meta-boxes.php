@@ -258,7 +258,7 @@ function _custom_meta_boxes() {
 				'id'		=> $prefix . 'album_term',
 				'type'		=> 'taxonomy-select',
 				'taxonomy' => 'gallery_category',
-				'desc'		=> 'Select TV Album'
+				'desc'		=> 'Select category TV photo album'
 			),
 			array(
 				'label'		=> 'Amount of albums',
@@ -349,7 +349,7 @@ function _custom_meta_boxes() {
 		'context'     => 'normal',
 		'priority'    => 'high',
 		'fields'      => array(
-			array(
+			/*array(
 				'label'       => __( 'Topics', 'wpsp' ),
 				'id'          => 'tab_topic',
 				'type'        => 'tab'
@@ -386,7 +386,7 @@ function _custom_meta_boxes() {
 		            'src'         => ''
 		          ),
 		        )
-			),
+			),*/
 			array(
 				'label'       => __( 'Schedule', 'wpsp' ),
 				'id'          => 'tab_schedule',
@@ -473,11 +473,11 @@ function _custom_meta_boxes() {
 				'desc'		=> 'Enter title for this section e.g: Weekly photos'
 			),
 			array(
-				'label'		=> 'TV Photo Album',
-				'id'		=> $prefix . 'album_tax',
-				'type'		=> 'custom-post-type-select',
-				'post_type' => 'cp_gallery',
-				'desc'		=> 'Select TV Album show on TV main page'
+				'label'		=> 'Radio photo album',
+				'id'		=> $prefix . 'album_term',
+				'type'		=> 'taxonomy-select',
+				'taxonomy' => 'gallery_category',
+				'desc'		=> 'Select category Radio photo album'
 			),
 			array(
 				'label'		=> 'Amount of photo',
@@ -514,6 +514,47 @@ function _custom_meta_boxes() {
 				'type'		=> 'text',
 				'std'		=> 'More photos',
 				'desc'		=> 'Title link for Radio Photo'
+			),
+			array(
+				'label'		=> 'Radio album page link',
+				'id'		=> $prefix . 'radio_photo_page_link',
+				'type'		=> 'page-select',
+				'std'		=> '',
+				'desc'		=> 'Select page link to Radio photo gallery'
+			),
+			array(
+				'label'       => __( 'Callout', 'wpsp' ),
+				'id'          => 'tab_callout',
+				'type'        => 'tab'
+			),
+			array(
+				'label'		=> 'Title',
+				'id'		=> $prefix . 'callout_title',
+				'type'		=> 'text',
+				'std'		=> 'Ready For a New Job or a Career Change?',
+				'desc'		=> ''
+			),
+			array(
+				'label'		=> 'Description',
+				'id'		=> $prefix . 'callout_desc',
+				'type'		=> 'textarea',
+				'rows'      => '3',
+				'std'		=> 'Klahan9 provided more information & documents with difference ways and experiences to make everyone have good career opportunity.',
+				'desc'		=> ''
+			),
+			array(
+				'label'		=> 'Button title',
+				'id'		=> $prefix . 'callout_button',
+				'type'		=> 'text',
+				'std'		=> 'Online Resource',
+				'desc'		=> ''
+			),
+			array(
+				'label'		=> 'Button link',
+				'id'		=> $prefix . 'callout_link',
+				'type'		=> 'page-select',
+				'std'		=> '',
+				'desc'		=> 'Select page link for Callout button link'
 			),
 		)
 	);

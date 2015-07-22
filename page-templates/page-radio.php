@@ -22,8 +22,13 @@ get_header(); ?>
 		$radio_photo_title = esc_html( get_post_meta( $post->ID, 'sp_radio_photo_title', true ) );
 		$radio_photo_num = esc_html( get_post_meta( $post->ID, 'sp_radio_photo_num', true ) );
 		$radio_photo_text_link = esc_html( get_post_meta( $post->ID, 'sp_radio_photo_text_link', true ) );
-		$album_taxonomy_id = get_post_meta( $post->ID, 'sp_album_tax', true );
+		$radio_photo_page_link = get_post_meta( $post->ID, 'sp_radio_photo_page_link', true );
+		$album_term_id = get_post_meta( $post->ID, 'sp_album_term', true );
 		$schedule_banner = get_post_meta( $post->ID, 'sp_schedule_banner', true ); 
+		$callout_title = esc_html( get_post_meta( $post->ID, 'sp_callout_title', true ) ); 
+		$callout_desc = esc_html( get_post_meta( $post->ID, 'sp_callout_desc', true ) ); 
+		$callout_button = esc_html( get_post_meta( $post->ID, 'sp_callout_button', true ) );
+		$callout_link = esc_url( get_post_meta( $post->ID, 'sp_callout_link', true ) );
 	?>
 
 	<div id="primary" class="content-area">
@@ -155,12 +160,16 @@ get_header(); ?>
 			<div id="photo-wrap" class="clearfix">
 				<div class="section-title clearfix">
 					<h3><i class="fa fa-picture-o"></i> <?php echo $radio_photo_title; ?></h3>
-					<a href="<?php echo esc_url( get_permalink( $album_taxonomy_id ) ); ?>" class="more"><?php echo $radio_photo_text_link; ?></a>
+					<a href="<?php echo esc_url( get_permalink( $radio_photo_page_link ) ); ?>" class="more"><?php echo $radio_photo_text_link; ?></a>
 				</div>
 				<div class="weekly-photo">
-					<?php wpsp_single_photo_album( $album_taxonomy_id, $radio_photo_num, $radio_photo_num ); ?>
+					<?php wpsp_get_albums_by_term( $album_term_id, $radio_photo_num, $radio_photo_num ); ?>
 				</div> <!-- .weekly-photo -->
 			</div> <!-- .lastest-gallery -->
+
+			<div class="callout clearfix">
+				<?php wpsp_callout( $callout_title, $callout_desc, $callout_button, $callout_link ); ?>
+			</div> <!-- .callout -->
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

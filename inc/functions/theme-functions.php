@@ -413,7 +413,23 @@ function wpsp_single_photo_album( $post_id, $post_num, $cols = 4 ) {
 }
 endif;
 
-if( !function_exists('sp_month_kh')) :
+if( !function_exists('wpsp_callout')) :
+/**
+* Month name string translation
+*/
+function wpsp_callout( $title, $desc, $button, $link ) {
+	$out = '<div class="two-third">';
+	$out .= '<h2>' . $title . '</h2>';
+	$out .= '<p>' . $desc . '</p>';
+	$out .= '</div>';
+	$out .= '<div class="one-third last">';
+	$out .= '<a class="button" href="' . $link . '">' . $button . '</a>';
+	$out .= '</div>';
+	echo $out;
+}
+endif;
+
+if( !function_exists('wpsp_month_kh')) :
 /**
 * Month name string translation
 */
