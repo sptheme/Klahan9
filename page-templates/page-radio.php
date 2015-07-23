@@ -57,7 +57,7 @@ get_header(); ?>
 	                    )
 	            	); 
 
-					$custom_query = new WP_Query( $args ); ?>
+			$custom_query = new WP_Query( $args ); ?>
 
 			<?php if( $custom_query->have_posts() ) : ?>
 
@@ -101,7 +101,7 @@ get_header(); ?>
         		<?php endwhile; wp_reset_postdata();?>	
         		</ul>
         		<h4><i class="fa fa-headphones"></i><?php wpsp_month_string_translate( date('F') ); ?></h4>
-        	</div>
+        	</div> <!-- #featured-radio-post -->
         	<?php endif; ?>
 
 			<div id="topic-next-month">

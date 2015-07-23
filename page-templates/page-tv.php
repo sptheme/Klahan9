@@ -30,28 +30,31 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 			<div id="tv-header" class="clearfix">
-				<div class="tv-featured">
-					<?php $args = array(
-		                'post_type' => 'post',
-		                'posts_per_page' => 1,   
-		                'tax_query' => array(
-                        	'relation' => 'AND',
-	                        array(
-	                            'taxonomy' => 'post_format',
-	                            'field'    => 'slug',
-	                            'terms'    => array( 'post-format-video' ),
-	                        ),
-	                        array(
-	                                'taxonomy' => 'category',
-	                                'field'    => 'term_id',
-	                                'terms'    => array( $cateogry_id ),
-	                        )
-	                    )
-	            	); 
+				
+				<?php $args = array(
+	                'post_type' => 'post',
+	                'posts_per_page' => 1,   
+	                'tax_query' => array(
+                    	'relation' => 'AND',
+                        array(
+                            'taxonomy' => 'post_format',
+                            'field'    => 'slug',
+                            'terms'    => array( 'post-format-video' ),
+                        ),
+                        array(
+                                'taxonomy' => 'category',
+                                'field'    => 'term_id',
+                                'terms'    => array( $cateogry_id ),
+                        )
+                    )
+            	); 
 
-					$custom_query = new WP_Query( $args );
+				$custom_query = new WP_Query( $args ); ?>
 
-	                while ( $custom_query->have_posts() ) : $custom_query->the_post(); ?>
+				<?php if( $custom_query->have_posts() ) : ?>
+
+					<div class="tv-featured">
+	                <?php while ( $custom_query->have_posts() ) : $custom_query->the_post(); ?>
 	                	<?php if (has_post_thumbnail()) { ?>
 							<div class="tv-post-featured">
 								<?php echo the_post_thumbnail('index-thumb'); ?>
@@ -66,10 +69,11 @@ get_header(); ?>
 								</div>
 		                    </div> <!-- .tv-post-info -->
 	                    </a>
-
 	                <?php endwhile; wp_reset_postdata(); ?>
-				</div> <!-- .tv-post-featured -->
-				<div class="widget-post-category tv-post-lists">
+	                </div> <!-- .tv-post-featured -->
+
+            	<?php endif; ?>
+				
 				<?php $args = array(
 		                'post_type' => 'post',
 		                'posts_per_page' => 6,
@@ -89,14 +93,18 @@ get_header(); ?>
 	                    )   
 	            	); 
 
-					$custom_query = new WP_Query( $args );
-	            
-		            if( $custom_query->have_posts() ) {
-		                while ( $custom_query->have_posts() ) : $custom_query->the_post();
-		                    get_template_part( 'partials/content', 'tv' );
-		                endwhile; wp_reset_postdata();
-		            } ?>
-				</div> <!-- .tv-post-lists -->
+				$custom_query = new WP_Query( $args ); ?>
+            
+	        	<?php if( $custom_query->have_posts() ) : ?>
+		        		
+	        		<div class="widget-post-category tv-post-lists">
+	                <?php while ( $custom_query->have_posts() ) : $custom_query->the_post();
+	                    get_template_part( 'partials/content', 'tv' );
+	                endwhile; wp_reset_postdata(); ?>
+	                </div> <!-- .tv-post-lists -->
+
+		        <?php endif ?>
+
 			</div> <!-- #tv-header -->
 
 			<div id="meet-tv-star" class="clearfix">
