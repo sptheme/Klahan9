@@ -29,7 +29,7 @@ get_header(); ?>
 			
 			<div class="monthly-topics">	
 			<?php if ( $yearly_topic == '2015' ) :
-						$now = date('n', strtotime('2015-12-30')) - 5;
+						$now = date('n', strtotime('2015-12-30')) - 6;
 						$current_month = strtotime(date("Y-m-d"));
 					else :
 						$now = date('n', strtotime(date("Y-m-d")));

@@ -19,10 +19,12 @@
 		<?php printf('<span class="week-num">%s</span>', esc_html__('Week ', WPSP_TEXT_DOMAIN) . get_the_date('W') ); 
 			if ( ! empty( $sound_url ) ) {
 				the_title( sprintf( '<h3 class="topic-title" itemprop="name"><a itemprop="url" href="%1$s" rel="bookmark" title="%2$s">', esc_url( get_permalink() ), esc_attr( get_the_title() ) ), '</a></h3>' );
+				printf('<span class="topic-date">%s</span>', esc_html__( 'on ', WPSP_TEXT_DOMAIN ) . esc_html( get_the_date('d M, Y') ) );
 			} else {
 				the_title( sprintf( '<h3 class="topic-title" itemprop="name">', esc_attr( get_the_title() ) ), '</h3>' );	
-			}
-			printf('<span class="topic-date">%s</span>', esc_html__( 'will broadcast on ', WPSP_TEXT_DOMAIN ) . esc_html( get_the_date('d M, Y') ) ); ?>
+				printf('<span class="topic-date">%s</span>', esc_html__( 'will broadcast on ', WPSP_TEXT_DOMAIN ) . esc_html( get_the_date('d M, Y') ) ); 
+			} ?>
+			
 	</div>
 	<?php if ( ! empty( $speaker_name ) ) { ?>
 	<div class="guest-speaker one-fourth last">
