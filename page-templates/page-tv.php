@@ -161,7 +161,7 @@ get_header(); ?>
 				</script>
             	<div id="tv-team">
 				<?php wpsp_get_posts_type ( 'cp_team', $args, $tv_team_num ); ?>
-				</div>
+				</div> <!-- #tv-team -->
 
 			</div> <!-- #meet-tv-star -->
 

@@ -160,9 +160,37 @@ get_header(); ?>
 						),
 					), 
 					//'orderby' => 'rand',  
-            	); 
+            	); ?>
 
-				wpsp_get_posts_type ( 'cp_team', $args, $radio_team_num ); ?>
+            	<script type="text/javascript">
+					jQuery('document').ready(function($) {
+						$("#radio-team").children().children().flexisel({
+							visibleItems: 5,
+							animationSpeed: 1500,
+							autoPlay: true,
+							autoPlaySpeed: 4000,            
+							pauseOnHover: true,
+							enableResponsiveBreakpoints: true,
+							responsiveBreakpoints: { 
+								portrait: { 
+									changePoint:480,
+									visibleItems: 1
+								},
+								iphone: { 
+									changePoint:640,
+									visibleItems: 2
+								}, 
+								tablet: { 
+									changePoint:768,
+									visibleItems: 3
+								}
+							}
+						});
+					});
+				</script>
+				<div id="radio-team">
+				<?php wpsp_get_posts_type ( 'cp_team', $args, $radio_team_num ); ?>
+				</div> <!-- #radio-team -->
 
 			</div> <!-- .meet-radio-team -->
 
