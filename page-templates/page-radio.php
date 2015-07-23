@@ -42,6 +42,13 @@ get_header(); ?>
 								'month' => date( 'm' ),
 							),
 						),
+						'meta_query' => array(
+							array(
+								'key'     => 'sp_sound_url',
+								'value'   => '',
+								'compare' => '!=',
+							),
+						),
 		                'tax_query' => array(
                         	'relation' => 'AND',
 	                        array(
@@ -87,9 +94,11 @@ get_header(); ?>
 				<ul class="slides">
         		<?php while ( $custom_query->have_posts() ) : $custom_query->the_post(); ?>
         			<li>
-        				<?php if (has_post_thumbnail()) { ?>
-							<?php echo the_post_thumbnail('large-thumb'); ?>
-						<?php } ?>
+        				<?php if (has_post_thumbnail()) { 
+        					echo get_the_post_thumbnail($post->ID, 'large-thumb');
+						} else { 
+							echo '<img src="' . WPSP_BASE_URL . '/images/placeholder/thumbnail-960x380.jpg">';
+						} ?>
         				<div class="flex-caption">
 			                <?php printf( '<h1 itemprop="name"><a itemprop="url" href="%1$s" rel="bookmark" title="%2$s">%3$s</a></h1>', esc_url( get_permalink() ), esc_attr( get_the_title() ), esc_html( get_the_title() )  ); ?>
 			                <div class="entry-meta">
