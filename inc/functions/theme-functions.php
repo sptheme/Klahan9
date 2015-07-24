@@ -506,11 +506,11 @@ if ( ! function_exists( 'wpsp_monthly_topic' ) ) :
 /**
  *	Yearly topic of Radio
  */
-function wpsp_monthly_topic( $cat_id, $post_num = 5, $year, $month) {
+function wpsp_monthly_topic( $cat_id, $post_num = 5, $year, $month, $order = 'DESC' ) {
 	$args = array(
 		'post_type' => 'post',
         'posts_per_page' => $post_num,
-        'order' => $radio_topic_order,
+        'order' => $order,
         'post_status' => array('future','publish'),
         'date_query' => array(
 			array(

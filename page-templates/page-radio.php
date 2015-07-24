@@ -133,9 +133,8 @@ get_header(); ?>
 						</li>
 					</ul>
 					<?php $yearly_topic = date( 'Y' );
-						//$topic_nextmonth = date( 'm' ) + 1;
 						$monthly_topic = date( 'm' );
-						wpsp_monthly_topic( $cateogry_id, $radio_topic_num, $yearly_topic, $topic_nextmonth ); ?>
+						wpsp_monthly_topic( $cateogry_id, $radio_topic_num, $yearly_topic, $monthly_topic, $radio_topic_order ); ?>
 	            </div> <!-- .monthly-topics -->
 			</div> <!-- #topic-next-month -->
 

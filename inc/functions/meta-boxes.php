@@ -399,6 +399,39 @@ function _custom_meta_boxes() {
 				'desc'		=> 'Recommend square image banner. e.g: 310px by 310px'
 			),
 			array(
+				'label'		=> 'Title',
+				'id'		=> $prefix . 'radio_topic_title',
+				'type'		=> 'text',
+				'std'		=> 'Topic next month',
+				'desc'		=> 'Enter title for this section e.g: Topic next month'
+			),
+			array(
+				'label'		=> 'Number of topic',
+				'id'		=> $prefix . 'radio_topic_num',
+				'type'		=> 'text',
+				'std'		=> '5',
+				'desc'		=> 'Enter amount of topic to show'
+			),
+			array(
+				'label'		=> 'Topic order',
+				'id'		=> $prefix . 'radio_topic_order',
+				'type'		=> 'select',
+				'std'		=> 'ASC',
+				'desc'		=> 'Select order type for topic. ASC (1, 2, 3; a, b, c) or DESC (3, 2, 1; c, b, a)',
+				'choices'   => array( 
+		          array(
+		            'value'       => 'ASC',
+		            'label'       => 'ASC',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => 'DESC',
+		            'label'       => 'DESC',
+		            'src'         => ''
+		          ),
+		        )
+			),
+			array(
 				'label'       => __( 'Team', 'wpsp' ),
 				'id'          => 'tab_team',
 				'type'        => 'tab'
