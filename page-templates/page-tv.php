@@ -138,7 +138,7 @@ get_header(); ?>
 						$("#tv-team").children().children().flexisel({
 							visibleItems: 5,
 							animationSpeed: 1500,
-							autoPlay: true,
+							autoPlay: false,
 							autoPlaySpeed: 4000,            
 							pauseOnHover: true,
 							enableResponsiveBreakpoints: true,

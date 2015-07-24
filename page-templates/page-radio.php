@@ -122,17 +122,19 @@ get_header(); ?>
 	            </div>
 
 	            <div class="monthly-topics clearfix">
-	            	<?php $next_month = date('F', strtotime('+1 month')); ?>
 	            	<ul class="topic-head">
 						<li>
 						<div class="two-third">
-						<?php wpsp_month_string_translate( $next_month ); ?>
+						<?php //$next_month = date('F', strtotime('+1 month'));
+							//wpsp_month_string_translate( $next_month ); 
+							wpsp_month_string_translate( date('F') ); ?>
 						</div>
 						<div class="one-fourth last"><?php echo  __('Guest Speaker', WPSP_TEXT_DOMAIN); ?></div>
 						</li>
 					</ul>
 					<?php $yearly_topic = date( 'Y' );
-						$topic_nextmonth = date( 'm' ) + 1;
+						//$topic_nextmonth = date( 'm' ) + 1;
+						$monthly_topic = date( 'm' );
 						wpsp_monthly_topic( $cateogry_id, $radio_topic_num, $yearly_topic, $topic_nextmonth ); ?>
 	            </div> <!-- .monthly-topics -->
 			</div> <!-- #topic-next-month -->
@@ -167,7 +169,7 @@ get_header(); ?>
 						$("#radio-team").children().children().flexisel({
 							visibleItems: 5,
 							animationSpeed: 1500,
-							autoPlay: true,
+							autoPlay: false,
 							autoPlaySpeed: 4000,            
 							pauseOnHover: true,
 							enableResponsiveBreakpoints: true,
