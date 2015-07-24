@@ -177,7 +177,7 @@ function custom_theme_options() {
 			'id'		=> 'post-placeholder',
 			'label'		=> 'Post placeholder',
 			'desc'		=> 'Upload your custom place holder image. Size 960px by 720px',
-			'std'		=> WPSP_BASE_URL . '/images/placeholder/thumbnail-960x720.jpg',
+			'std'		=> WPSP_BASE_URL . '/images/placeholder/thumbnail-960x657.jpg',
 			'type'		=> 'upload',
 			'section'	=> 'post'
 		),
