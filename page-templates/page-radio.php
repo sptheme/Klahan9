@@ -11,6 +11,8 @@ get_header(); ?>
 
 	<?php 
 		$cateogry_id = get_post_meta( $post->ID, 'sp_post_by_cat', true ); 
+		$radio_all_topic_title = esc_html( get_post_meta( $post->ID, 'sp_radio_all_topic_title', true ) );
+		$radio_all_topic_link = get_post_meta( $post->ID, 'sp_radio_all_topic_link', true );
 		$radio_topic_title = esc_html( get_post_meta( $post->ID, 'sp_radio_topic_title', true ) );
 		$radio_topic_num = get_post_meta( $post->ID, 'sp_radio_topic_num', true );
 		$radio_topic_order = get_post_meta( $post->ID, 'sp_radio_topic_order', true );
@@ -28,7 +30,7 @@ get_header(); ?>
 		$callout_title = esc_html( get_post_meta( $post->ID, 'sp_callout_title', true ) ); 
 		$callout_desc = esc_html( get_post_meta( $post->ID, 'sp_callout_desc', true ) ); 
 		$callout_button = esc_html( get_post_meta( $post->ID, 'sp_callout_button', true ) );
-		$callout_link = esc_url( get_post_meta( $post->ID, 'sp_callout_link', true ) );
+		$callout_link = get_post_meta( $post->ID, 'sp_callout_link', true );
 	?>
 
 	<div id="primary" class="content-area">
@@ -109,7 +111,7 @@ get_header(); ?>
         			</li>
         		<?php endwhile; wp_reset_postdata();?>	
         		</ul>
-        		<h4><i class="fa fa-headphones"></i><?php wpsp_month_string_translate( date('F') ); ?></h4>
+        		<h4><i class="fa fa-headphones"></i><a href="<?php echo esc_url( get_permalink( $radio_all_topic_link ) ); ?>" title="<?php echo $radio_all_topic_title; ?>"><?php echo $radio_all_topic_title; ?></a></h4>
         	</div> <!-- #featured-radio-post -->
         	<?php endif; ?>
 

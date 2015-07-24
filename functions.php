@@ -281,6 +281,7 @@ function wpsp_print_custom_css_script(){
 	.tv-featured a:hover h3.entry-title,
 	.tv-featured a:hover .tv-post-info:before,
 	#featured-radio-post h4,
+	#featured-radio-post h4 a,
 	#featured-radio-post .flex-caption a:hover {
 		color:<?php echo $page_bg_color; ?>;
 	}

@@ -423,7 +423,7 @@ function wpsp_callout( $title, $desc, $button, $link ) {
 	$out .= '<p>' . $desc . '</p>';
 	$out .= '</div>';
 	$out .= '<div class="one-third last">';
-	$out .= '<a class="button" href="' . $link . '">' . $button . '</a>';
+	$out .= '<a class="button" href="' . esc_url( get_permalink( $link ) ) . '">' . $button . '</a>';
 	$out .= '</div>';
 	echo $out;
 }

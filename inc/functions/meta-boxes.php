@@ -349,48 +349,24 @@ function _custom_meta_boxes() {
 		'context'     => 'normal',
 		'priority'    => 'high',
 		'fields'      => array(
-			/*array(
-				'label'       => __( 'Topics', 'wpsp' ),
-				'id'          => 'tab_topic',
-				'type'        => 'tab'
-			),
-			array(
-				'label'		=> 'Title',
-				'id'		=> $prefix . 'radio_topic_title',
-				'type'		=> 'text',
-				'std'		=> 'Topic next month',
-				'desc'		=> 'Enter title for this section e.g: Topic next month'
-			),
-			array(
-				'label'		=> 'Number of topic',
-				'id'		=> $prefix . 'radio_topic_num',
-				'type'		=> 'text',
-				'std'		=> '5',
-				'desc'		=> 'Enter amount of topic to show'
-			),
-			array(
-				'label'		=> 'Topic order',
-				'id'		=> $prefix . 'radio_team_order',
-				'type'		=> 'select',
-				'std'		=> 'ASC',
-				'desc'		=> 'Select order type for topic. ASC (1, 2, 3; a, b, c) or DESC (3, 2, 1; c, b, a)',
-				'choices'   => array( 
-		          array(
-		            'value'       => 'ASC',
-		            'label'       => 'ASC',
-		            'src'         => ''
-		          ),
-		          array(
-		            'value'       => 'DESC',
-		            'label'       => 'DESC',
-		            'src'         => ''
-		          ),
-		        )
-			),*/
 			array(
 				'label'       => __( 'Schedule', 'wpsp' ),
 				'id'          => 'tab_schedule',
 				'type'        => 'tab'
+			),
+			array(
+				'label'		=> 'All topics title',
+				'id'		=> $prefix . 'radio_all_topic_title',
+				'type'		=> 'text',
+				'std'		=> 'Listen all topics',
+				'desc'		=> 'Enter title to listen all topics'
+			),
+			array(
+				'label'		=> 'All topics link',
+				'id'		=> $prefix . 'radio_all_topic_link',
+				'type'		=> 'page-select',
+				'std'		=> '',
+				'desc'		=> 'Select page link to listen all topics'
 			),
 			array(
 				'label'		=> 'Schedule banner',

@@ -24,7 +24,7 @@ get_header(); ?>
 		$callout_title = esc_html( get_post_meta( $post->ID, 'sp_callout_title', true ) ); 
 		$callout_desc = esc_html( get_post_meta( $post->ID, 'sp_callout_desc', true ) ); 
 		$callout_button = esc_html( get_post_meta( $post->ID, 'sp_callout_button', true ) );
-		$callout_link = esc_url( get_post_meta( $post->ID, 'sp_callout_link', true ) );
+		$callout_link = get_post_meta( $post->ID, 'sp_callout_link', true );
 	?>
 
 	<div id="primary" class="content-area">
