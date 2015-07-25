@@ -195,6 +195,7 @@ function wpsp_scripts() {
 
     // Enqueue scripts
     wp_enqueue_script( 'klahan9-modernizr', WPSP_JS_DIR_URI . 'custom-modernizr.min.js', array('jquery'), WPSP_THEME_VERSION, false );
+    wp_enqueue_script( 'klahan9-fitvids', WPSP_JS_DIR_URI . 'jquery.fitvids.js', array('jquery'), WPSP_THEME_VERSION, true );
     wp_enqueue_script( 'klahan9-magnific-popup', WPSP_JS_DIR_URI . 'jquery.magnific-popup.min.js', array('jquery'), WPSP_THEME_VERSION, true );
     wp_enqueue_script('klahan9-menu-mobile', WPSP_JS_DIR_URI . 'menu-mobile.js', array('jquery'), WPSP_THEME_VERSION, true);
     wp_enqueue_script('klahan9-main', WPSP_JS_DIR_URI . 'main.js', array('jquery'), WPSP_THEME_VERSION, true);

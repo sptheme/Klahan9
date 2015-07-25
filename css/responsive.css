@@ -15,12 +15,16 @@
     .widget-area,
     .site-footer-top,
     .tv-featured,
+    .tv-featured-content,
     .tv-post-lists,
     .index-box,
     .post-highlight .small-index-thumbnail { 
         width: 740px; 
         max-width: 740px;
         float: none!important;
+    }
+    .tv-featured-content .entry-title {
+        padding-top: 0;
     }
     .content-area {
         margin-bottom: 10px;
@@ -68,6 +72,7 @@
     .widget-area,
     .site-footer-top,
     .tv-featured,
+    .tv-featured-content,
     .tv-post-lists,
     .index-box,
     .post-highlight .small-index-thumbnail { 
@@ -108,6 +113,7 @@
     .widget-area,
     .site-footer-top,
     .tv-featured,
+    .tv-featured-content,
     .tv-post-lists,
     .index-box,
     .post-highlight .small-index-thumbnail { 
@@ -197,6 +203,7 @@
     .widget-area,
     .site-footer-top,
     .tv-featured,
+    .tv-featured-content,
     .tv-post-lists,
     .index-box,
     .post-highlight .small-index-thumbnail { 
@@ -214,6 +221,7 @@
     .widget-area,
     .site-footer-top,
     .tv-featured,
+    .tv-featured-content,
     .tv-post-lists,
     .index-box,
     .post-highlight .small-index-thumbnail { 
@@ -269,6 +277,7 @@
     .widget-area,
     .site-footer-top,
     .tv-featured,
+    .tv-featured-content,
     .tv-post-lists,
     .index-box,
     .post-highlight .small-index-thumbnail { 
@@ -286,6 +295,7 @@
     .widget-area,
     .site-footer-top,
     .tv-featured,
+    .tv-featured-content,
     .tv-post-lists,
     .index-box,
     .post-highlight .small-index-thumbnail { 

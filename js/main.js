@@ -22,5 +22,10 @@ jQuery(document).ready(function($){
           mainClass: 'mfp-fade',
           fixedContentPos: false
       });
+
+    /**
+    /*  Make all the videos responsive with FitVids - http://fitvidsjs.com/         
+    /*/
+    $('#content').fitVids();  
      
 });

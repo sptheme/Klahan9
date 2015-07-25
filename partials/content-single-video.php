@@ -12,7 +12,7 @@
 		$video_url = get_post_meta( $post->ID, 'sp_video_url', true ); 
 		if ( !empty( $video_url ) ) {
 			global $wp_embed;
-			$video = $wp_embed->run_shortcode('[embed width="650"]' . $video_url . '[/embed]');
+			$video = $wp_embed->run_shortcode('[embed]' . $video_url . '[/embed]');
 			printf( '<div class="single-post-thumbnail"><div class="image-shifter">%s</div></div>', $video );
 		}
 	?>

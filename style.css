@@ -1659,67 +1659,65 @@ input[type="search"] {
 ## Page template
 --------------------------------------------------------------*/
 /* Template TV */
+.tv-post-featured {
+    background-color: #404040;
+}
 .tv-featured {
     width: 640px;
     float: left;
-}
-.tv-featured a,
-.tv-featured h3.entry-title,
-.tv-post-info:before {
-    color:#fff;
-}
-.tv-featured a:hover {
-    text-decoration: none;
-}
-.tv-featured a:hover h3.entry-title,
-.tv-featured a:hover .tv-post-info:before {
-    color:#4285f4;
-}
-.tv-post-lists {
-    background-color: #fff;
-    width: 310px;
-    float: right;
-    /*height: 450px;
-    overflow-y: scroll;*/
-}
-.tv-post-lists .post-thumbnail {
-    float: left;
-    margin-right: 10px;
-    width: 102px;
-    height: 70px;
-}
-.tv-post-info {
-    background-color: #2d3133;
     padding: 20px;
-    position: relative;
-    height: 100%;
 }
-.tv-post-info:before {
-    position: absolute;
-    bottom: 10px;
-    right: 20px;
-    display: block;
-    font-family:'FontAwesome';   
-    font-size: 72px;
-    content: '\f01d';
+.tv-featured-content {
+    width: 320px;
+    float: right;
+    padding: 0 20px 20px;
 }
-.tv-post-info h3.entry-title{
-    padding: 0;
-    width: 520px;
+.tv-featured-content .entry-header{
+    max-width:100%;
+    padding-right: 0;
+    padding-left: 0;
 }
-.tv-post-info .entry-meta,
-#featured-radio-post .entry-meta {
+.tv-featured-content .entry-title {
+    padding-bottom: 10px;
+}
+.tv-featured-content .entry-meta {
     float: none;
     margin: 0;
     width: 100%;
     text-align: left;
-    color:#fff;
+    color: #fff;
     font-size: 12px;
-    margin-top: 8px;
 }
-.tv-post-info .posted-on,
-#featured-radio-post .posted-on {
+.tv-featured-content .posted-on {
     display: inline;
+}
+.tv-featured-content .entry-content {
+    margin-top: 20px;
+    padding-left: 0;
+    padding-right: 0;
+}
+.tv-featured-content .entry-footer {
+    padding-bottom: 0!important;
+    padding-left: 0;
+}
+.tv-featured-content .entry-content,
+.tv-featured-content .entry-footer {
+    max-width: 100%;
+    margin-left: 0;
+}
+.tv-featured-content,
+.tv-featured-content a,
+.tv-post-lists,
+.tv-post-lists a {
+    color: #fff;
+}
+
+.tv-post-lists {
+    background-color: #2d3133;
+    padding: 20px;
+}
+.tv-post-lists.default-post article {
+    margin-bottom: 0;
 }
 
 #tv-header,
@@ -1915,7 +1913,6 @@ input[type="search"] {
 .widget_pages li:before,
 .widget-sub-categories li:before,
 .post-thumbnail:before,
-.tv-featured-thumb:before,
 article.format-audio:before,
 article.format-video:before,
 article.format-gallery:before {

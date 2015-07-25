@@ -30,7 +30,8 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 			<div id="tv-header" class="clearfix">
-				
+
+				<div class="tv-post-featured clearfix">
 				<?php $args = array(
 	                'post_type' => 'post',
 	                'posts_per_page' => 1,   
@@ -51,32 +52,41 @@ get_header(); ?>
 
 				$custom_query = new WP_Query( $args ); ?>
 
-				<?php if( $custom_query->have_posts() ) : ?>
+				<?php if( $custom_query->have_posts() ) : 
+						while ( $custom_query->have_posts() ) : $custom_query->the_post(); ?>
 
-					<div class="tv-featured">
-	                <?php while ( $custom_query->have_posts() ) : $custom_query->the_post(); ?>
-	                	<?php if (has_post_thumbnail()) { ?>
-							<div class="tv-post-featured">
-								<?php echo the_post_thumbnail('index-thumb'); ?>
-							</div>
-						<?php } ?>
-	                    <a itemprop="url" class="watche-it" href="<?php echo esc_url( get_post_meta( $post->ID, 'sp_video_url', true ) ); ?>" title="<?php echo esc_attr( the_title() ); ?>" rel="bookmark">
-		                    <div class="tv-post-info">
-		                    	<h3 itemprop="name" class="entry-title"><?php echo esc_html( get_the_title() ); ?></h3>
-		                    	<div class="entry-meta">
-									<span class="byline"><span class="author vcard"><?php echo esc_html( get_the_author() ); ?></span></span>
-									<span class="posted-on"><?php echo esc_html( get_the_date() ); ?></span>
-								</div>
-		                    </div> <!-- .tv-post-info -->
-	                    </a>
-	                <?php endwhile; wp_reset_postdata(); ?>
-	                </div> <!-- .tv-post-featured -->
-
-            	<?php endif; ?>
+						<div class="tv-featured">
+						<?php $video_url = get_post_meta( $post->ID, 'sp_video_url', true ); 
+							if ( !empty( $video_url ) ) {
+								global $wp_embed;
+								$video = $wp_embed->run_shortcode('[embed]' . $video_url . '[/embed]');
+								printf( '<div class="single-post-thumbnail"><div class="image-shifter">%s</div></div>', $video );
+							} ?>
+						</div> <!-- .tv-featured -->
+						<div class="tv-featured-content">	
+							<header class="entry-header">
+							<?php the_title( sprintf( '<h1 class="entry-title" itemprop="name"><a itemprop="url" href="%1$s" rel="bookmark" title="%2$s">', esc_url( get_permalink() ), esc_attr( get_the_title() ) ), '</a></h1>' ); ?>
+							</header>
+							<div class="entry-meta">
+								<span class="byline"><span class="author vcard"><?php echo esc_html( get_the_author() ); ?></span></span>
+								<span class="posted-on"><?php echo esc_html( get_the_date() ); ?></span>
+							</div> <!-- .entry-meta -->
+							<div class="entry-content">
+								<?php the_excerpt(); ?>
+							</div> <!-- .entry-content -->
+							<footer class="entry-footer continue-reading">
+							    <?php echo '<a href="' . esc_url( get_permalink() ) . '" title="' . __('Continue Reading ', WPSP_TEXT_DOMAIN) . get_the_title() . '" rel="bookmark">Continue Reading<i class="fa fa-arrow-circle-o-right"></i></a>'; ?>
+							</footer><!-- .entry-footer -->
+						</div> <!-- .tv-featured-content -->
+					<?php endwhile; wp_reset_postdata(); ?>	
 				
-				<?php $args = array(
+				<?php endif; ?>
+				</div> <!-- .tv-post-featured -->
+
+				<?php // Start TV Post list
+					$args = array(
 		                'post_type' => 'post',
-		                'posts_per_page' => 6,
+		                'posts_per_page' => 4,
 		                'offset' => 1,
 		                'tax_query' => array(
                         	'relation' => 'AND',
@@ -96,14 +106,12 @@ get_header(); ?>
 				$custom_query = new WP_Query( $args ); ?>
             
 	        	<?php if( $custom_query->have_posts() ) : ?>
-		        		
-	        		<div class="widget-post-category tv-post-lists">
-	                <?php while ( $custom_query->have_posts() ) : $custom_query->the_post();
+	        		<div class="tv-post-lists post-grid-4 default-post clearfix">
+	        		<?php while ( $custom_query->have_posts() ) : $custom_query->the_post();
 	                    get_template_part( 'partials/content', 'tv' );
 	                endwhile; wp_reset_postdata(); ?>
 	                </div> <!-- .tv-post-lists -->
-
-		        <?php endif ?>
+	        	<?php endif; ?>
 
 			</div> <!-- #tv-header -->
 
