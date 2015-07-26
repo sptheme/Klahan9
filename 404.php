@@ -28,7 +28,7 @@ get_header(); ?>
 						the_widget( 'WP_Widget_Archives', 'dropdown=0', "after_title=</h2>$archive_content" );
 					?>
 
-				</div><!-- .page-content -->
+				</div><!-- .entry-content -->
 			</section><!-- .error-404 -->
 
 		</main><!-- #main -->

@@ -111,11 +111,11 @@ get_header(); ?>
         			</li>
         		<?php endwhile; wp_reset_postdata();?>	
         		</ul>
-        		<h4><i class="fa fa-headphones"></i><a href="<?php echo esc_url( get_permalink( $radio_all_topic_link ) ); ?>" title="<?php echo $radio_all_topic_title; ?>"><?php echo $radio_all_topic_title; ?></a></h4>
+        		<h4><i class="fa fa-headphones"></i><?php echo $radio_all_topic_title; ?></h4>
         	</div> <!-- #featured-radio-post -->
         	<?php endif; ?>
 
-			<div id="topic-next-month">
+			<div id="schedule-topic">
 				<div class="section-title clearfix">
 					<h3><i class="fa fa-microphone"></i> <?php echo $radio_topic_title; ?></h3>
 				</div>
@@ -138,7 +138,12 @@ get_header(); ?>
 						$monthly_topic = date( 'm' );
 						wpsp_monthly_topic( $cateogry_id, $radio_topic_num, $yearly_topic, $monthly_topic, $radio_topic_order ); ?>
 	            </div> <!-- .monthly-topics -->
-			</div> <!-- #topic-next-month -->
+	            
+	            <?php printf( '<div class="wpsp-more-wrap"><a class="wpsp-more" itemprop="url" href="%1$s" rel="bookmark" title="%2$s">%2$s</a></div>', 
+							esc_url( get_permalink( $radio_all_topic_link ) ), 
+							__('More topics', WPSP_TEXT_DOMAIN)
+						); ?>
+			</div> <!-- #schedule-topic -->
 
 			<div id="meet-radio-team" class="team clearfix">
 				<div class="section-title clearfix">

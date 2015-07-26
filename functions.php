@@ -186,6 +186,12 @@ function wpsp_scripts() {
     wp_enqueue_style('klahan9-responsive', WPSP_CSS_DIR_URI . 'responsive.css');
     wp_enqueue_style('magnific-popup', WPSP_CSS_DIR_URI . 'magnific-popup.css');
     wp_enqueue_style('magnific-popup-custom', WPSP_CSS_DIR_URI . 'magnific-custom.css');
+    if (function_exists('icl_get_languages')) {
+		if ( strtolower(ICL_LANGUAGE_CODE) == 'kh') {
+			wp_enqueue_style('khmer-gfont', 'http://fonts.googleapis.com/css?family=Khmer');
+			wp_enqueue_style('kh', WPSP_CSS_DIR_URI . 'kh.css');
+		}
+	}
     
     // load only in Radio template or sigle post gallery format
     wp_enqueue_style('flexsider', WPSP_CSS_DIR_URI . 'flexslider.css');
@@ -331,6 +337,26 @@ function wpsp_print_custom_css_script(){
 <?php		
 }
 add_action('wp_head', 'wpsp_print_custom_css_script');
+
+
+if ( !function_exists('wpsp_add_lang_code_body_class') ) :
+/**
+ *	Add lang code in Body Class
+ */	
+function wpsp_add_lang_code_body_class($classes) {
+        
+    if (function_exists('icl_get_languages')) {   
+    	if(strtolower(ICL_LANGUAGE_CODE) == 'kh'){
+	    	$classes[] = 'kh';
+	  	} else {
+	  		$classes[] = 'en';
+	  	}
+	}
+
+    return $classes;
+}
+add_filter('body_class','wpsp_add_lang_code_body_class');
+endif;
 
 
 /**

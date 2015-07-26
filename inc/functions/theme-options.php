@@ -204,14 +204,14 @@ function custom_theme_options() {
 			)
 		),
 		// Footer: Copyright
-		array(
+		/*array(
 			'id'		=> 'more-info',
 			'label'		=> 'More Information',
 			'desc'		=> 'Heading title above footer navigation',
 			'std'		=> 'More Information',
 			'type'		=> 'text',
 			'section'	=> 'footer'
-		),
+		),*/
 		array(
 			'id'		=> 'about-footer-text',
 			'label'		=> 'Text Highlight of About page',
