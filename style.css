@@ -909,7 +909,7 @@ a:active {
     color:#fff;
     background-color: #680b03;
     padding: 10px;
-    display: block;
+    display: inline-block;
     margin-top: 10px;
 }
 .callout .two-third {
