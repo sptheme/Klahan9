@@ -110,7 +110,14 @@ get_header(); ?>
 	        		<?php while ( $custom_query->have_posts() ) : $custom_query->the_post();
 	                    get_template_part( 'partials/content', 'tv' );
 	                endwhile; wp_reset_postdata(); ?>
-	                </div> <!-- .tv-post-lists -->
+	                
+	                <?php printf( '<div class="wpsp-more-wrap"><a class="wpsp-more" itemprop="url" href="%1$s" rel="bookmark" title="%2$s">%2$s</a></div>', 
+							esc_url( get_category_link( $cateogry_id ) ), 
+							__('More video', WPSP_TEXT_DOMAIN)
+						); ?>
+
+					</div> <!-- .tv-post-lists -->
+	
 	        	<?php endif; ?>
 
 			</div> <!-- #tv-header -->
