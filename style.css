@@ -1461,6 +1461,12 @@ img.aligncenter {
     text-align: center;
     padding: 10px;
 }
+.custom-post-cp_team article:first-child {
+    margin-top: 0!important;
+}
+.custom-post-cp_team article:last-child {
+    margin-bottom: 0!important;
+}
 .custom-post-cp_team article:hover,
 .page-template-default .custom-post-cp_team article:hover,
 .related-posts.custom-post-cp_team article:hover,
@@ -1736,7 +1742,9 @@ img.aligncenter {
 
 #tv-header,
 #meet-tv-star,
-#schedule-topic {
+#schedule-topic,
+#photo-wrap,
+#meet-radio-team {
     margin-bottom: 10px;
 }
 #photo-wrap,
@@ -1840,6 +1848,9 @@ img.aligncenter {
 }
 #weekly-topics-m {
     background-color: #fff;
+    margin-bottom: 10px;
+}
+.weekly-photo .default-post article {
     margin-bottom: 10px;
 }
 

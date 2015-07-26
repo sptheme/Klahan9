@@ -170,6 +170,19 @@
         width: 100%
     }
 
+    .tv-post-lists article {
+        padding: 10px 0;
+        border-bottom: 1px solid #404040;
+        clear: left;
+        overflow: hidden;
+    }
+    .tv-post-lists article .post-thumbnail {
+        float: left;
+        margin-right: 10px;
+        width: 102px;
+        height: 70px;
+    }
+
     .alignleft {
         margin-left: 0;
         margin-right: 1.5em;
