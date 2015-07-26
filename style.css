@@ -273,6 +273,7 @@ th {
 html {
 	font-size: 62.5%; /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
 	overflow-y: scroll; /* Keeps page centered in all browsers regardless of content height */
+    overflow-x: hidden;
 }
 *,
 *:before,
@@ -288,7 +289,6 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     line-height:1.5;
-    overflow-y: scroll;
 }
 
 p, ul, ol, dl, table, fieldset, blockquote, pre, code { margin-bottom: 1.3em; margin-top: 0; }
