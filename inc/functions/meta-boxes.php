@@ -186,7 +186,7 @@ function _custom_meta_boxes() {
 			),
 			array(
 				'label'		=> 'Title',
-				'id'		=> $prefix . 'tv_launcher_title',
+				'id'		=> $prefix . 'launcher_title',
 				'type'		=> 'text',
 				'std'		=> 'TV launcher',
 				'desc'		=> 'Enter title for this section'
@@ -200,7 +200,7 @@ function _custom_meta_boxes() {
 			),
 			array(
 				'label'		=> 'Amount of launcher',
-				'id'		=> $prefix . 'tv_launcher_num',
+				'id'		=> $prefix . 'launcher_num',
 				'type'		=> 'select',
 				'std'		=> '4',
 				'desc'		=> 'Choose amount of media to show',
@@ -229,14 +229,14 @@ function _custom_meta_boxes() {
 			),
 			array(
 				'label'		=> 'Launcher text link',
-				'id'		=> $prefix . 'tv_launcher_text_link',
+				'id'		=> $prefix . 'launcher_text_link',
 				'type'		=> 'text',
 				'std'		=> 'More launcher',
 				'desc'		=> 'Title link for TV launcher'
 			),
 			array(
 				'label'		=> 'Launcher page link',
-				'id'		=> $prefix . 'tv_launcher_page_link',
+				'id'		=> $prefix . 'launcher_page_link',
 				'type'		=> 'page-select',
 				'std'		=> '',
 				'desc'		=> 'Select page that contained all of tv launcher'
@@ -470,6 +470,70 @@ function _custom_meta_boxes() {
 		          ),
 		        )
 			),
+
+			array(
+				'label'       => __( 'Launcher', 'wpsp' ),
+				'id'          => 'tab_launcher',
+				'type'        => 'tab'
+			),
+			array(
+				'label'		=> 'Title',
+				'id'		=> $prefix . 'launcher_title',
+				'type'		=> 'text',
+				'std'		=> 'Radio launcher',
+				'desc'		=> 'Enter title for this section'
+			),
+			array(
+				'label'		=> 'Launcher category',
+				'id'		=> $prefix . 'launcher_tax',
+				'type'		=> 'taxonomy-select',
+				'taxonomy'  => 'launcher_category',
+				'desc'		=> 'Select Radio show category'
+			),
+			array(
+				'label'		=> 'Amount of launcher',
+				'id'		=> $prefix . 'launcher_num',
+				'type'		=> 'select',
+				'std'		=> '4',
+				'desc'		=> 'Choose amount of media to show',
+				'choices'   => array( 
+		          array(
+		            'value'       => '2',
+		            'label'       => '2',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '3',
+		            'label'       => '3',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '4',
+		            'label'       => '4',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '5',
+		            'label'       => '5',
+		            'src'         => ''
+		          ),
+		        )
+			),
+			array(
+				'label'		=> 'Launcher text link',
+				'id'		=> $prefix . 'launcher_text_link',
+				'type'		=> 'text',
+				'std'		=> 'More launcher',
+				'desc'		=> 'Title link for Radio launcher'
+			),
+			array(
+				'label'		=> 'Launcher page link',
+				'id'		=> $prefix . 'launcher_page_link',
+				'type'		=> 'page-select',
+				'std'		=> '',
+				'desc'		=> 'Select page that contained all of Radio launcher'
+			),
+
 			array(
 				'label'       => __( 'Team', 'wpsp' ),
 				'id'          => 'tab_team',

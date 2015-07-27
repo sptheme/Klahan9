@@ -17,10 +17,10 @@ get_header(); ?>
 		$tv_team_page_link = get_post_meta( $post->ID, 'sp_tv_team_page_link', true );
 		$team_taxonomy_id = get_post_meta( $post->ID, 'sp_team_tax', true );
 		
-		$tv_launcher_title = esc_html( get_post_meta( $post->ID, 'sp_tv_launcher_title', true ) );
-		$tv_launcher_num = esc_html( get_post_meta( $post->ID, 'sp_tv_launcher_num', true ) );
-		$tv_launcher_text_link = esc_html( get_post_meta( $post->ID, 'sp_tv_launcher_text_link', true ) );
-		$tv_launcher_page_link = get_post_meta( $post->ID, 'sp_tv_launcher_page_link', true );
+		$launcher_title = esc_html( get_post_meta( $post->ID, 'sp_launcher_title', true ) );
+		$launcher_num = esc_html( get_post_meta( $post->ID, 'sp_launcher_num', true ) );
+		$launcher_text_link = esc_html( get_post_meta( $post->ID, 'sp_launcher_text_link', true ) );
+		$launcher_page_link = get_post_meta( $post->ID, 'sp_launcher_page_link', true );
 		$launcher_taxonomy_id = get_post_meta( $post->ID, 'sp_launcher_tax', true );
 
 		$tv_photo_title = esc_html( get_post_meta( $post->ID, 'sp_tv_photo_title', true ) );
@@ -131,22 +131,22 @@ get_header(); ?>
 
 			<div id="tv-show-wrap">
 				<div class="section-title clearfix">
-					<h3><i class="fa fa-star"></i> <?php echo $tv_launcher_title; ?></h3>
-					<a href="<?php echo esc_url( get_permalink( $tv_launcher_page_link ) ); ?>" class="more"><?php echo $tv_launcher_text_link; ?></a>
+					<h3><i class="fa fa-star"></i> <?php echo $launcher_title; ?></h3>
+					<a href="<?php echo esc_url( get_permalink( $launcher_page_link ) ); ?>" class="more"><?php echo $launcher_text_link; ?></a>
 				</div>
 				<div class="launcher">
 				<?php $args = array(
 	                'post_type' => 'cp_launcher',
-	                'posts_per_page' => $tv_launcher_num,
-	                /*'tax_query' => array(
+	                'posts_per_page' => $launcher_num,
+	                'tax_query' => array(
 						array(
 							'taxonomy' => 'launcher_category',
 							'field'    => 'term_id',
 							'terms'    => array( $launcher_taxonomy_id ),
 						),
-					),*/ 
+					), 
             	); ?>
-            	<?php wpsp_get_posts_type ( 'cp_launcher', $args, $tv_launcher_num ); ?>
+            	<?php wpsp_get_posts_type ( 'cp_launcher', $args, $launcher_num ); ?>
             	</div> <!-- .launcher -->
 			</div> <!-- #tv-show-wrap -->
 

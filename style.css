@@ -1863,6 +1863,18 @@ img.aligncenter {
     margin-bottom: 10px;
 }
 
+#meet-radio-team article {
+    margin-bottom: 0;
+}
+
+#radio-show-wrap .launcher {
+    background-color: #fff;
+    padding: 10px;
+}
+#radio-show-wrap article {
+    margin-bottom: 0;
+}
+
 
 /*--------------------------------------------------------------
 # Widgets
