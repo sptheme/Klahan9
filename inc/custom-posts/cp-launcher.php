@@ -61,7 +61,7 @@
 
 			$role     = 'post'; // page
 			$slug     = 'launcher';
-			$supports = array('title', 'editor', 'thumbnail'); // 'title', 'editor', 'thumbnail', 'post-formats'
+			$supports = array('title', 'editor', 'thumbnail', 'post-formats'); // 'title', 'editor', 'thumbnail', 'post-formats'
 
 			$args = array(
 				'labels' 				=> $labels,
@@ -98,13 +98,11 @@
 	if ( ! function_exists( 'wpsp_launcher_cp_columns' ) ) {
 		function wpsp_launcher_cp_columns( $columns ) {
 			
-			$columns = array(
-				'cb'                   	=> '<input type="checkbox" />',
-				'launcher_thumbnail'	   	=> __( 'Thumbnail', 'wpsp' ),
-				'title'                	=> __( 'Title', 'wpsp' ),
-				'launcher_category'        => __( 'Launcher Sections', 'wpsp' ),
-				'date'		 			=> __( 'Date', 'wpspn' )
-			);
+			$columns['cb']                  = '<input type="checkbox" />';
+			$columns['launcher_thumbnail']	= __( 'Thumbnail', 'wpsp' );
+			$columns['title']               = __( 'Title', 'wpsp' );
+			$columns['launcher_category']   = __( 'Launcher Sections', 'wpsp' );
+			$columns['date']		 		= __( 'Date', 'wpsp' );
 
 			return $columns;
 		}

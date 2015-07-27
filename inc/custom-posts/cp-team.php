@@ -98,13 +98,11 @@
 	if ( ! function_exists( 'wpsp_team_cp_columns' ) ) {
 		function wpsp_team_cp_columns( $columns ) {
 			
-			$columns = array(
-				'cb'                   	=> '<input type="checkbox" />',
-				'team_thumbnail'	   	=> __( 'Thumbnail', 'wpsp' ),
-				'title'                	=> __( 'Title', 'wpsp' ),
-				'team_category'        => __( 'Team Sections', 'wpsp' ),
-				'date'		 			=> __( 'Date', 'wpspn' )
-			);
+			$columns['cb']              = '<input type="checkbox" />';
+			$columns['team_thumbnail']	= __( 'Thumbnail', 'wpsp' );
+			$columns['title']           = __( 'Title', 'wpsp' );
+			$columns['team_category']   = __( 'Team Sections', 'wpsp' );
+			$columns['date']		 	= __( 'Date', 'wpsp' );
 
 			return $columns;
 		}

@@ -33,13 +33,36 @@ if ( is_admin() )
 /*
 * Changes "Enter title here" text when creating new post
 */
-if ( ! function_exists( 'sp_change_new_post_title' ) ) {
-	function sp_change_new_post_title( $title ){
-		$screen = get_current_screen();
+if ( ! function_exists( 'sp_change_new_post_title' ) ) :
+function sp_change_new_post_title( $title ){
+	$screen = get_current_screen();
 
-		if ( 'gallery' == $screen->post_type )
-			$title = __( "Album name", 'wpsp' );
+	if ( 'gallery' == $screen->post_type )
+		$title = __( "Album name", 'wpsp' );
 
-		return $title;
-	}
-} // /sp_change_new_post_title
+	return $title;
+}
+endif; // /sp_change_new_post_title
+
+/**
+ *	Different Post Formats per Post Type
+ */
+function sp_adjust_post_formats() {
+    
+    if (isset($_GET['post'])) {
+		$post = get_post($_GET['post']);
+		if ($post)
+			$post_type = $post->post_type;
+    } elseif ( !isset($_GET['post_type']) )
+        $post_type = 'post';
+    elseif ( in_array( $_GET['post_type'], get_post_types( array('show_ui' => true ) ) ) )
+        $post_type = $_GET['post_type'];
+    else
+        return; // Page is going to fail anyway
+ 
+    if ( 'cp_launcher' == $post_type )
+        add_theme_support( 'post-formats', array( 'video', 'audio' ) );
+
+};
+add_action( 'load-post.php','sp_adjust_post_formats' );
+add_action( 'load-post-new.php','sp_adjust_post_formats' );
