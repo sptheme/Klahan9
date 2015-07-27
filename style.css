@@ -1875,6 +1875,35 @@ img.aligncenter {
     margin-bottom: 0;
 }
 
+/* launcher */
+
+.launcher article.format-video .post-thumbnail:before,
+.launcher article.format-audio .post-thumbnail:before {
+    display: block;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 80px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -40px;
+    margin-left: -40px;
+    color: #fff;
+    text-align: center;
+    background-color: transparent!important;
+    background:rgba(0, 0, 0, 0.5)!important;
+}
+.launcher article.format-video .post-thumbnail:before {
+    content: "\f01d";
+    font-size: 60px;
+}
+.launcher article.format-audio .post-thumbnail:before {
+    content: "\f025";
+    font-size: 60px;
+}
+
+
 
 /*--------------------------------------------------------------
 # Widgets
