@@ -180,6 +180,68 @@ function _custom_meta_boxes() {
 		'priority'    => 'high',
 		'fields'      => array(
 			array(
+				'label'       => __( 'Team', 'wpsp' ),
+				'id'          => 'tab_team',
+				'type'        => 'tab'
+			),
+			array(
+				'label'		=> 'Title',
+				'id'		=> $prefix . 'tv_team_title',
+				'type'		=> 'text',
+				'std'		=> 'Meet the star',
+				'desc'		=> 'Enter title for this section e.g: Meet the Star'
+			),
+			array(
+				'label'		=> 'TV team',
+				'id'		=> $prefix . 'team_tax',
+				'type'		=> 'taxonomy-select',
+				'taxonomy'  => 'team_category',
+				'desc'		=> 'Select TV team category e.g: Meet the Star'
+			),
+			array(
+				'label'		=> 'Amount of people',
+				'id'		=> $prefix . 'tv_team_num',
+				'type'		=> 'select',
+				'std'		=> '4',
+				'desc'		=> 'Choose amount of people to show',
+				'choices'   => array( 
+		          array(
+		            'value'       => '2',
+		            'label'       => '2',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '3',
+		            'label'       => '3',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '4',
+		            'label'       => '4',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '5',
+		            'label'       => '5',
+		            'src'         => ''
+		          ),
+		        )
+			),
+			array(
+				'label'		=> 'Team text link',
+				'id'		=> $prefix . 'tv_team_text_link',
+				'type'		=> 'text',
+				'std'		=> 'More people',
+				'desc'		=> 'Title link for TV team'
+			),
+			array(
+				'label'		=> 'Team page link',
+				'id'		=> $prefix . 'tv_team_page_link',
+				'type'		=> 'page-select',
+				'std'		=> '',
+				'desc'		=> 'Select page link for TV team group'
+			),
+			array(
 				'label'       => __( 'Launcher', 'wpsp' ),
 				'id'          => 'tab_launcher',
 				'type'        => 'tab'
@@ -242,68 +304,6 @@ function _custom_meta_boxes() {
 				'desc'		=> 'Select page that contained all of tv launcher'
 			),
 
-			array(
-				'label'       => __( 'Team', 'wpsp' ),
-				'id'          => 'tab_team',
-				'type'        => 'tab'
-			),
-			array(
-				'label'		=> 'Title',
-				'id'		=> $prefix . 'tv_team_title',
-				'type'		=> 'text',
-				'std'		=> 'Meet the star',
-				'desc'		=> 'Enter title for this section e.g: Meet the Star'
-			),
-			array(
-				'label'		=> 'TV team',
-				'id'		=> $prefix . 'team_tax',
-				'type'		=> 'taxonomy-select',
-				'taxonomy'  => 'team_category',
-				'desc'		=> 'Select TV team category e.g: Meet the Star'
-			),
-			array(
-				'label'		=> 'Amount of people',
-				'id'		=> $prefix . 'tv_team_num',
-				'type'		=> 'select',
-				'std'		=> '4',
-				'desc'		=> 'Choose amount of people to show',
-				'choices'   => array( 
-		          array(
-		            'value'       => '2',
-		            'label'       => '2',
-		            'src'         => ''
-		          ),
-		          array(
-		            'value'       => '3',
-		            'label'       => '3',
-		            'src'         => ''
-		          ),
-		          array(
-		            'value'       => '4',
-		            'label'       => '4',
-		            'src'         => ''
-		          ),
-		          array(
-		            'value'       => '5',
-		            'label'       => '5',
-		            'src'         => ''
-		          ),
-		        )
-			),
-			array(
-				'label'		=> 'Team text link',
-				'id'		=> $prefix . 'tv_team_text_link',
-				'type'		=> 'text',
-				'std'		=> 'More people',
-				'desc'		=> 'Title link for TV team'
-			),
-			array(
-				'label'		=> 'Team page link',
-				'id'		=> $prefix . 'tv_team_page_link',
-				'type'		=> 'page-select',
-				'std'		=> '',
-				'desc'		=> 'Select page link for TV team group'
-			),
 			array(
 				'label'       => __( 'Gallery', 'wpsp' ),
 				'id'          => 'tab_gallery',
@@ -470,6 +470,68 @@ function _custom_meta_boxes() {
 		          ),
 		        )
 			),
+			array(
+				'label'       => __( 'Team', 'wpsp' ),
+				'id'          => 'tab_team',
+				'type'        => 'tab'
+			),
+			array(
+				'label'		=> 'Title',
+				'id'		=> $prefix . 'radio_team_title',
+				'type'		=> 'text',
+				'std'		=> 'Meet the radio team',
+				'desc'		=> 'Enter title for this section e.g: Meet the radio team'
+			),
+			array(
+				'label'		=> 'TV team',
+				'id'		=> $prefix . 'team_tax',
+				'type'		=> 'taxonomy-select',
+				'taxonomy'  => 'team_category',
+				'desc'		=> 'Select TV team category e.g: Meet the Star'
+			),
+			array(
+				'label'		=> 'Amount of people',
+				'id'		=> $prefix . 'radio_team_num',
+				'type'		=> 'select',
+				'std'		=> '4',
+				'desc'		=> 'Choose amount of people to show',
+				'choices'   => array( 
+		          array(
+		            'value'       => '2',
+		            'label'       => '2',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '3',
+		            'label'       => '3',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '4',
+		            'label'       => '4',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '5',
+		            'label'       => '5',
+		            'src'         => ''
+		          ),
+		        )
+			),
+			array(
+				'label'		=> 'Team text link',
+				'id'		=> $prefix . 'radio_team_text_link',
+				'type'		=> 'text',
+				'std'		=> 'More people',
+				'desc'		=> 'Title link for Radio team'
+			),
+			array(
+				'label'		=> 'Team page link',
+				'id'		=> $prefix . 'radio_team_page_link',
+				'type'		=> 'page-select',
+				'std'		=> '',
+				'desc'		=> 'Select page link for Radio team group'
+			),
 
 			array(
 				'label'       => __( 'Launcher', 'wpsp' ),
@@ -533,69 +595,7 @@ function _custom_meta_boxes() {
 				'std'		=> '',
 				'desc'		=> 'Select page that contained all of Radio launcher'
 			),
-
-			array(
-				'label'       => __( 'Team', 'wpsp' ),
-				'id'          => 'tab_team',
-				'type'        => 'tab'
-			),
-			array(
-				'label'		=> 'Title',
-				'id'		=> $prefix . 'radio_team_title',
-				'type'		=> 'text',
-				'std'		=> 'Meet the radio team',
-				'desc'		=> 'Enter title for this section e.g: Meet the radio team'
-			),
-			array(
-				'label'		=> 'TV team',
-				'id'		=> $prefix . 'team_tax',
-				'type'		=> 'taxonomy-select',
-				'taxonomy'  => 'team_category',
-				'desc'		=> 'Select TV team category e.g: Meet the Star'
-			),
-			array(
-				'label'		=> 'Amount of people',
-				'id'		=> $prefix . 'radio_team_num',
-				'type'		=> 'select',
-				'std'		=> '4',
-				'desc'		=> 'Choose amount of people to show',
-				'choices'   => array( 
-		          array(
-		            'value'       => '2',
-		            'label'       => '2',
-		            'src'         => ''
-		          ),
-		          array(
-		            'value'       => '3',
-		            'label'       => '3',
-		            'src'         => ''
-		          ),
-		          array(
-		            'value'       => '4',
-		            'label'       => '4',
-		            'src'         => ''
-		          ),
-		          array(
-		            'value'       => '5',
-		            'label'       => '5',
-		            'src'         => ''
-		          ),
-		        )
-			),
-			array(
-				'label'		=> 'Team text link',
-				'id'		=> $prefix . 'radio_team_text_link',
-				'type'		=> 'text',
-				'std'		=> 'More people',
-				'desc'		=> 'Title link for Radio team'
-			),
-			array(
-				'label'		=> 'Team page link',
-				'id'		=> $prefix . 'radio_team_page_link',
-				'type'		=> 'page-select',
-				'std'		=> '',
-				'desc'		=> 'Select page link for Radio team group'
-			),
+			
 			array(
 				'label'       => __( 'Gallery', 'wpsp' ),
 				'id'          => 'tab_gallery',
