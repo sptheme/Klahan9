@@ -337,6 +337,10 @@ function wpsp_switch_posttype_content( $post_type ) {
 		get_template_part( 'partials/content', 'album' );
 		break;
 
+		case 'cp_launcher':
+		get_template_part( 'partials/content', 'launcher' );
+		break;
+
 		case 'post':
 		get_template_part( 'partials/content', 'blog' );
 		break;

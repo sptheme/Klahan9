@@ -63,7 +63,7 @@ function _custom_meta_boxes() {
 		'id'          => 'format-video',
 		'title'       => 'Video settings',
 		'desc'        => 'These settings enable you to embed videos into your posts.',
-		'pages'       => array( 'post' ),
+		'pages'       => array( 'post', 'cp_launcher' ),
 		'context'     => 'normal',
 		'priority'    => 'high',
 		'fields'      => array(
@@ -81,7 +81,7 @@ function _custom_meta_boxes() {
 		'id'          => 'format-audio',
 		'title'       => 'Audio settings',
 		'desc'        => 'These settings enable you to embed soundcloud into your posts.',
-		'pages'       => array( 'post' ),
+		'pages'       => array( 'post', 'cp_launcher' ),
 		'context'     => 'normal',
 		'priority'    => 'high',
 		'fields'      => array(
@@ -179,6 +179,69 @@ function _custom_meta_boxes() {
 		'context'     => 'normal',
 		'priority'    => 'high',
 		'fields'      => array(
+			array(
+				'label'       => __( 'Launcher', 'wpsp' ),
+				'id'          => 'tab_launcher',
+				'type'        => 'tab'
+			),
+			array(
+				'label'		=> 'Title',
+				'id'		=> $prefix . 'tv_launcher_title',
+				'type'		=> 'text',
+				'std'		=> 'TV launcher',
+				'desc'		=> 'Enter title for this section'
+			),
+			array(
+				'label'		=> 'Launcher category',
+				'id'		=> $prefix . 'launcher_tax',
+				'type'		=> 'taxonomy-select',
+				'taxonomy'  => 'launcher_category',
+				'desc'		=> 'Select TV show category'
+			),
+			array(
+				'label'		=> 'Amount of launcher',
+				'id'		=> $prefix . 'tv_launcher_num',
+				'type'		=> 'select',
+				'std'		=> '4',
+				'desc'		=> 'Choose amount of media to show',
+				'choices'   => array( 
+		          array(
+		            'value'       => '2',
+		            'label'       => '2',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '3',
+		            'label'       => '3',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '4',
+		            'label'       => '4',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '5',
+		            'label'       => '5',
+		            'src'         => ''
+		          ),
+		        )
+			),
+			array(
+				'label'		=> 'Launcher text link',
+				'id'		=> $prefix . 'tv_launcher_text_link',
+				'type'		=> 'text',
+				'std'		=> 'More launcher',
+				'desc'		=> 'Title link for TV launcher'
+			),
+			array(
+				'label'		=> 'Launcher page link',
+				'id'		=> $prefix . 'tv_launcher_page_link',
+				'type'		=> 'page-select',
+				'std'		=> '',
+				'desc'		=> 'Select page that contained all of tv launcher'
+			),
+
 			array(
 				'label'       => __( 'Team', 'wpsp' ),
 				'id'          => 'tab_team',

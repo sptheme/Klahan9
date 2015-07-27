@@ -15,7 +15,15 @@ jQuery(document).ready(function($){
     /**
      *  Magnific Popup        
      */
-      $('.watche-it').magnificPopup({
+      $('.watch-now').magnificPopup({
+          type: 'iframe',
+          preloader: false,
+          removalDelay: 500,
+          mainClass: 'mfp-fade',
+          fixedContentPos: false
+      });
+
+      $('.listen-now').magnificPopup({
           type: 'iframe',
           preloader: false,
           removalDelay: 500,

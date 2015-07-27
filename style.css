@@ -1744,7 +1744,9 @@ img.aligncenter {
 #meet-tv-star,
 #schedule-topic,
 #photo-wrap,
-#meet-radio-team {
+#meet-radio-team,
+#tv-show-wrap,
+#radio-show-wrap {
     margin-bottom: 10px;
 }
 #photo-wrap,
@@ -1764,6 +1766,13 @@ img.aligncenter {
     margin-bottom: 0!important;
 }
 .filmstrip .default-post article {
+    margin-bottom: 0;
+}
+#tv-show-wrap .launcher {
+    background-color: #fff;
+    padding: 10px;
+}
+#tv-show-wrap article {
     margin-bottom: 0;
 }
 
@@ -1853,6 +1862,7 @@ img.aligncenter {
 .weekly-photo .default-post article {
     margin-bottom: 10px;
 }
+
 
 /*--------------------------------------------------------------
 # Widgets
