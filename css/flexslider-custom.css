@@ -126,3 +126,11 @@
 	width: auto;
 }
 #featured-radio-post .flex-caption h5 a{ color:#ffffff; }
+#featured-radio-post .flex-caption .entry-meta {
+	margin-left: 0;
+	text-align: left;
+	width: auto;
+}
+#featured-radio-post .flex-caption .posted-on {
+	display: inline;
+}
