@@ -1880,27 +1880,31 @@ img.aligncenter {
 .launcher article.format-video .post-thumbnail:before,
 .launcher article.format-audio .post-thumbnail:before {
     display: block;
-    width: 80px;
-    height: 80px;
-    line-height: 80px;
-    border-radius: 80px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 60px;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -40px;
-    margin-left: -40px;
+    margin-top: -30px;
+    margin-left: -30px;
     color: #fff;
+    font-size: 30px;
     text-align: center;
     background-color: transparent!important;
     background:rgba(0, 0, 0, 0.5)!important;
 }
+.launcher article.format-video:hover .post-thumbnail:before,
+.launcher article.format-audio:hover .post-thumbnail:before {
+    background-color: #000000!important;
+    background:rgba(0, 0, 0, 1)!important;   
+}
 .launcher article.format-video .post-thumbnail:before {
     content: "\f01d";
-    font-size: 60px;
 }
 .launcher article.format-audio .post-thumbnail:before {
     content: "\f025";
-    font-size: 60px;
 }
 
 
