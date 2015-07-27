@@ -47,18 +47,18 @@
 
 			
 			$labels = array(
-				'name'               => __( 'Photo Gallery', 'sptheme_admin' ),
-				'singular_name'      => __( 'Photo', 'sptheme_admin' ),
-				'add_new'            => __( 'Add New', 'sptheme_admin' ),
-				'all_items'          => __( 'Photo Gallery', 'sptheme_admin' ),
-				'add_new_item'       => __( 'Add New Album', 'sptheme_admin' ),
-				'new_item'           => __( 'Add New Album', 'sptheme_admin' ),
-				'edit_item'          => __( 'Edit Album', 'sptheme_admin' ),
-				'view_item'          => __( 'View Album', 'sptheme_admin' ),
-				'search_items'       => __( 'Search Album', 'sptheme_admin' ),
-				'not_found'          => __( 'No Album found', 'sptheme_admin' ),
-				'not_found_in_trash' => __( 'No Album found in trash', 'sptheme_admin' ),
-				'parent_item_colon'  => __( 'Parent Album', 'sptheme_admin' ),
+				'name'               => __( 'Photo Gallery', 'wpsp' ),
+				'singular_name'      => __( 'Photo', 'wpsp' ),
+				'add_new'            => __( 'Add New', 'wpsp' ),
+				'all_items'          => __( 'Photo Gallery', 'wpsp' ),
+				'add_new_item'       => __( 'Add New Album', 'wpsp' ),
+				'new_item'           => __( 'Add New Album', 'wpsp' ),
+				'edit_item'          => __( 'Edit Album', 'wpsp' ),
+				'view_item'          => __( 'View Album', 'wpsp' ),
+				'search_items'       => __( 'Search Album', 'wpsp' ),
+				'not_found'          => __( 'No Album found', 'wpsp' ),
+				'not_found_in_trash' => __( 'No Album found in trash', 'wpsp' ),
+				'parent_item_colon'  => __( 'Parent Album', 'wpsp' ),
 			);	
 
 			$role     = 'post'; // page
@@ -101,13 +101,11 @@
 	if ( ! function_exists( 'wpsp_gallery_cp_columns' ) ) {
 		function wpsp_gallery_cp_columns( $columns ) {
 			
-			$columns = array(
-				'cb'                   	=> '<input type="checkbox" />',
-				'gallery_thumbnail'	   	=> __( 'Thumbnail', 'sptheme_admin' ),
-				'title'                	=> __( 'Album Name', 'sptheme_admin' ),
-				'gallery_category'      => __( 'Album Category', 'sptheme_admin' ),
-				'date'		 			=> __( 'Date', 'sptheme_admin' )
-			);
+			$columns['cb']               	= '<input type="checkbox" />';
+			$columns['gallery_thumbnail']	= __( 'Thumbnail', 'wpsp' );
+			$columns['title']               = __( 'Album Name', 'wpsp' );
+			$columns['gallery_category']    = __( 'Album Category', 'wpsp' );
+			$columns['date']		 		= __( 'Date', 'wpsp' );
 
 			return $columns;
 		}

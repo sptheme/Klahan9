@@ -9,7 +9,7 @@ function wpsp_tax_team_category_init() {
 			'hierarchical' => true,
 			'labels' => array(
 				'name' => __( 'Team Categories', 'wpsp' ),
-				'singular_name' => __( 'Team Categories', 'wpspn' )
+				'singular_name' => __( 'Team Categories', 'wpsp' )
 			),
 			'sort' => true,
 			'rewrite' => array( 'slug' => 'team-category' ),

@@ -8,8 +8,8 @@ function sp_tax_gallery_category_init() {
 		array(
 			'hierarchical' => true,
 			'labels' => array(
-				'name' => __( 'Gallery Categories', 'sptheme_admin' ),
-				'singular_name' => __( 'Gallery Categories', 'sptheme_admin' )
+				'name' => __( 'Gallery Categories', 'wpsp' ),
+				'singular_name' => __( 'Gallery Categories', 'wpsp' )
 			),
 			'sort' => true,
 			'rewrite' => array( 'slug' => 'gallery-category' ),
