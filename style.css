@@ -869,11 +869,7 @@ a:active {
     margin-bottom: 0;
     float: left;
 }
-.section-title h3 .fa-star,
-.section-title h3 .fa-film,
-.section-title h3 .fa-users,
-.section-title h3 .fa-picture-o,
-.section-title h3 .fa-microphone {
+.section-title h3 .fa {
     font-size: 24px;
     margin-right: 5px;
 }

@@ -152,27 +152,6 @@ get_header(); ?>
 						); ?>
 			</div> <!-- #schedule-topic -->
 
-			<div id="radio-show-wrap">
-				<div class="section-title clearfix">
-					<h3><i class="fa fa-star"></i> <?php echo $launcher_title; ?></h3>
-					<a href="<?php echo esc_url( get_permalink( $launcher_page_link ) ); ?>" class="more"><?php echo $launcher_text_link; ?></a>
-				</div>
-				<div class="launcher">
-				<?php $args = array(
-	                'post_type' => 'cp_launcher',
-	                'posts_per_page' => $launcher_num,
-	                'tax_query' => array(
-						array(
-							'taxonomy' => 'launcher_category',
-							'field'    => 'term_id',
-							'terms'    => array( $launcher_taxonomy_id ),
-						),
-					), 
-            	); ?>
-            	<?php wpsp_get_posts_type ( 'cp_launcher', $args, $launcher_num ); ?>
-            	</div> <!-- .launcher -->
-			</div> <!-- #tv-show-wrap -->
-
 			<div id="meet-radio-team" class="team clearfix">
 				<div class="section-title clearfix">
 					<h3><i class="fa fa-users"></i> <?php echo $radio_team_title; ?></h3>
@@ -229,6 +208,27 @@ get_header(); ?>
 				</div> <!-- #radio-team -->
 
 			</div> <!-- .meet-radio-team -->
+
+			<div id="radio-show-wrap">
+				<div class="section-title clearfix">
+					<h3><i class="fa fa-youtube-play"></i> <?php echo $launcher_title; ?></h3>
+					<a href="<?php echo esc_url( get_permalink( $launcher_page_link ) ); ?>" class="more"><?php echo $launcher_text_link; ?></a>
+				</div>
+				<div class="launcher">
+				<?php $args = array(
+	                'post_type' => 'cp_launcher',
+	                'posts_per_page' => $launcher_num,
+	                'tax_query' => array(
+						array(
+							'taxonomy' => 'launcher_category',
+							'field'    => 'term_id',
+							'terms'    => array( $launcher_taxonomy_id ),
+						),
+					), 
+            	); ?>
+            	<?php wpsp_get_posts_type ( 'cp_launcher', $args, $launcher_num ); ?>
+            	</div> <!-- .launcher -->
+			</div> <!-- #tv-show-wrap -->
 
 			<div id="photo-wrap" class="clearfix">
 				<div class="section-title clearfix">
