@@ -24,7 +24,7 @@ jQuery(document).ready(function($){
       });
 
       $('.listen-now').magnificPopup({
-          type: 'iframe',
+          type : 'iframe',
           preloader: false,
           removalDelay: 500,
           mainClass: 'mfp-fade',
