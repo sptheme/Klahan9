@@ -14,9 +14,9 @@
 	<header class="entry-header">
 		<?php the_title( '<h1 itemprop="name" class="entry-title">', '</h1>' ); ?>
 		<div class="album-meta">
-			<?php echo esc_html__( 'at ', WPSP_TEXT_DOMAIN ); ?>
+			<?php echo esc_html__( 'at ', 'klahan9' ); ?>
 			<strong><?php echo esc_html__( $album_location ); ?></strong>
-			<?php echo esc_html__( ', on ', WPSP_TEXT_DOMAIN ); ?> 
+			<?php echo esc_html__( ', on ', 'klahan9' ); ?> 
 			<?php echo esc_html( get_the_date() ); ?>
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->

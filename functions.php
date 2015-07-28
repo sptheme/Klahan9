@@ -16,9 +16,6 @@ $themeData     	= wp_get_theme( $shortname ); //WP 3.4+ only
 define( 'WPSP_THEME_NAME', 'Klahan9' );
 define ('WPSP_THEME_VERSION', $themeData->Version );
 
-// String name of theme textdomain
-define( 'WPSP_TEXT_DOMAIN', 'klahan9' );
-
 // Paths to the parent theme directory
 define( 'WPSP_BASE_DIR', get_template_directory() );
 define( 'WPSP_BASE_URL', get_template_directory_uri() );
@@ -49,7 +46,7 @@ function wpsp_setup() {
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
 	 */
-	load_theme_textdomain( WPSP_TEXT_DOMAIN , get_template_directory() . '/languages' );
+	load_theme_textdomain( 'klahan9' , get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -75,10 +72,10 @@ function wpsp_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary Menu', WPSP_TEXT_DOMAIN ),
-		'social' => esc_html__( 'Social Menu', WPSP_TEXT_DOMAIN ),
-		'mobile' => esc_html__( 'Mobile Menu', WPSP_TEXT_DOMAIN ),
-		'footer' => esc_html__( 'Footer Menu', WPSP_TEXT_DOMAIN ),
+		'primary' => esc_html__( 'Primary Menu', 'klahan9' ),
+		'social' => esc_html__( 'Social Menu', 'klahan9' ),
+		'mobile' => esc_html__( 'Mobile Menu', 'klahan9' ),
+		'footer' => esc_html__( 'Footer Menu', 'klahan9' ),
 	) );
 
 	/*

@@ -16,7 +16,7 @@
 
 		<div class="site-footer-top clearfix">
 			<div class="site-quick-nav two-fourth clearfix">
-				<h2><?php echo esc_html__( 'Quick Navigation', WPSP_TEXT_DOMAIN ); ?></h2>
+				<h2><?php echo esc_html__( 'Quick Navigation', 'klahan9' ); ?></h2>
 				<?php get_sidebar('footer'); ?>
 			</div> <!-- .two-fourth -->
 
@@ -47,7 +47,7 @@
 			<?php if ( ot_get_option( 'copyright' ) ): 
 	            echo ot_get_option( 'copyright' ); 
 	        else:
-				printf( esc_html__( 'All content copyright © %1$s, %2$s. All Right Reserved.', WPSP_TEXT_DOMAIN ), date( 'Y' ), get_bloginfo( 'name' ) ); 
+				printf( esc_html__( 'All content copyright © %1$s, %2$s. All Right Reserved.', 'klahan9' ), date( 'Y' ), get_bloginfo( 'name' ) ); 
 			endif; ?>
 			</div> <!-- .copyright -->
 			<div class="footer-menu-container two-fourth last">

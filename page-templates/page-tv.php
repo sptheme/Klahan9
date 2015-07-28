@@ -82,7 +82,7 @@ get_header(); ?>
 								<?php the_excerpt(); ?>
 							</div> <!-- .entry-content -->
 							<footer class="entry-footer continue-reading">
-							    <?php echo '<a href="' . esc_url( get_permalink() ) . '" title="' . __('Continue Reading ', WPSP_TEXT_DOMAIN) . get_the_title() . '" rel="bookmark">Continue Reading<i class="fa fa-arrow-circle-o-right"></i></a>'; ?>
+							    <?php echo '<a href="' . esc_url( get_permalink() ) . '" title="' . __('Continue Reading ', 'klahan9') . get_the_title() . '" rel="bookmark">Continue Reading<i class="fa fa-arrow-circle-o-right"></i></a>'; ?>
 							</footer><!-- .entry-footer -->
 						</div> <!-- .tv-featured-content -->
 					<?php endwhile; wp_reset_postdata(); ?>	
@@ -120,7 +120,7 @@ get_header(); ?>
 	                
 	                <?php printf( '<div class="wpsp-more-wrap"><a class="wpsp-more" itemprop="url" href="%1$s" rel="bookmark" title="%2$s">%2$s</a></div>', 
 							esc_url( get_category_link( $cateogry_id ) ), 
-							__('More video', WPSP_TEXT_DOMAIN)
+							__('More video', 'klahan9')
 						); ?>
 
 					</div> <!-- .tv-post-lists -->

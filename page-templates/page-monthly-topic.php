@@ -45,7 +45,7 @@ get_header(); ?>
 						<div class="two-third">
 						<?php wpsp_month_string_translate( $month_name ); ?>
 						</div>
-						<div class="one-fourth last"><?php echo  __('Guest Speaker', WPSP_TEXT_DOMAIN); ?></div>
+						<div class="one-fourth last"><?php echo  __('Guest Speaker', 'klahan9'); ?></div>
 						</li>
 					</ul>
 

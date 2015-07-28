@@ -59,11 +59,11 @@ function wpsp_the_post_navigation() {
 	?>
 	<nav class="navigation post-navigation" role="navigation">
 	    <div class="post-nav-box clearfix">
-	        <h1 class="screen-reader-text"><?php _e( 'Post navigation', WPSP_TEXT_DOMAIN ); ?></h1>
+	        <h1 class="screen-reader-text"><?php _e( 'Post navigation', 'klahan9' ); ?></h1>
 	        <div class="nav-links">
 	            <?php
-	            previous_post_link( '<div class="nav-previous"><div class="nav-indicator">' . _x( 'Previous Post:', 'Previous post', WPSP_TEXT_DOMAIN ) . '</div><h1>%link</h1></div>', '%title' );
-				next_post_link(     '<div class="nav-next"><div class="nav-indicator">' . _x( 'Next Post:', 'Next post', WPSP_TEXT_DOMAIN ) . '</div><h1>%link</h1></div>', '%title' );
+	            previous_post_link( '<div class="nav-previous"><div class="nav-indicator">' . _x( 'Previous Post:', 'Previous post', 'klahan9' ) . '</div><h1>%link</h1></div>', '%title' );
+				next_post_link(     '<div class="nav-next"><div class="nav-indicator">' . _x( 'Next Post:', 'Next post', 'klahan9' ) . '</div><h1>%link</h1></div>', '%title' );
 	            ?>
 	        </div><!-- .nav-links -->
 	    </div><!-- .post-nav-box -->
@@ -91,16 +91,16 @@ function wpsp_posted_on() {
 	);
 
 	$posted_on = sprintf(
-		esc_html_x( '%s', 'post date', WPSP_TEXT_DOMAIN ),
+		esc_html_x( '%s', 'post date', 'klahan9' ),
 		$time_string
 	);
 
 	/* translators: used between list items, there is a space after the comma */
-	$categories_list = get_the_category_list( esc_html__( ', ', WPSP_TEXT_DOMAIN ) );
+	$categories_list = get_the_category_list( esc_html__( ', ', 'klahan9' ) );
 	
 
 	$byline = sprintf(
-		esc_html_x( '%s', 'post author', WPSP_TEXT_DOMAIN ),
+		esc_html_x( '%s', 'post author', 'klahan9' ),
 		'<span class="author vcard">' . esc_html( get_the_author() ) . '</span>'
 	);
 
@@ -118,7 +118,7 @@ if ( ! function_exists( 'wpsp_entry_footer' ) ) :
  * Prints HTML with meta information for the categories, tags and comments.
  */
 function wpsp_entry_footer() {
-	edit_post_link( esc_html__( 'Edit', WPSP_TEXT_DOMAIN ), '<span class="edit-link">', '</span>' );
+	edit_post_link( esc_html__( 'Edit', 'klahan9' ), '<span class="edit-link">', '</span>' );
 }
 endif;
 
@@ -157,8 +157,8 @@ function wpsp_paging_nav() {
 		'current'  => $paged,
 		'mid_size' => 2,
 		'add_args' => array_map( 'urlencode', $query_args ),
-		'prev_text' => __( '← Previous', WPSP_TEXT_DOMAIN ),
-		'next_text' => __( 'Next →', WPSP_TEXT_DOMAIN ),
+		'prev_text' => __( '← Previous', 'klahan9' ),
+		'next_text' => __( 'Next →', 'klahan9' ),
         'type'      => 'list',
 	) );
 
@@ -166,7 +166,7 @@ function wpsp_paging_nav() {
 
 	?>
 	<nav class="navigation paging-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', WPSP_TEXT_DOMAIN ); ?></h1>
+		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'klahan9' ); ?></h1>
 			<?php echo $links; ?>
 	</nav><!-- .navigation -->
 	<?php
@@ -270,7 +270,7 @@ if ( !function_exists('wpsp_get_posts_type') ) :
 			echo '</div>';
 			echo '</section>';
 		} else {
-			echo esc_html__( 'Sorry, new content will coming soon.', WPSP_TEXT_DOMAIN );
+			echo esc_html__( 'Sorry, new content will coming soon.', 'klahan9' );
 		}
 	}	
 endif;
@@ -306,7 +306,7 @@ function wpsp_get_related_posts( $post_id, $args=array(), $cols = 3 ) {
 
 	if ( $custom_query->have_posts() ) {
 		echo '<section class="related-posts default-post custom-post-' . $post_type . '">';
-		echo '<h2 class="heading">' . esc_html__( 'You may also see...', WPSP_TEXT_DOMAIN ) . '</h2>';
+		echo '<h2 class="heading">' . esc_html__( 'You may also see...', 'klahan9' ) . '</h2>';
 		echo '<div class="post-grid-' . $cols . ' clearfix">';
 		while ( $custom_query->have_posts() ) : $custom_query->the_post();
 			wpsp_switch_posttype_content( $post_type );
@@ -314,7 +314,7 @@ function wpsp_get_related_posts( $post_id, $args=array(), $cols = 3 ) {
 		echo '</div>';
 		echo '</section>';
 	} else {
-		echo esc_html__( 'There is no related post.', WPSP_TEXT_DOMAIN );
+		echo esc_html__( 'There is no related post.', 'klahan9' );
 	} 
 }	
 endif;
@@ -401,7 +401,7 @@ function wpsp_single_photo_album( $post_id, $post_num, $cols = 4 ) {
 				$out .= '<img src="' . $imageid[0] . '">';
 				$out .= '<div class="thumb-caption">';
 				$out .= '<div class="inner-thumb">';
-				$out .= '<a href="' .  wp_get_attachment_url( $photo ) . '">' .  esc_html__('View photo', WPSP_TEXT_DOMAIN ) . '</a>';
+				$out .= '<a href="' .  wp_get_attachment_url( $photo ) . '">' .  esc_html__('View photo', 'klahan9' ) . '</a>';
 				$out .= '</div> <!-- .inner-thumb -->';
 				$out .= '</div> <!-- .thumb-caption -->';
 				$out .= '</div><!-- .thumb-effect -->';
@@ -411,7 +411,7 @@ function wpsp_single_photo_album( $post_id, $post_num, $cols = 4 ) {
 		}
 		$out .= '</div>';
 	} else {
-		$out .= '<h4>' . esc_html__( 'Sorry, there is no photo for this album.', WPSP_TEXT_DOMAIN ) . '</h4>';
+		$out .= '<h4>' . esc_html__( 'Sorry, there is no photo for this album.', 'klahan9' ) . '</h4>';
 	}
 	echo $out;
 }
@@ -502,7 +502,7 @@ function wpsp_month_string_translate( $month) {
 	else :
 		$month = $month;
 	endif; 
-	echo esc_html('Topic for ', WPSP_TEXT_DOMAIN) . $month . ' ' . date('Y');
+	echo esc_html('Topic for ', 'klahan9') . $month . ' ' . date('Y');
 }
 endif;	
 
@@ -543,7 +543,7 @@ function wpsp_monthly_topic( $cat_id, $post_num = 5, $year, $month, $order = 'DE
 		endwhile; wp_reset_postdata();
 		
 	else : 
-		printf('<p>%s</p>', esc_html__( 'Sorry, new topic will coming soon.', WPSP_TEXT_DOMAIN ) );	
+		printf('<p>%s</p>', esc_html__( 'Sorry, new topic will coming soon.', 'klahan9' ) );	
 	endif;
 }
 

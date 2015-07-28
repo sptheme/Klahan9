@@ -138,7 +138,7 @@ get_header(); ?>
 							//wpsp_month_string_translate( $next_month ); 
 							wpsp_month_string_translate( date('F') ); ?>
 						</div>
-						<div class="one-fourth last"><?php echo  __('Guest Speaker', WPSP_TEXT_DOMAIN); ?></div>
+						<div class="one-fourth last"><?php echo  __('Guest Speaker', 'klahan9'); ?></div>
 						</li>
 					</ul>
 					<?php $yearly_topic = date( 'Y' );
@@ -148,7 +148,7 @@ get_header(); ?>
 	            
 	            <?php printf( '<div class="wpsp-more-wrap"><a class="wpsp-more" itemprop="url" href="%1$s" rel="bookmark" title="%2$s">%2$s</a></div>', 
 							esc_url( get_permalink( $radio_all_topic_link ) ), 
-							__('More topics', WPSP_TEXT_DOMAIN)
+							__('More topics', 'klahan9')
 						); ?>
 			</div> <!-- #schedule-topic -->
 

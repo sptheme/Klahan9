@@ -19,7 +19,7 @@
 			} ?>
 		<div class="thumb-caption">
 			<div class="inner-thumb">
-				<!-- <a itemprop="url" href="#"><?php echo esc_html__('View photo', WPSP_TEXT_DOMAIN ); ?></a> -->
+				<!-- <a itemprop="url" href="#"><?php echo esc_html__('View photo', 'klahan9' ); ?></a> -->
 				<?php printf( '<a itemprop="url" href="%1$s" rel="bookmark" title="%2$s">%2$s</a><span>%3$s</span>', 
 					esc_url( get_permalink() ), 
 					esc_attr( get_the_title() ),
@@ -50,9 +50,9 @@
 	<?php the_title( sprintf( '<h3 class="entry-title" itemprop="name"><a itemprop="url" href="%1$s" rel="bookmark" title="%2$s">', esc_url( get_permalink() ), esc_attr( get_the_title() ) ), '</a></h3>' ); ?>
 		
 	<div class="album-meta">
-		<?php echo esc_html__( 'at ', WPSP_TEXT_DOMAIN ); ?>
+		<?php echo esc_html__( 'at ', 'klahan9' ); ?>
 		<strong><?php echo esc_html__( $album_location ); ?></strong>
-		<?php echo esc_html__( ', on ', WPSP_TEXT_DOMAIN ); ?> 
+		<?php echo esc_html__( ', on ', 'klahan9' ); ?> 
 		<?php echo esc_html( get_the_date() ); ?>
 	</div><!-- .entry-meta -->
 <?php endif; ?>

@@ -18,13 +18,13 @@
 			if (has_post_thumbnail()) {
 			    printf( '<div class="small-index-thumbnail"><a itemprop="url" href="%1$s" rel="bookmark" title="%2$s">%3$s</a></div>', 
 					esc_url( get_permalink() ), 
-					__('Read ', WPSP_TEXT_DOMAIN) . esc_attr( get_the_title() ), 
+					__('Read ', 'klahan9') . esc_attr( get_the_title() ), 
 					get_the_post_thumbnail( $post->ID, 'index-thumb' )  
 				);
 			} else {
 				printf( '<div class="small-index-thumbnail"><a itemprop="url" href="%1$s" rel="bookmark" title="%2$s">%3$s</a></div>', 
 					esc_url( get_permalink() ), 
-					__('Read ', WPSP_TEXT_DOMAIN) . esc_attr( get_the_title() ), 
+					__('Read ', 'klahan9') . esc_attr( get_the_title() ), 
 					'<img src="' . esc_url( ot_get_option( 'post-placeholder' ) ) . '">'  
 				);
 			}
@@ -45,7 +45,7 @@
 		</div><!-- .entry-content -->
 
 		<footer class="entry-footer continue-reading">
-		    <?php echo '<a href="' . get_permalink() . '" title="' . __('Continue Reading ', WPSP_TEXT_DOMAIN) . get_the_title() . '" rel="bookmark">Continue Reading<i class="fa fa-arrow-circle-o-right"></i></a>'; ?>
+		    <?php echo '<a href="' . get_permalink() . '" title="' . __('Continue Reading ', 'klahan9') . get_the_title() . '" rel="bookmark">Continue Reading<i class="fa fa-arrow-circle-o-right"></i></a>'; ?>
 		</footer><!-- .entry-footer -->
 	</div> <!-- .index-box -->
 </article><!-- #post-## -->

@@ -13,9 +13,9 @@
  */
 function wpsp_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', WPSP_TEXT_DOMAIN ),
+		'name'          => esc_html__( 'Sidebar', 'klahan9' ),
 		'id'            => 'sidebar-1',
-		'description'   => __( 'Sidebar area appears in the right of the site.', WPSP_TEXT_DOMAIN ),
+		'description'   => __( 'Sidebar area appears in the right of the site.', 'klahan9' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="widget-title">',
@@ -23,9 +23,9 @@ function wpsp_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'Footer', WPSP_TEXT_DOMAIN ),
+		'name'          => esc_html__( 'Footer', 'klahan9' ),
 		'id'            => 'footer-widget-area',
-		'description'   => __( 'Footer widgets area appears in the footer of the site.', WPSP_TEXT_DOMAIN ),
+		'description'   => __( 'Footer widgets area appears in the footer of the site.', 'klahan9' ),
 		'before_widget' => '<aside id="%1$s" class="footer-widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="widget-title">',
