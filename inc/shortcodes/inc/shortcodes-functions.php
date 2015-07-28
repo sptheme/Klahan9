@@ -37,6 +37,7 @@ function wpsp_add_shortcodes() {
 	add_shortcode( 'sc_team', 'wpsp_team_shortcode' );
 	add_shortcode( 'sc_photogallery', 'wpsp_photogallery_shortcode' );
 	add_shortcode( 'sc_post', 'wpsp_post_shortcode' );
+	add_shortcode( 'sc_launcher', 'wpsp_launcher_shortcode' );
 	
 	
 }
@@ -271,8 +272,9 @@ function wpsp_team_shortcode( $atts, $content = null ){
 		'cols' => null
 	), $atts ) );
 
+	$args = array();
 	if ( $term_id == '-1' ) {
-		$out = wpsp_get_posts_type( 'cp_team' );
+		wpsp_get_posts_type( 'cp_team', $args, $cols );
 	} else {
 		$args = array (
 				'tax_query' => array(
@@ -355,3 +357,39 @@ function wpsp_post_shortcode( $atts, $content = null ) {
 }
 endif; 
 
+if ( ! function_exists( 'wpsp_launcher_shortcode' ) ) :
+/**
+ * Launcher shortcode
+ *
+ * Options: Show all launcher / by Category
+ *
+ */
+function wpsp_launcher_shortcode( $atts, $content = null ){
+
+	ob_start();
+	extract( shortcode_atts( array(
+		'term_id' => null,
+		'post_num' => null,
+		'cols' => null
+	), $atts ) );
+
+	$args = array();
+	if ( $term_id == '-1' ) {
+		wpsp_get_posts_type( 'cp_launcher', $args, $cols );
+	} else {
+		$args = array (
+				'tax_query' => array(
+					array(
+						'taxonomy' => 'launcher_category',
+						'field'    => 'id',
+						'terms'    => array($term_id)
+					)
+				),
+				'posts_per_page' => $post_num
+			);
+		wpsp_get_posts_type( 'cp_launcher', $args, $cols );
+	}
+
+	return ob_get_clean();
+}
+endif;

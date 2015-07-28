@@ -1467,7 +1467,8 @@ img.aligncenter {
 .page-template-default .custom-post-cp_team article:hover,
 .related-posts.custom-post-cp_team article:hover,
 .page-template-default .custom-post-gallery article:hover,
-.related-posts.custom-post-cp_gallery article:hover {
+.related-posts.custom-post-cp_gallery article:hover,
+.page-template-default .custom-post-cp_launcher article:hover {
     background-color: #c2c2c2;
 }
 .custom-post-cp_team article:hover .team-meta,
@@ -1497,7 +1498,9 @@ img.aligncenter {
 .page-template-default .custom-post-cp_team article,
 .related-posts.custom-post-cp_team article,
 .page-template-default .custom-post-gallery article,
-.related-posts.custom-post-cp_gallery article {
+.related-posts.custom-post-cp_gallery articl,
+.page-template-default .custom-post-cp_launcher articlee,
+.page-template-default .custom-post-cp_launcher article {
     background-color:#f1f1f1;
 }
 .team-social a {
@@ -1525,8 +1528,40 @@ img.aligncenter {
     margin-bottom: 20px;
 }
 .page-template-default .custom-post-gallery article,
-.related-posts.custom-post-cp_gallery article {
+.related-posts.custom-post-cp_gallery article,
+.page-template-default .custom-post-cp_launcher article {
     padding: 10px;
+}
+
+/* Post launcher */
+.custom-post-cp_launcher article.format-video .post-thumbnail:before,
+.custom-post-cp_launcher article.format-audio .post-thumbnail:before {
+    display: block;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -30px;
+    margin-left: -30px;
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    background-color: transparent!important;
+    background:rgba(0, 0, 0, 0.5)!important;
+}
+.custom-post-cp_launcher article.format-video:hover .post-thumbnail:before,
+.custom-post-cp_launcher article.format-audio:hover .post-thumbnail:before {
+    background-color: #000000!important;
+    background:rgba(0, 0, 0, 1)!important;   
+}
+.custom-post-cp_launcher article.format-video .post-thumbnail:before {
+    content: "\f01d";
+}
+.custom-post-cp_launcher article.format-audio .post-thumbnail:before {
+    content: "\f025";
 }
 
 /* Custom post */
@@ -1870,40 +1905,6 @@ img.aligncenter {
 #radio-show-wrap article {
     margin-bottom: 0;
 }
-
-/* launcher */
-
-.launcher article.format-video .post-thumbnail:before,
-.launcher article.format-audio .post-thumbnail:before {
-    display: block;
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-    border-radius: 60px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -30px;
-    margin-left: -30px;
-    color: #fff;
-    font-size: 30px;
-    text-align: center;
-    background-color: transparent!important;
-    background:rgba(0, 0, 0, 0.5)!important;
-}
-.launcher article.format-video:hover .post-thumbnail:before,
-.launcher article.format-audio:hover .post-thumbnail:before {
-    background-color: #000000!important;
-    background:rgba(0, 0, 0, 1)!important;   
-}
-.launcher article.format-video .post-thumbnail:before {
-    content: "\f01d";
-}
-.launcher article.format-audio .post-thumbnail:before {
-    content: "\f025";
-}
-
-
 
 /*--------------------------------------------------------------
 # Widgets
