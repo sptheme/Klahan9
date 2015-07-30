@@ -10,13 +10,15 @@
 ?>
 	
 <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'clearfix', 'tv-featured-widget' ) ); ?> itemscope itemtype="http://schema.org/Article">
-	<?php if (has_post_thumbnail()) { ?>
 	<a class="watch-now" href="<?php echo esc_url( get_post_meta( $post->ID, 'sp_video_url', true ) ); ?>" rel="bookmark" title="<?php echo esc_attr( get_the_title() ); ?>">
 		<div class="tv-featured-thumb">
-		<?php echo the_post_thumbnail('small-thumb'); ?>
+	<?php if (has_post_thumbnail()) {  
+			echo the_post_thumbnail('small-thumb'); 
+		} else {
+			echo '<img src="' . esc_url( ot_get_option( 'post-placeholder' ) ) . '">';
+		} ?>
 		</div>
 	</a>
-	<?php } ?>
 	<div class="entry-tv-featured">
 		<?php the_title( sprintf( '<h3 itemprop="name" class="entry-title"><a class="watch-now" itemprop="url" href="%s" rel="bookmark">', esc_url( get_post_meta( $post->ID, 'sp_video_url', true ) ) ), '</a></h3>' ); ?>
 		<div class="entry-meta">
