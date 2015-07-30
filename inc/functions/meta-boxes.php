@@ -445,6 +445,13 @@ function _custom_meta_boxes() {
 				'desc'		=> 'Enter title for this section e.g: Topic next month'
 			),
 			array(
+				'label'		=> 'Topic category',
+				'id'		=> $prefix . 'radio_topic_cat',
+				'type'		=> 'category-select',
+				'std'		=> '',
+				'desc'		=> 'Select Radio, listen to broadcast or radio drama category to show in table schedule.'
+			),
+			array(
 				'label'		=> 'Number of topic',
 				'id'		=> $prefix . 'radio_topic_num',
 				'type'		=> 'text',

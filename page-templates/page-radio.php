@@ -14,6 +14,7 @@ get_header(); ?>
 		$radio_all_topic_title = esc_html( get_post_meta( $post->ID, 'sp_radio_all_topic_title', true ) );
 		$radio_all_topic_link = get_post_meta( $post->ID, 'sp_radio_all_topic_link', true );
 		$radio_topic_title = esc_html( get_post_meta( $post->ID, 'sp_radio_topic_title', true ) );
+		$radio_topic_cat = get_post_meta( $post->ID, 'sp_radio_topic_cat', true );
 		$radio_topic_num = get_post_meta( $post->ID, 'sp_radio_topic_num', true );
 		$radio_topic_order = get_post_meta( $post->ID, 'sp_radio_topic_order', true );
 		$radio_team_title = esc_html( get_post_meta( $post->ID, 'sp_radio_team_title', true ) );
@@ -143,7 +144,7 @@ get_header(); ?>
 					</ul>
 					<?php $yearly_topic = date( 'Y' );
 						$monthly_topic = date( 'm' );
-						wpsp_monthly_topic( $cateogry_id, $radio_topic_num, $yearly_topic, $monthly_topic, $radio_topic_order ); ?>
+						wpsp_monthly_topic( $radio_topic_cat, $radio_topic_num, $yearly_topic, $monthly_topic, $radio_topic_order ); ?>
 	            </div> <!-- .monthly-topics -->
 	            
 	            <?php printf( '<div class="wpsp-more-wrap"><a class="wpsp-more" itemprop="url" href="%1$s" rel="bookmark" title="%2$s">%2$s</a></div>', 

@@ -440,51 +440,51 @@ if( !function_exists('wpsp_month_kh')) :
 function wpsp_month_kh($month) {
 	switch ($month) {
 	case 'January':
-		$output = __( 'January', SP_TEXT_DOMAIN );	
+		$output = esc_html__( 'January', 'klahan9' );	
 		break;
 
 	case 'February':	
-		$output = __( 'February', SP_TEXT_DOMAIN );
+		$output = esc_html__( 'February', 'klahan9' );
 		break;
 
-	case 'Mar':	
-		$output = __( 'Mar', SP_TEXT_DOMAIN );
+	case 'March':	
+		$output = esc_html__( 'March', 'klahan9' );
 		break;
 
 	case 'April':	
-		$output = __( 'April', SP_TEXT_DOMAIN );
+		$output = esc_html__( 'April', 'klahan9' );
 		break;
 
 	case 'May':
-		$output = __( 'May', SP_TEXT_DOMAIN );	
+		$output = esc_html__( 'May', 'klahan9' );	
 		break;
 
 	case 'June':	
-		$output = __( 'June', SP_TEXT_DOMAIN );
+		$output = esc_html__( 'June', 'klahan9' );
 		break;
 
 	case 'July':	
-		$output = __( 'July', SP_TEXT_DOMAIN );
+		$output = esc_html__( 'July', 'klahan9' );
 		break;
 
 	case 'August':	
-		$output = __( 'August', SP_TEXT_DOMAIN );
+		$output = esc_html__( 'August', 'klahan9' );
 		break;
 
 	case 'September':
-		$output = __( 'September', SP_TEXT_DOMAIN );	
+		$output = esc_html__( 'September', 'klahan9' );	
 		break;
 
 	case 'October':	
-		$output = __( 'October', SP_TEXT_DOMAIN );
+		$output = esc_html__( 'October', 'klahan9' );
 		break;
 
 	case 'November':	
-		$output = __( 'November', SP_TEXT_DOMAIN );
+		$output = esc_html__( 'November', 'klahan9' );
 		break;
 
 	case 'December':	
-		$output = __( 'December', SP_TEXT_DOMAIN );
+		$output = esc_html__( 'December', 'klahan9' );
 		break;	
 	}
 	return $output;
@@ -502,7 +502,7 @@ function wpsp_month_string_translate( $month) {
 	else :
 		$month = $month;
 	endif; 
-	echo esc_html('Topic for ', 'klahan9') . $month . ' ' . date('Y');
+	echo esc_html__('Topic for ', 'klahan9') . $month . ' ' . date('Y');
 }
 endif;	
 
