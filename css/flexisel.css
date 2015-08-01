@@ -83,6 +83,11 @@
 .nbs-flexisel-ul article:nth-child(2n+2),
 .nbs-flexisel-ul article:nth-child(3n+3),
 .nbs-flexisel-ul article:nth-child(4n+4),
-.nbs-flexisel-ul article:nth-child(5n+5) {
+.nbs-flexisel-ul article:nth-child(5n+5),
+.nbs-flexisel-ul article:nth-child(6n+6),
+.nbs-flexisel-ul article:nth-child(7n+7),
+.nbs-flexisel-ul article:nth-child(8n+8),
+.nbs-flexisel-ul article:nth-child(9n+9),
+.nbs-flexisel-ul article:nth-child(10n+10) {
     margin-right: 10px;
 }
