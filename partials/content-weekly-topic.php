@@ -19,10 +19,10 @@
 		<?php printf('<span class="week-num">%s</span>', esc_html__('Week ', 'klahan9') . get_the_date('W') ); 
 			if ( ! empty( $sound_url ) ) {
 				the_title( sprintf( '<h3 class="topic-title" itemprop="name"><a itemprop="url" href="%1$s" rel="bookmark" title="%2$s">', esc_url( get_permalink() ), esc_attr( get_the_title() ) ), '</a></h3>' );
-				printf('<span class="topic-date">%s</span>', esc_html__( 'on ', 'klahan9' ) . esc_html( get_the_date('d M, Y') ) );
+				printf('<span class="topic-date">%s</span>', esc_html__( 'on ', 'klahan9' ) . esc_html( get_the_date('d F, Y') ) );
 			} else {
 				the_title( sprintf( '<h3 class="topic-title" itemprop="name">', esc_attr( get_the_title() ) ), '</h3>' );	
-				printf('<span class="topic-date">%s</span>', esc_html__( 'will broadcast on ', 'klahan9' ) . esc_html( get_the_date('d M, Y') ) ); 
+				printf('<span class="topic-date">%s</span>', esc_html__( 'will broadcast on ', 'klahan9' ) . esc_html( get_the_date('d F, Y') ) ); 
 			} ?>
 			
 	</div>
