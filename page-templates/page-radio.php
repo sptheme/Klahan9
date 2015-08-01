@@ -182,7 +182,7 @@ get_header(); ?>
 					jQuery('document').ready(function($) {
 						$("#radio-team").children().children().flexisel({
 							visibleItems: 5,
-							animationSpeed: 1500,
+							animationSpeed: 500,
 							autoPlay: false,
 							autoPlaySpeed: 4000,            
 							pauseOnHover: true,
@@ -205,7 +205,7 @@ get_header(); ?>
 					});
 				</script>
 				<div id="radio-team">
-				<?php wpsp_get_posts_type ( 'cp_team', $args, $radio_team_num ); ?>
+				<?php wpsp_get_posts_type ( 'cp_team', $args, 5 ); ?>
 				</div> <!-- #radio-team -->
 
 			</div> <!-- .meet-radio-team -->
@@ -240,6 +240,24 @@ get_header(); ?>
 					<?php wpsp_get_albums_by_term( $album_term_id, $radio_photo_num, $radio_photo_num ); ?>
 				</div> <!-- .weekly-photo -->
 			</div> <!-- .lastest-gallery -->
+
+			<style type="text/css">
+				.callout {
+				    background-color: <?php echo get_post_meta( $post->ID, 'sp_callout_bg_color', true ); ?>;
+				    color:<?php echo get_post_meta( $post->ID, 'sp_callout_txt_color', true ); ?>;
+				}
+				.callout h2,
+				.callout .button {
+				    color: <?php echo get_post_meta( $post->ID, 'sp_callout_txt_color', true ); ?>;
+				}
+				.callout .button {
+				    border-color:<?php echo get_post_meta( $post->ID, 'sp_callout_txt_color', true ); ?>;
+				    background-color: <?php echo get_post_meta( $post->ID, 'sp_callout_btn_bg_color', true ); ?>;
+				}
+				.callout a.button:hover {
+					background-color: <?php echo get_post_meta( $post->ID, 'sp_callout_btn_over_color', true ); ?>; 
+				}
+			</style>
 
 			<div class="callout clearfix">
 				<?php wpsp_callout( $callout_title, $callout_desc, $callout_button, $callout_link ); ?>

@@ -489,6 +489,43 @@ function _custom_meta_boxes() {
 				'std'		=> '',
 				'desc'		=> 'Select page link for Callout button link'
 			),
+
+			// Callout Custom color 
+			array(
+				'label'		=> 'Callout color settings',
+				'id'		=> $prefix . 'callout_border',
+				'type'		=> 'textblock',
+				'std'		=> '',
+				'desc'		=> 'Use custom field bellow to change callout color schema'
+			),
+			array(
+				'label'		=> 'Background color',
+				'id'		=> $prefix . 'callout_bg_color',
+				'type'		=> 'colorpicker',
+				'std'		=> '#bf311a',
+				'desc'		=> 'Select background color for callout message'
+			),
+			array(
+				'label'		=> 'Text color',
+				'id'		=> $prefix . 'callout_txt_color',
+				'type'		=> 'colorpicker',
+				'std'		=> '#ffffff',
+				'desc'		=> 'Select color for text message and button'
+			),
+			array(
+				'label'		=> 'Button background color',
+				'id'		=> $prefix . 'callout_btn_bg_color',
+				'type'		=> 'colorpicker',
+				'std'		=> '#680b03',
+				'desc'		=> 'Select background color for button'
+			),
+			array(
+				'label'		=> 'Button hover color',
+				'id'		=> $prefix . 'callout_btn_over_color',
+				'type'		=> 'colorpicker',
+				'std'		=> '#4285f4',
+				'desc'		=> 'Select mouse over color for button'
+			),
 		)
 	);
 
@@ -593,23 +630,33 @@ function _custom_meta_boxes() {
 				'desc'		=> 'Choose amount of people to show',
 				'choices'   => array( 
 		          array(
-		            'value'       => '2',
-		            'label'       => '2',
-		            'src'         => ''
-		          ),
-		          array(
-		            'value'       => '3',
-		            'label'       => '3',
-		            'src'         => ''
-		          ),
-		          array(
-		            'value'       => '4',
-		            'label'       => '4',
-		            'src'         => ''
-		          ),
-		          array(
 		            'value'       => '5',
 		            'label'       => '5',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '6',
+		            'label'       => '6',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '7',
+		            'label'       => '7',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '8',
+		            'label'       => '8',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '9',
+		            'label'       => '9',
+		            'src'         => ''
+		          ),
+		          array(
+		            'value'       => '10',
+		            'label'       => '10',
 		            'src'         => ''
 		          ),
 		        )
@@ -787,6 +834,43 @@ function _custom_meta_boxes() {
 				'type'		=> 'page-select',
 				'std'		=> '',
 				'desc'		=> 'Select page link for Callout button link'
+			),
+
+			// Callout Custom color 
+			array(
+				'label'		=> 'Callout color settings',
+				'id'		=> $prefix . 'callout_border',
+				'type'		=> 'textblock',
+				'std'		=> '',
+				'desc'		=> 'Use custom field bellow to change callout color schema'
+			),
+			array(
+				'label'		=> 'Background color',
+				'id'		=> $prefix . 'callout_bg_color',
+				'type'		=> 'colorpicker',
+				'std'		=> '#bf311a',
+				'desc'		=> 'Select background color for callout message'
+			),
+			array(
+				'label'		=> 'Text color',
+				'id'		=> $prefix . 'callout_txt_color',
+				'type'		=> 'colorpicker',
+				'std'		=> '#ffffff',
+				'desc'		=> 'Select color for text message and button'
+			),
+			array(
+				'label'		=> 'Button background color',
+				'id'		=> $prefix . 'callout_btn_bg_color',
+				'type'		=> 'colorpicker',
+				'std'		=> '#680b03',
+				'desc'		=> 'Select background color for button'
+			),
+			array(
+				'label'		=> 'Button hover color',
+				'id'		=> $prefix . 'callout_btn_over_color',
+				'type'		=> 'colorpicker',
+				'std'		=> '#4285f4',
+				'desc'		=> 'Select mouse over color for button'
 			),
 		)
 	);

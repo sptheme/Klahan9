@@ -282,6 +282,24 @@ get_header(); ?>
 				</div> <!-- .filmstrip -->
 			</div> <!-- .lastest-gallery -->
 
+			<style type="text/css">
+				.callout {
+				    background-color: <?php echo get_post_meta( $post->ID, 'sp_callout_bg_color', true ); ?>;
+				    color:<?php echo get_post_meta( $post->ID, 'sp_callout_txt_color', true ); ?>;
+				}
+				.callout h2,
+				.callout .button {
+				    color: <?php echo get_post_meta( $post->ID, 'sp_callout_txt_color', true ); ?>;
+				}
+				.callout .button {
+				    border-color:<?php echo get_post_meta( $post->ID, 'sp_callout_txt_color', true ); ?>;
+				    background-color: <?php echo get_post_meta( $post->ID, 'sp_callout_btn_bg_color', true ); ?>;
+				}
+				.callout a.button:hover {
+					background-color: <?php echo get_post_meta( $post->ID, 'sp_callout_btn_over_color', true ); ?>; 
+				}
+			</style>
+			
 			<div class="callout clearfix">
 				<?php wpsp_callout( $callout_title, $callout_desc, $callout_button, $callout_link ); ?>
 			</div> <!-- .callout -->

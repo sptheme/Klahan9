@@ -420,7 +420,7 @@ endif;
 
 if( !function_exists('wpsp_callout')) :
 /**
-* Month name string translation
+* Callout message 
 */
 function wpsp_callout( $title, $desc, $button, $link ) {
 	$out = '<div class="two-third">';
