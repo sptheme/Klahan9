@@ -11,11 +11,18 @@ get_header(); ?>
 
 	<?php 
 		$cateogry_id = get_post_meta( $post->ID, 'sp_post_by_cat', true ); 
+		
+		$star_team_title = esc_html( get_post_meta( $post->ID, 'sp_star_team_title', true ) );
+		$star_team_num = esc_html( get_post_meta( $post->ID, 'sp_star_team_num', true ) );
+		$star_team_text_link = esc_html( get_post_meta( $post->ID, 'sp_star_team_text_link', true ) );
+		$star_team_page_link = get_post_meta( $post->ID, 'sp_star_team_page_link', true );
+		$star_team_taxonomy_id = get_post_meta( $post->ID, 'sp_star_team_tax', true );
+
 		$tv_team_title = esc_html( get_post_meta( $post->ID, 'sp_tv_team_title', true ) );
 		$tv_team_num = esc_html( get_post_meta( $post->ID, 'sp_tv_team_num', true ) );
 		$tv_team_text_link = esc_html( get_post_meta( $post->ID, 'sp_tv_team_text_link', true ) );
 		$tv_team_page_link = get_post_meta( $post->ID, 'sp_tv_team_page_link', true );
-		$team_taxonomy_id = get_post_meta( $post->ID, 'sp_team_tax', true );
+		$tv_team_taxonomy_id = get_post_meta( $post->ID, 'sp_tv_team_tax', true );
 		
 		$launcher_title = esc_html( get_post_meta( $post->ID, 'sp_launcher_title', true ) );
 		$launcher_num = esc_html( get_post_meta( $post->ID, 'sp_launcher_num', true ) );
@@ -28,6 +35,7 @@ get_header(); ?>
 		$tv_photo_text_link = esc_html( get_post_meta( $post->ID, 'sp_tv_photo_text_link', true ) );
 		$tv_photo_page_link = get_post_meta( $post->ID, 'sp_tv_photo_page_link', true );
 		$album_term_id = get_post_meta( $post->ID, 'sp_album_term', true ); 
+		
 		$callout_title = esc_html( get_post_meta( $post->ID, 'sp_callout_title', true ) ); 
 		$callout_desc = esc_html( get_post_meta( $post->ID, 'sp_callout_desc', true ) ); 
 		$callout_button = esc_html( get_post_meta( $post->ID, 'sp_callout_button', true ) );
@@ -131,13 +139,12 @@ get_header(); ?>
 
 			<div id="meet-tv-star" class="clearfix">
 				<div class="section-title clearfix">
-					<h3><i class="fa fa-star"></i> <?php echo $tv_team_title; ?></h3>
-					<a href="<?php echo esc_url( get_permalink( $tv_team_page_link ) ); ?>" class="more"><?php echo $tv_team_text_link; ?></a>
+					<h3><i class="fa fa-star"></i> <?php echo $star_team_title; ?></h3>
+					<a href="<?php echo esc_url( get_permalink( $star_team_page_link ) ); ?>" class="more"><?php echo $star_team_text_link; ?></a>
 				</div>
 				<?php $args = array(
 	                'post_type' => 'cp_team',
-	                //'posts_per_page' => $tv_team_num,
-	                'posts_per_page' => 10,
+	                'posts_per_page' => $star_team_num,
 	                'meta_query' => array(
 						array(
 							'key'     => 'sp_team_featured',
@@ -149,7 +156,63 @@ get_header(); ?>
 						array(
 							'taxonomy' => 'team_category',
 							'field'    => 'term_id',
-							'terms'    => array( $team_taxonomy_id ),
+							'terms'    => array( $star_team_taxonomy_id ),
+						),
+					), 
+					//'orderby' => 'rand',  
+            	); ?>
+            	<script type="text/javascript">
+					jQuery('document').ready(function($) {
+						$("#tv-star").children().children().flexisel({
+							visibleItems: 5,
+							animationSpeed: 1500,
+							autoPlay: false,
+							autoPlaySpeed: 4000,            
+							pauseOnHover: true,
+							enableResponsiveBreakpoints: true,
+							responsiveBreakpoints: { 
+								portrait: { 
+									changePoint:480,
+									visibleItems: 1
+								},
+								iphone: { 
+									changePoint:640,
+									visibleItems: 2
+								}, 
+								tablet: { 
+									changePoint:768,
+									visibleItems: 3
+								}
+							}
+						});
+					});
+				</script>
+            	<div id="tv-star">
+				<?php wpsp_get_posts_type ( 'cp_team', $args, 5 ); ?>
+				</div> <!-- #tv-star -->
+
+			</div> <!-- #meet-tv-star -->
+
+			<div id="meet-tv-team" class="clearfix">
+				<div class="section-title clearfix">
+					<h3><i class="fa fa-star"></i> <?php echo $tv_team_title; ?></h3>
+					<a href="<?php echo esc_url( get_permalink( $tv_team_page_link ) ); ?>" class="more"><?php echo $tv_team_text_link; ?></a>
+				</div>
+				<?php $args = array(
+	                'post_type' => 'cp_team',
+	                'posts_per_page' => $tv_team_num,
+	                'meta_query' => array(
+						array(
+							'key'     => 'sp_team_featured',
+							'value'   => 'on',
+							'compare' => '==',
+						),
+					),
+	                'tax_query' => array(
+						array(
+							'taxonomy' => 'team_category',
+							'field'    => 'term_id',
+							'terms'    => array( $tv_team_taxonomy_id ),
 						),
 					), 
 					//'orderby' => 'rand',  
@@ -181,10 +244,10 @@ get_header(); ?>
 					});
 				</script>
             	<div id="tv-team">
-				<?php wpsp_get_posts_type ( 'cp_team', $args, $tv_team_num ); ?>
+				<?php wpsp_get_posts_type ( 'cp_team', $args, 5 ); ?>
 				</div> <!-- #tv-team -->
 
-			</div> <!-- #meet-tv-star -->
+			</div> <!-- #meet-tv-team -->
 
 			<div id="tv-show-wrap">
 				<div class="section-title clearfix">

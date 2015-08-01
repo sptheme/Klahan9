@@ -1771,8 +1771,13 @@ img.aligncenter {
     margin-bottom: 0;
 }
 
+.tv-post-lists a.wpsp-more:hover {
+    color:#fff;
+}
+
 #tv-header,
 #meet-tv-star,
+#meet-tv-team,
 #schedule-topic,
 #photo-wrap,
 #meet-radio-team,
@@ -1784,7 +1789,8 @@ img.aligncenter {
 #schedule-topic {
     background-color: #fff;
 }
-#meet-tv-star .hentry {
+#meet-tv-star .hentry,
+#meet-tv-team .hentry {
     margin-bottom: 0;
 }
 .strip-top,
@@ -1817,6 +1823,9 @@ img.aligncenter {
 #schedule-topic a.wpsp-more {
     color:#fff;
     margin-top: 0;
+}
+#schedule-topic a.wpsp-more:hover {
+    color:#fff;
 }
 .monthly-topics {
     margin: 10px;
