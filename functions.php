@@ -294,6 +294,25 @@ function wpsp_print_custom_css_script(){
 	}
 	
 	<?php } ?>
+	<?php // Callout custom style
+	if ( is_page_template( 'page-templates/page-tv.php' ) || is_page_template( 'page-templates/page-radio.php' )) {  
+		global $post; ?>
+		.callout {
+		    background-color: <?php echo get_post_meta( $post->ID, 'sp_callout_bg_color', true ); ?>;
+		    color:<?php echo get_post_meta( $post->ID, 'sp_callout_txt_color', true ); ?>;
+		}
+		.callout h2,
+		.callout .button {
+		    color: <?php echo get_post_meta( $post->ID, 'sp_callout_txt_color', true ); ?>;
+		}
+		.callout .button {
+		    border-color:<?php echo get_post_meta( $post->ID, 'sp_callout_txt_color', true ); ?>;
+		    background-color: <?php echo get_post_meta( $post->ID, 'sp_callout_btn_bg_color', true ); ?>;
+		}
+		.callout a.button:hover {
+			background-color: <?php echo get_post_meta( $post->ID, 'sp_callout_btn_over_color', true ); ?>; 
+		}
+	<?php } ?>		
 </style>
 
 <?php if ( is_page() || is_singular() ) : ?>
