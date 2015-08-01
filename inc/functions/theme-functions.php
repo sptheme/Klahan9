@@ -396,13 +396,16 @@ function wpsp_single_photo_album( $post_id, $post_num, $cols = 4 ) {
 		$out .= '<div class="gallery post-grid-' . $cols . ' clearfix">';
 		foreach ( $photos as $photo ) { 
 			$imageid = wp_get_attachment_image_src( $photo, 'small-thumb' );
+			/*$image_metadata = wp_get_attachment_metadata( $photo );
+			$caption = $image_metadata['image_meta']['caption'];*/
+			$image_title = get_the_title( $photo );
 			if ( $post_num >= $photo_num ) {
 				$out .= '<article id="post-<?php the_ID(); ?>" itemscope itemtype="http://schema.org/Article">';
 				$out .= '<div class="thumb-effect">';
 				$out .= '<img src="' . $imageid[0] . '">';
 				$out .= '<div class="thumb-caption">';
 				$out .= '<div class="inner-thumb">';
-				$out .= '<a href="' .  wp_get_attachment_url( $photo ) . '">' .  esc_html__('View photo', 'klahan9' ) . '</a>';
+				$out .= '<a href="' .  wp_get_attachment_url( $photo ) . '" title="' . $image_title . '">' .  esc_html__('View photo', 'klahan9' ) . '</a>';
 				$out .= '</div> <!-- .inner-thumb -->';
 				$out .= '</div> <!-- .thumb-caption -->';
 				$out .= '</div><!-- .thumb-effect -->';
