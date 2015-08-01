@@ -45,7 +45,7 @@
 	endif; ?>
 
 	<div class="entry-meta">
-		<span class="byline"><span class="author vcard"><?php echo esc_html( get_the_author() ); ?></span></span>
+		<!-- <span class="byline"><span class="author vcard"><?php echo esc_html( get_the_author() ); ?></span></span> -->
 		<span class="posted-on"><?php echo esc_html( get_the_date() ); ?></span>
 	</div>
 	

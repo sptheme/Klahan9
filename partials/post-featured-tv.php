@@ -22,7 +22,7 @@
 	<div class="entry-tv-featured">
 		<?php the_title( sprintf( '<h3 itemprop="name" class="entry-title"><a class="watch-now" itemprop="url" href="%s" rel="bookmark">', esc_url( get_post_meta( $post->ID, 'sp_video_url', true ) ) ), '</a></h3>' ); ?>
 		<div class="entry-meta">
-			<span class="byline"><span class="author vcard"><?php echo esc_html( get_the_author() ); ?></span></span>
+			<!-- <span class="byline"><span class="author vcard"><?php echo esc_html( get_the_author() ); ?></span></span> -->
 			<span class="posted-on"><?php echo esc_html( get_the_date() ); ?></span>
 		</div>
 	</div> <!-- .tv-featured-title -->

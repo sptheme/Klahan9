@@ -83,7 +83,7 @@ get_header(); ?>
 							<?php the_title( sprintf( '<h1 class="entry-title" itemprop="name"><a itemprop="url" href="%1$s" rel="bookmark" title="%2$s">', esc_url( get_permalink() ), esc_attr( get_the_title() ) ), '</a></h1>' ); ?>
 							</header>
 							<div class="entry-meta">
-								<span class="byline"><span class="author vcard"><?php echo esc_html( get_the_author() ); ?></span></span>
+								<!-- <span class="byline"><span class="author vcard"><?php echo esc_html( get_the_author() ); ?></span></span> -->
 								<span class="posted-on"><?php echo esc_html( get_the_date() ); ?></span>
 							</div> <!-- .entry-meta -->
 							<div class="entry-content">
@@ -165,7 +165,7 @@ get_header(); ?>
 					jQuery('document').ready(function($) {
 						$("#tv-star").children().children().flexisel({
 							visibleItems: 5,
-							animationSpeed: 1500,
+							animationSpeed: 500,
 							autoPlay: false,
 							autoPlaySpeed: 4000,            
 							pauseOnHover: true,
@@ -195,7 +195,7 @@ get_header(); ?>
 
 			<div id="meet-tv-team" class="clearfix">
 				<div class="section-title clearfix">
-					<h3><i class="fa fa-star"></i> <?php echo $tv_team_title; ?></h3>
+					<h3><i class="fa fa-users"></i> <?php echo $tv_team_title; ?></h3>
 					<a href="<?php echo esc_url( get_permalink( $tv_team_page_link ) ); ?>" class="more"><?php echo $tv_team_text_link; ?></a>
 				</div>
 				<?php $args = array(
@@ -221,7 +221,7 @@ get_header(); ?>
 					jQuery('document').ready(function($) {
 						$("#tv-team").children().children().flexisel({
 							visibleItems: 5,
-							animationSpeed: 1500,
+							animationSpeed: 500,
 							autoPlay: false,
 							autoPlaySpeed: 4000,            
 							pauseOnHover: true,
