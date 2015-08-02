@@ -163,32 +163,40 @@ get_header(); ?>
             	); ?>
             	<script type="text/javascript">
 					jQuery('document').ready(function($) {
-						$("#tv-star").children().children().flexisel({
-							visibleItems: 5,
-							animationSpeed: 500,
-							autoPlay: false,
-							autoPlaySpeed: 4000,            
-							pauseOnHover: true,
-							enableResponsiveBreakpoints: true,
-							responsiveBreakpoints: { 
-								portrait: { 
-									changePoint:480,
-									visibleItems: 1
-								},
-								iphone: { 
-									changePoint:640,
-									visibleItems: 2
-								}, 
-								tablet: { 
-									changePoint:768,
-									visibleItems: 3
-								}
-							}
-						});
+						var jcarousel = $('.k-jcarousel .custom-post-cp_team');
+
+				        jcarousel
+				            .on('jcarousel:reload jcarousel:create', function () {
+				                var carousel = $(this),
+				                    width = carousel.innerWidth();
+				                if (width >= 960) {
+				                    width = (width / 5) - 9;
+				                } else if (width >= 740) {
+				                    width = (width / 3) - 8;
+				                } else if (width >= 630) {
+				                    width = (width / 2) - 6;
+				                }
+
+				                carousel.jcarousel('items').css('width', Math.ceil(width) + 'px');
+				            })
+				            .jcarousel({
+				                wrap: 'circular'
+				            });
+				        $('.jcarousel-control-prev')
+				            .jcarouselControl({
+				                target: '-=1'
+				            });
+
+				        $('.jcarousel-control-next')
+				            .jcarouselControl({
+				                target: '+=1'
+				            });    
 					});
 				</script>
-            	<div id="tv-star">
+            	<div id="tv-star" class="k-jcarousel">
 				<?php wpsp_get_posts_type ( 'cp_team', $args, 5 ); ?>
+				<a href="#" class="jcarousel-control-prev"></a>
+                <a href="#" class="jcarousel-control-next"></a>
 				</div> <!-- #tv-star -->
 
 			</div> <!-- #meet-tv-star -->
@@ -219,32 +227,13 @@ get_header(); ?>
             	); ?>
             	<script type="text/javascript">
 					jQuery('document').ready(function($) {
-						$("#tv-team").children().children().flexisel({
-							visibleItems: 5,
-							animationSpeed: 500,
-							autoPlay: false,
-							autoPlaySpeed: 4000,            
-							pauseOnHover: true,
-							enableResponsiveBreakpoints: true,
-							responsiveBreakpoints: { 
-								portrait: { 
-									changePoint:480,
-									visibleItems: 1
-								},
-								iphone: { 
-									changePoint:640,
-									visibleItems: 2
-								}, 
-								tablet: { 
-									changePoint:768,
-									visibleItems: 3
-								}
-							}
-						});
+						//$('.custom-post-cp_team').jcarousel();
 					});
 				</script>
-            	<div id="tv-team">
+            	<div id="tv-team" class="k-jcarousel">
 				<?php wpsp_get_posts_type ( 'cp_team', $args, 5 ); ?>
+				<a href="#" class="jcarousel-control-prev"></a>
+                <a href="#" class="jcarousel-control-next"></a>
 				</div> <!-- #tv-team -->
 
 			</div> <!-- #meet-tv-team -->

@@ -2139,6 +2139,50 @@ article.custom-format-audio:before {
     color:#fff;
 }
 
+/* TV Team  with jCarousel */
+.k-jcarousel {
+   position: relative;
+}
+.k-jcarousel .custom-post-cp_team {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.k-jcarousel .custom-post-cp_team > div {
+    width: 20000em;
+    position: relative;
+}
+
+.k-jcarousel .custom-post-cp_team article {
+    width: 183px;
+    margin-right: 10.9px;
+    float: left;
+}
+
+.jcarousel-control-prev,
+.jcarousel-control-next {
+    width: 27px;
+    height: 40px; 
+    position: absolute;
+    cursor: pointer;
+    z-index: 100;
+    opacity: 0.5;
+    top: 50%;
+    margin-top: -20px;
+    display: block;
+}
+
+.jcarousel-control-prev {
+    left: 5px;
+    background: url(images/button-previous.png) no-repeat;
+}
+
+.jcarousel-control-next {
+    right: 5px;
+    background: url(images/button-next.png) no-repeat;
+}
+
 /*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/

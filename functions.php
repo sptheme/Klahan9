@@ -219,8 +219,9 @@ function wpsp_scripts() {
 	}
 
 	if ( is_page_template( 'page-templates/page-tv.php' ) || is_page_template( 'page-templates/page-radio.php' )) {
-		wp_enqueue_style('flexisel', WPSP_CSS_DIR_URI . 'flexisel.css');
-		wp_enqueue_script('flexisel', WPSP_JS_DIR_URI . 'jquery.flexisel.js', array('jquery'), WPSP_THEME_VERSION, true);
+		wp_enqueue_style('jcarousel-custom', WPSP_CSS_DIR_URI . 'jcarousel-custom.css');
+		wp_enqueue_script('jcarousel', WPSP_JS_DIR_URI . 'jquery.jcarousel.min.js', array('jquery'), WPSP_THEME_VERSION, true);
+
 	}
 }
 add_action( 'wp_enqueue_scripts', 'wpsp_scripts' );
