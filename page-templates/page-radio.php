@@ -180,32 +180,43 @@ get_header(); ?>
 
             	<script type="text/javascript">
 					jQuery('document').ready(function($) {
-						$("#radio-team").children().children().flexisel({
-							visibleItems: 5,
-							animationSpeed: 500,
-							autoPlay: false,
-							autoPlaySpeed: 4000,            
-							pauseOnHover: true,
-							enableResponsiveBreakpoints: true,
-							responsiveBreakpoints: { 
-								portrait: { 
-									changePoint:480,
-									visibleItems: 1
-								},
-								iphone: { 
-									changePoint:640,
-									visibleItems: 2
-								}, 
-								tablet: { 
-									changePoint:768,
-									visibleItems: 3
-								}
-							}
-						});
+						var jcarousel = $('.k-jcarousel .custom-post-cp_team');
+
+				        jcarousel
+				            .on('jcarousel:reload jcarousel:create', function () {
+				                var carousel = $(this),
+				                    width = carousel.innerWidth();
+				                if (width >= 960) {
+				                    width = (width / 5) - 9;
+				                } else if (width >= 740) {
+				                    width = (width / 3) - 8;
+				                } else if (width >= 630) {
+				                    width = (width / 2) - 6;
+				                }
+
+				                carousel.jcarousel('items').css('width', Math.ceil(width) + 'px');
+				            })
+				            .jcarousel({
+				                wrap: 'circular'
+				            });
+				        $('.jcarousel-control-prev')
+				            .jcarouselControl({
+				                target: '-=1'
+				            });
+
+				        $('.jcarousel-control-next')
+				            .jcarouselControl({
+				                target: '+=1'
+				            });    
 					});
 				</script>
-				<div id="radio-team">
-				<?php wpsp_get_posts_type ( 'cp_team', $args, 5 ); ?>
+            	<div id="radio-team" class="k-jcarousel">
+					<?php wpsp_get_posts_type ( 'cp_team', $args, 5 ); ?>
+					<?php $custom_query = new WP_Query($args);
+						if ( $custom_query->post_count > 5 ) : ?>	
+						<a href="#" class="jcarousel-control-prev"></a>
+		                <a href="#" class="jcarousel-control-next"></a>
+		            <?php endif; wp_reset_postdata(); ?>
 				</div> <!-- #radio-team -->
 
 			</div> <!-- .meet-radio-team -->

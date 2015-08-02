@@ -194,9 +194,12 @@ get_header(); ?>
 					});
 				</script>
             	<div id="tv-star" class="k-jcarousel">
-				<?php wpsp_get_posts_type ( 'cp_team', $args, 5 ); ?>
-				<a href="#" class="jcarousel-control-prev"></a>
-                <a href="#" class="jcarousel-control-next"></a>
+					<?php wpsp_get_posts_type ( 'cp_team', $args, 5 ); ?>
+					<?php $custom_query = new WP_Query($args);
+						if ( $custom_query->post_count > 5 ) : ?>	
+						<a href="#" class="jcarousel-control-prev"></a>
+		                <a href="#" class="jcarousel-control-next"></a>
+		            <?php endif; wp_reset_postdata(); ?>
 				</div> <!-- #tv-star -->
 
 			</div> <!-- #meet-tv-star -->
@@ -225,15 +228,14 @@ get_header(); ?>
 					), 
 					//'orderby' => 'rand',  
             	); ?>
-            	<script type="text/javascript">
-					jQuery('document').ready(function($) {
-						//$('.custom-post-cp_team').jcarousel();
-					});
-				</script>
+            	
             	<div id="tv-team" class="k-jcarousel">
-				<?php wpsp_get_posts_type ( 'cp_team', $args, 5 ); ?>
-				<a href="#" class="jcarousel-control-prev"></a>
-                <a href="#" class="jcarousel-control-next"></a>
+					<?php wpsp_get_posts_type ( 'cp_team', $args, 5 ); ?>
+				<?php $custom_query = new WP_Query($args);
+					if ( $custom_query->post_count > 5 ) : ?>	
+					<a href="#" class="jcarousel-control-prev"></a>
+	                <a href="#" class="jcarousel-control-next"></a>
+	            <?php endif; wp_reset_postdata(); ?>
 				</div> <!-- #tv-team -->
 
 			</div> <!-- #meet-tv-team -->

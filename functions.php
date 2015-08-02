@@ -320,9 +320,6 @@ function wpsp_print_custom_css_script(){
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
 
-		// Setup content background base on height of main section for template page (tv, radio, blog)
-		//$('.content-background').css();
-
 		// Setup content a link work with magnificPopup
 	    $('a[href*=".jpg"], a[href*=".jpeg"], a[href*=".png"], a[href*=".gif"]').each(function(){
         	if ($(this).parents('.gallery').length == 0) {
