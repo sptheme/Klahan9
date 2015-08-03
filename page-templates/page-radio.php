@@ -112,7 +112,7 @@ get_header(); ?>
         				<div class="flex-caption">
 			                <?php printf( '<h1 itemprop="name"><a itemprop="url" href="%1$s" rel="bookmark" title="%2$s">%3$s</a></h1>', esc_url( get_permalink() ), esc_attr( get_the_title() ), esc_html( get_the_title() )  ); ?>
 			                <div class="entry-meta">
-								<span class="byline"><span class="author vcard"><?php echo esc_html( get_the_author() ); ?></span></span>
+								<!-- <span class="byline"><span class="author vcard"><?php echo esc_html( get_the_author() ); ?></span></span> -->
 								<span class="posted-on"><?php echo esc_html( get_the_date() ); ?></span>
 							</div>
 		                </div> <!-- .flex-caption -->
