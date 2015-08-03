@@ -21,7 +21,7 @@
 		if (has_post_thumbnail()) {
 		    printf( '<a itemprop="url" href="%1$s" rel="bookmark" title="%2$s">%3$s</a>',
 					wp_get_attachment_url( get_post_thumbnail_id() ),
-					__('View profile ', 'klahan9') . esc_attr( get_the_title() ), 
+					esc_attr( get_the_title() ), 
 					get_the_post_thumbnail( $post->ID, 'team-thumb' )  
 				);
 		} else { 
