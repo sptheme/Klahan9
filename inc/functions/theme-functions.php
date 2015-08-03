@@ -377,7 +377,9 @@ function wpsp_get_albums_by_term( $term, $post_num = -1, $cols = 3 ) {
 		    get_template_part( 'partials/content', 'album' );
 		endwhile; wp_reset_postdata();
 		echo '</div>';
-	} // end loop;
+	} else {
+			echo esc_html__( 'Sorry, new content will coming soon.', 'klahan9' );
+	}// end loop;
 }
 endif;
 
