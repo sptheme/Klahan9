@@ -270,7 +270,7 @@ function wpsp_print_custom_css_script(){
 	}
 	<?php $page_bg_color = '#4285f4'; ?>
 
-	<?php if ( is_page_template( 'page-templates/page-blog.php' ) || is_page_template( 'page-templates/page-tv.php' ) || is_page_template( 'page-templates/page-radio.php' )) { 
+	<?php if ( is_page_template( 'page-templates/page-blog.php' ) || is_page_template( 'page-templates/page-tv.php' ) || is_page_template( 'page-templates/page-radio.php' ) || is_page_template( 'page-templates/page-klahan9.php' )) { 
 		$page_bg_color = wpsp_get_page_bg_color(); ?>
 	.content-background,
 	.custom-post-cp_team article:hover,

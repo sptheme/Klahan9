@@ -130,7 +130,7 @@ function _custom_meta_boxes() {
 		)
 	);
 
-	//Page template setting for TV, Radio and Online resource
+	//Page template setting for TV, Radio, Online resource and Page klahan9
 	$page_template_settings = array(
 		'id'          => 'page-template-settings',
 		'title'       => 'Page settings',
@@ -1150,7 +1150,7 @@ function _custom_meta_boxes() {
 	ot_register_meta_box( $post_type_gallery );
 
 	$template_file = rw_maybe_include();
-	if ( ( $template_file == 'page-templates/page-tv.php' ) || ( $template_file == 'page-templates/page-radio.php' ) || ( $template_file == 'page-templates/page-blog.php' ) ) {
+	if ( ( $template_file == 'page-templates/page-tv.php' ) || ( $template_file == 'page-templates/page-radio.php' ) || ( $template_file == 'page-templates/page-blog.php' ) || ( $template_file == 'page-templates/page-klahan9.php' ) ) {
 		ot_register_meta_box( $page_template_settings ); 
 	} 
 	if ( $template_file == 'page-templates/page-home.php' ) {
