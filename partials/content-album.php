@@ -50,9 +50,10 @@
 	<?php the_title( sprintf( '<h3 class="entry-title" itemprop="name"><a itemprop="url" href="%1$s" rel="bookmark" title="%2$s">', esc_url( get_permalink() ), esc_attr( get_the_title() ) ), '</a></h3>' ); ?>
 		
 	<div class="album-meta">
-		<?php echo esc_html__( 'at ', 'klahan9' ); ?>
-		<strong><?php echo esc_html__( $album_location ); ?></strong>
-		<?php echo esc_html__( ', on ', 'klahan9' ); ?> 
+		<?php if ( ! empty( $album_location ) ) :
+			echo esc_html__( 'at ', 'klahan9' );
+			echo '<strong>' . esc_html__( $album_location ) . '</strong>, ';
+		endif; ?>
 		<?php echo esc_html( get_the_date() ); ?>
 	</div><!-- .entry-meta -->
 <?php endif; ?>
