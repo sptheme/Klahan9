@@ -45,7 +45,7 @@
 		</div><!-- .entry-content -->
 
 		<footer class="entry-footer continue-reading">
-		    <?php echo '<a href="' . get_permalink() . '" title="' . esc_html__('Continue Reading ', 'klahan9') . get_the_title() . '" rel="bookmark">Continue Reading<i class="fa fa-arrow-circle-o-right"></i></a>'; ?>
+		    <?php echo '<a href="' . get_permalink() . '" title="' . esc_html__('Continue Reading ', 'klahan9') . get_the_title() . '" rel="bookmark">' . esc_html__('Continue Reading ', 'klahan9') . '<i class="fa fa-arrow-circle-o-right"></i></a>'; ?>
 		</footer><!-- .entry-footer -->
 	</div> <!-- .index-box -->
 </article><!-- #post-## -->
