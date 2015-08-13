@@ -973,7 +973,7 @@ a:hover.page-numbers {
     display: inline;
     float: left;
     margin-right: 1.5em;
-    margin-left: -180px;
+    /*margin-left: -180px;*/
 }
 
 .alignright {
@@ -1114,6 +1114,10 @@ img.aligncenter {
     background-color: #fff;
 }
 
+.single-post .entry-header,
+.single-post .entry-content,
+.single-post .entry-footer,
+.single-post .post-navigation,
 .page-template-default .entry-header,
 .page-template-default .entry-content,
 .page-template-default .entry-footer,
@@ -1392,6 +1396,16 @@ img.aligncenter {
     text-align: right;
     font-weight: 600;
 }
+    .single-post .entry-meta {
+        float: none;
+        margin: 0;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 20px;
+    }
+    .single-post .posted-on {
+        display: inline-block!important;
+    }
 .byline:before {
     content: 'by ';
 }
