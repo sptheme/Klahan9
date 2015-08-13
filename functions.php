@@ -97,6 +97,20 @@ function wpsp_setup() {
 endif; // wpsp_setup
 add_action( 'after_setup_theme', 'wpsp_setup' );
 
+/*
+ * Custom logo login
+ */
+function wpsp_custom_login_logo() {
+	
+	$out = '';
+	$out .='<style type="text/css">';
+	$out .='body.login{ background-color:#ffffff; }';
+	$out .='.login h1 a { background-image:url('. WPSP_BASE_URL .'/images/admin-logo.png) !important; height: 84px!important; width: 100%!important; background-size: auto!important;}';
+	$out .='</style>';
+	echo $out;
+}
+add_action('login_head', 'wpsp_custom_login_logo');
+
 /**
  * Add custom favicon
  */
@@ -105,6 +119,31 @@ function wpsp_adminfavicon() {
 }
 add_action( 'admin_head', 'wpsp_adminfavicon' );
 
+/**
+ * Remove wordpress link on admin login logo
+ */
+function wpsp_remove_link_on_admin_login_info() {
+     return  get_bloginfo('url');
+}
+add_filter('login_headerurl', 'wpsp_remove_link_on_admin_login_info');
+
+/**
+ * Change login logo title
+ */
+function wpsp_change_loging_logo_title(){
+	return 'Go to '.get_bloginfo('name').' Homepage';
+}
+add_filter('login_headertitle', 'wpsp_change_loging_logo_title');
+
+/**
+ *Remove logo and other items in Admin menu bar
+ */
+function wpsp_remove_admin_bar_links() {
+	global $wp_admin_bar;
+	$wp_admin_bar->remove_menu('comments');
+	$wp_admin_bar->remove_menu('wp-logo');
+}
+add_action( 'wp_before_admin_bar_render', 'wpsp_remove_admin_bar_links' );
 
 function wpsp_apple_touch_icon() {
 	$favicon = ot_get_option('custom-favicon');
