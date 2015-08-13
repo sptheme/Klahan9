@@ -224,7 +224,7 @@ function wpsp_scripts() {
     wp_enqueue_style('magnific-popup-custom', WPSP_CSS_DIR_URI . 'magnific-custom.css');
     if (function_exists('icl_get_languages')) {
 		if ( strtolower(ICL_LANGUAGE_CODE) == 'kh') {
-			wp_enqueue_style('khmer-gfont', 'http://fonts.googleapis.com/css?family=Khmer');
+			wp_enqueue_style('khmer-gfont', 'http://fonts.googleapis.com/css?family=Hanuman:400,700');
 			wp_enqueue_style('kh', WPSP_CSS_DIR_URI . 'kh.css');
 		}
 	}
