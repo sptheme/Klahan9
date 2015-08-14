@@ -104,7 +104,7 @@ function wpsp_custom_login_logo() {
 	
 	$out = '';
 	$out .='<style type="text/css">';
-	$out .='body.login{ background-color:#ffffff; }';
+	//$out .='body.login{ background-color:#ffffff; }';
 	$out .='.login h1 a { background-image:url('. WPSP_BASE_URL .'/images/admin-logo.png) !important; height: 84px!important; width: 100%!important; background-size: auto!important;}';
 	$out .='</style>';
 	echo $out;
