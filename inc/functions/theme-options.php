@@ -174,6 +174,13 @@ function custom_theme_options() {
 		
 		// Post : Post settings
 		array(
+			'id'		=> 'twitter-username',
+			'label'		=> 'Twitter Username',
+			'desc'		=> 'Your @username will be added to share-tweets of your posts (optional)',
+			'type'		=> 'text',
+			'section'	=> 'post'
+		),
+		array(
 			'id'		=> 'post-placeholder',
 			'label'		=> 'Post placeholder',
 			'desc'		=> 'Upload your custom place holder image. Size 960px by 720px',

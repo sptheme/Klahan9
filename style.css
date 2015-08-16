@@ -42,6 +42,9 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
     ## Posts and pages
 	## Asides
 	## Comments
+    ## Index and Archive
+    ## Page template
+    ## Share
 # Widgets	
 # Media
 	## Captions
@@ -1658,7 +1661,7 @@ img.aligncenter {
 .post-nav-box {
     padding: 20px 0;
     margin-bottom: 2em;
-    border-top: #ebebeb solid 1px;
+    /*border-top: #ebebeb solid 1px;*/
     border-bottom: #ebebeb solid 1px; 
 }
 
@@ -1932,6 +1935,86 @@ img.aligncenter {
 }
 #radio-show-wrap article {
     margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+## Share
+--------------------------------------------------------------*/
+.sharing {
+  font-size: 14px;
+  color: #222222;
+  font-weight: 700;
+  line-height: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+  margin: 30px 20px 0px;
+}
+.share-title {
+  position: relative;
+  margin-right: 20px;
+  top: -11px;
+}
+.sharing a {
+  display: inline-block;
+}
+.default-sharing {
+  display: inline-block;
+}
+.sharing-buttons {
+  font-size: 11px;
+  color: #ffffff;
+  height: 32px;
+  border-radius: 3px;
+  margin-right: 6px;
+}
+.sharing-buttons:hover {
+  color: #ffffff;
+  opacity: 0.5;
+}
+.sharing-buttons div {
+  display: inline-block;
+  color: #fff;
+}
+.facebook {
+  background-color: #516eab;
+}
+.twitter {
+  background-color: #29c5f6;
+}
+.googleplus {
+  background-color: #eb4026;
+}
+.twitter .but-text {
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+}
+.but-text {
+  position: relative;
+  top: -12px;
+  padding: 0px 9px 0px 9px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.icon {
+  background-image: url('images/icons-social.png');
+  background-repeat: no-repeat;
+  display: block;
+}
+.sprite-facebook {
+  width: 32px;
+  height: 32px;
+  background-position: -20px -20px;
+}
+.sprite-twitter {
+  width: 32px;
+  height: 32px;
+  background-position: -20px -436px;
+}
+.sprite-googleplus {
+  width: 32px;
+  height: 32px;
+  background-position: -20px -280px;
 }
 
 /*--------------------------------------------------------------

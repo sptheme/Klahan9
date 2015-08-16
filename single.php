@@ -14,6 +14,8 @@ get_header(); ?>
 
 			<?php get_template_part( 'partials/content-single', get_post_format() ); ?>
 
+			<?php get_template_part( 'partials/social-share' ); ?>
+
 			<?php wpsp_the_post_navigation(); ?> 
 			
 			<?php if ( ot_get_option( 'related-posts' ) != '1' ) { 

@@ -14,6 +14,8 @@ get_header(); ?>
 
 			<?php get_template_part( 'partials/content-single', 'album' ); ?>
 
+			<?php get_template_part( 'partials/social-share' ); ?>
+
 			<?php if ( ot_get_option( 'related-posts' ) != '1' ) { 
 				wpsp_get_related_posts( $post->ID, array('posts_per_page' => 3) ); 
 				} ?>

@@ -19,6 +19,8 @@ get_header(); ?>
 
 				<?php get_template_part( 'partials/content', 'page' ); ?>
 
+				<?php get_template_part( 'partials/social-share' ); ?>
+
 				<?php
 					// If comments are open or we have at least one comment, load up the comment template.
 					if ( comments_open() || get_comments_number() ) :
