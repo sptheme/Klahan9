@@ -8,7 +8,7 @@
     $twitter_user = ( ot_get_option('twitter-username') ) ? ot_get_option('twitter-username') : '@klahan9cambodia';
 ?>
 <div class="sharing">
-    <span class="share-title">SHARE</span>
+    <span class="share-title"><?php echo __( 'SHARE', 'Klahan9' ); ?></span>
     <div class="default-sharing">
         <a class="sharing-buttons facebook" href="http://www.facebook.com/sharer.php?u=<?php echo urlencode( esc_url( get_the_permalink() ) ); ?>" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;">
             <div class="icon sprite-facebook"></div>
