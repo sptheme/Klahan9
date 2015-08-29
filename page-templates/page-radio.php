@@ -134,7 +134,7 @@ get_header(); ?>
 	            <div class="monthly-topics clearfix">
 	            	<ul class="topic-head">
 						<li>
-						<div class="two-third">
+						<div class="three-fourth">
 						<?php //$next_month = date('F', strtotime('+1 month'));
 							//wpsp_month_string_translate( $next_month ); 
 							wpsp_month_string_translate( date('F') ); ?>
