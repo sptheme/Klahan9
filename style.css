@@ -1893,6 +1893,7 @@ img.aligncenter {
 .monthly-topics .week-num {
   font-size: 12px;
   color: #999;
+  display: block;
 }
 .monthly-topics .speaker-title-m {
     display: none;
@@ -1935,6 +1936,20 @@ img.aligncenter {
 }
 #radio-show-wrap article {
     margin-bottom: 0;
+}
+/* Monthly topic - overwrite column */
+.monthly-topics .post-thumbnail.one-fourth {
+    width: 10.75%
+}
+.monthly-topics .topic-title.two-fourth {
+    width: 65%;
+}
+.monthly-topics .guest-speaker.one-fourth,
+.monthly-topics .topic-head .one-fourth {
+    width: 18%;
+}
+.monthly-topics .topic-head .three-fourth{
+    width: 78.25%;
 }
 
 /*--------------------------------------------------------------

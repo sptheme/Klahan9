@@ -50,7 +50,8 @@
         display: inline-block;
     }
     /* Radio */
-    #featured-radio-post {
+    #featured-radio-post,
+    .monthly-topics .post-thumbnail.one-fourth {
         display: none;
     }
     .monthly-topics {
@@ -120,7 +121,13 @@
         width: 560px; 
     }
     .widget,
-    .one-fourth, .one-third, .two-third, .two-fourth, .three-fourth  {
+    .one-fourth, .one-third, .two-third, .two-fourth, .three-fourth,
+    /* Monthly topic - overwrite column */
+    .monthly-topics .post-thumbnail.one-fourth,
+    .monthly-topics .topic-title.two-fourth,
+    .monthly-topics .guest-speaker.one-fourth,
+    .monthly-topics .topic-head .one-fourth,
+    .monthly-topics .topic-head .three-fourth  {
         width: 100%;
         margin-right: 0;
     }
