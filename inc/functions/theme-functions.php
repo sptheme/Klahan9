@@ -52,6 +52,13 @@ function wpsp_the_post_navigation() {
 	// Don't print empty markup if there's nowhere to navigate.
 	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 	$next     = get_adjacent_post( false, '', false );
+	/*$post_category_ids = wp_get_post_categories( get_the_ID(), array('fields' => 'ids') );
+	$category_ids = array();
+	foreach ( $post_category_ids as $cat ) {
+		$category = get_category( $cat );
+		array_push( $category_ids, $category->category_parent );
+	}
+	print_r( $category_ids );*/
 
 	if ( ! $next && ! $previous ) {
 		return;
@@ -62,8 +69,8 @@ function wpsp_the_post_navigation() {
 	        <h1 class="screen-reader-text"><?php _e( 'Post navigation', 'klahan9' ); ?></h1>
 	        <div class="nav-links">
 	            <?php
-	            previous_post_link( '<div class="nav-previous"><div class="nav-indicator">' . _x( 'Previous Post:', 'Previous post', 'klahan9' ) . '</div><h1>%link</h1></div>', '%title' );
-				next_post_link(     '<div class="nav-next"><div class="nav-indicator">' . _x( 'Next Post:', 'Next post', 'klahan9' ) . '</div><h1>%link</h1></div>', '%title' );
+	            previous_post_link( '<div class="nav-previous"><div class="nav-indicator">' . _x( 'Previous Post:', 'Previous post', 'klahan9' ) . '</div><h1>%link</h1></div>', '%title', true );
+				next_post_link(     '<div class="nav-next"><div class="nav-indicator">' . _x( 'Next Post:', 'Next post', 'klahan9' ) . '</div><h1>%link</h1></div>', '%title', true );
 	            ?>
 	        </div><!-- .nav-links -->
 	    </div><!-- .post-nav-box -->
